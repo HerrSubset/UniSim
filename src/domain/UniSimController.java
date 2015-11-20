@@ -13,7 +13,7 @@ public class UniSimController {
 	
 	public UniSimController(){
 		this.map = new Map();
-		this.engine = new UniSimEngine();
+		this.engine = new UniSimEngine(map);
 	}
 	
 	public String getMapString() {
