@@ -8,6 +8,7 @@ The CLI that lets you interact with a simulation.
 package consoleUI;
 
 import domain.UniSimController;
+import passables.SimulationStateSummary;
 
 public class SimulationMenu extends Menu {
 	private UniSimController simulationController;
@@ -32,7 +33,7 @@ public class SimulationMenu extends Menu {
 			System.out.println("Jumping forward in time");
 		
 		else if (actionNumber == 2)
-			System.out.println(simulationController.getCurrentStatusString());
+			this.printCurrentStatus(simulationController.getCurrentStatus());
 		
 		else if (actionNumber == 3)
 			System.out.println(simulationController.getMapString());
@@ -40,5 +41,14 @@ public class SimulationMenu extends Menu {
 		else if (actionNumber == 4)
 			System.out.println("Printing entity histories");
 	}
-
+	
+	
+	//************************************************************************
+	// Menu Actions
+	//************************************************************************
+	private void printCurrentStatus(SimulationStateSummary state){
+		System.out.println("\nCurrent State:");
+		System.out.format("-Map height:\t%d\n", state.mapHeight);
+		System.out.format("-Map Width:\t%d\n", state.mapWidth);
+	}
 }

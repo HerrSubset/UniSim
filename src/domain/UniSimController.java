@@ -7,6 +7,8 @@ could need and dispatches the execution of these tasks to the correct classes.
 
 package domain;
 
+import passables.SimulationStateSummary;
+
 public class UniSimController {
 	private Map map;
 	private UniSimEngine engine;
@@ -27,7 +29,11 @@ public class UniSimController {
 		return map.toString();
 	}
 
-	public String getCurrentStatusString() {
-		return engine.currentStatusToString();
+
+	public SimulationStateSummary getCurrentStatus() {
+		int w = map.getMapWidth();
+		int h = map.getMapHeight();
+		
+		return new SimulationStateSummary(w, h);
 	}
 }
