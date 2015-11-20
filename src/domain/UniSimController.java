@@ -12,7 +12,7 @@ public class UniSimController {
 	private UniSimEngine engine;
 	
 	public UniSimController(){
-		this.map = new Map();
+		this.map = new Map(4,4);
 		this.engine = new UniSimEngine(map);
 	}
 	
