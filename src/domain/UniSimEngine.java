@@ -11,12 +11,18 @@ public class UniSimEngine {
 	private Map map;
 	private Population population;
 	
-	
+	//************************************************************************
+	// Constructors
+	//************************************************************************
 	public UniSimEngine(Map map){
 		this.map = map;
 		this.population = new Population();
 	}
 
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
 	public String currentStatusToString() {
 		return "This is the current status";
 	}

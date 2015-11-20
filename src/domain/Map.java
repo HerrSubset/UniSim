@@ -11,15 +11,35 @@ The main task of this class is to track where all entities are located
 package domain;
 
 public class Map {
+	//************************************************************************
+	// Variables
+	//************************************************************************
 	private Place[][] grid;
 	
-	
+	//************************************************************************
+	// Constructors
+	//************************************************************************
 	public Map(int height, int width){
 		grid = new Place[height][width];
 		this.populateGrid();
 	}
 	
 	
+	//************************************************************************
+	// Getters/Setters
+	//************************************************************************
+	public int getMapHeight(){
+		return grid.length;
+	}
+	
+	public int getMapWidth(){
+		return grid[0].length;
+	}
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
 	private void populateGrid(){
 		for(int i = 0; i < grid.length; i++){
 			for (int j = 0; j < grid[0].length; j++){

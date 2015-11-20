@@ -11,11 +11,18 @@ public class UniSimController {
 	private Map map;
 	private UniSimEngine engine;
 	
+	//************************************************************************
+	// Constructors
+	//************************************************************************
 	public UniSimController(){
 		this.map = new Map(4,4);
 		this.engine = new UniSimEngine(map);
 	}
 	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
 	public String getMapString() {
 		return map.toString();
 	}
