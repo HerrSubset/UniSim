@@ -19,8 +19,10 @@ public class Map {
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public Map(int height, int width){
-		grid = new Place[height][width];
+	public Map(){
+		int h = SimulationParameters.WORLD_HEIGHT;
+		int w = SimulationParameters.WORLD_WIDTH;
+		grid = new Place[h][w];
 		this.populateGrid();
 	}
 	

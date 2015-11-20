@@ -23,7 +23,8 @@ public class SimulationMenu extends Menu {
 	}
 
 	
-	//implement menu actions
+	//implement abstract performAction method to dispatch the different
+	//menu options to their respective actions
 	@Override
 	protected void performAction(int actionNumber) {
 		if (actionNumber == 0)

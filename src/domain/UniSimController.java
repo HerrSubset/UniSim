@@ -17,7 +17,7 @@ public class UniSimController {
 	// Constructors
 	//************************************************************************
 	public UniSimController(){
-		this.map = new Map(4,4);
+		this.map = new Map();
 		this.engine = new UniSimEngine(map);
 	}
 	
