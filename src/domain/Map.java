@@ -11,5 +11,9 @@ The main task of this class is to track where all entities are located
 package domain;
 
 public class Map {
-
+	
+	
+	public String toString(){
+		return "This is the map";
+	}
 }

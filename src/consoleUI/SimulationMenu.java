@@ -7,10 +7,14 @@ The CLI that lets you interact with a simulation.
 
 package consoleUI;
 
+import domain.UniSimController;
+
 public class SimulationMenu extends Menu {
+	private UniSimController simulationController;
 	
-	public SimulationMenu(UniSimCLI parent){
+	public SimulationMenu(UniSimCLI parent, UniSimController sc){
 		super(parent);
+		this.simulationController = sc;
 		this.menuItems.add("Jump Forward");
 		this.menuItems.add("Print Map");
 		this.menuItems.add("Print Histories");
@@ -27,7 +31,7 @@ public class SimulationMenu extends Menu {
 			System.out.println("Jumping forward in time");
 		
 		else if (actionNumber == 2)
-			System.out.println("Printing the map");
+			System.out.println(simulationController.getMapString());
 		
 		else if (actionNumber == 3)
 			System.out.println("Printing entity histories");

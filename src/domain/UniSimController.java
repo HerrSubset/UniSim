@@ -10,4 +10,13 @@ package domain;
 public class UniSimController {
 	private Map map;
 	private UniSimEngine engine;
+	
+	public UniSimController(){
+		this.map = new Map();
+		this.engine = new UniSimEngine();
+	}
+	
+	public String getMapString() {
+		return map.toString();
+	}
 }
