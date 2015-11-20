@@ -8,6 +8,10 @@ more easily manageable for the engine.
 
 package domain;
 
+import java.util.List;
+
 public class Population {
+	
+	private List<Entity> population;
 
 }
