@@ -19,4 +19,8 @@ public class UniSimController {
 	public String getMapString() {
 		return map.toString();
 	}
+
+	public String getCurrentStatusString() {
+		return engine.currentStatusToString();
+	}
 }

@@ -16,6 +16,7 @@ public class SimulationMenu extends Menu {
 		super(parent);
 		this.simulationController = sc;
 		this.menuItems.add("Jump Forward");
+		this.menuItems.add("Show current turn overview");
 		this.menuItems.add("Print Map");
 		this.menuItems.add("Print Histories");
 	}
@@ -31,9 +32,12 @@ public class SimulationMenu extends Menu {
 			System.out.println("Jumping forward in time");
 		
 		else if (actionNumber == 2)
-			System.out.println(simulationController.getMapString());
+			System.out.println(simulationController.getCurrentStatusString());
 		
 		else if (actionNumber == 3)
+			System.out.println(simulationController.getMapString());
+		
+		else if (actionNumber == 4)
 			System.out.println("Printing entity histories");
 	}
 

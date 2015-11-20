@@ -37,6 +37,7 @@ public class UniSimCLI {
 	//start the main menu loop
 	public void start(){		
 		while (!stop){
+			System.out.println("\n-----------------------------------------");
 			currentMenu.printMenuItems();
 			currentMenu.readAndExecuteAction();
 		}

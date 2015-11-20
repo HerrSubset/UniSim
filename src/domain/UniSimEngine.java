@@ -9,4 +9,8 @@ package domain;
 
 public class UniSimEngine {
 
+	public String currentStatusToString() {
+		return "This is the current status";
+	}
+
 }
