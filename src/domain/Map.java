@@ -40,6 +40,8 @@ public class Map {
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	
+	//puts different places in the grid
 	private void populateGrid(){
 		for(int i = 0; i < grid.length; i++){
 			for (int j = 0; j < grid[0].length; j++){
