@@ -26,8 +26,10 @@ public class MainMenu extends Menu {
 	protected void performAction(int actionNumber) {
 		if (actionNumber == 1)
 			this.parentUI.startSimulation();
+		
 		else if (actionNumber ==2)
 			System.out.println("Setting the settings");
+		
 		else if (actionNumber == 0)
 			this.parentUI.stop();
 	}

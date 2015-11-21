@@ -53,7 +53,7 @@ public class UniSimCLI {
 	//the simulation is initialized
 	public void startSimulation(){
 		this.currentMenu = new SimulationMenu(this, this.simulationController);
-		//TODO start simulation
+		simulationController.init();
 	}
 	
 	//sets the main menu as current menu

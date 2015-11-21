@@ -51,5 +51,6 @@ public class SimulationMenu extends Menu {
 		System.out.println("\nCurrent State:");
 		System.out.format("-Map height:\t%d\n", state.mapHeight);
 		System.out.format("-Map Width:\t%d\n", state.mapWidth);
+		System.out.format("-Inhabitants:\t%d\n", state.inhabitantsNumber);
 	}
 }

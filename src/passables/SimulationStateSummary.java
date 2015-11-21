@@ -14,15 +14,17 @@ public class SimulationStateSummary {
 	//************************************************************************
 	public final int mapWidth;
 	public final int mapHeight;
+	public final int inhabitantsNumber;
 	
 	
 	//************************************************************************
 	// Constructor
 	//************************************************************************
 	
-	public SimulationStateSummary(int mapWidth, int mapHeight){
+	public SimulationStateSummary(int mapWidth, int mapHeight, int inhabitants){
 		this.mapWidth = mapWidth;
 		this.mapHeight = mapHeight;
+		this.inhabitantsNumber = inhabitants;
 	}
 
 }

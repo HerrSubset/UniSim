@@ -17,23 +17,25 @@ public class UniSimController {
 	// Constructors
 	//************************************************************************
 	public UniSimController(){
-		this.map = new Map();
-		this.engine = new UniSimEngine(map);
+		this.engine = new UniSimEngine();
 	}
 	
 	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	public void init(){
+		engine.init();
+		this.map = engine.getMap();
+	}
+	
+	
 	public String getMapString() {
 		return map.toString();
 	}
 
 
 	public SimulationStateSummary getCurrentStatus() {
-		int w = map.getMapWidth();
-		int h = map.getMapHeight();
-		
-		return new SimulationStateSummary(w, h);
+		return this.engine.getCurrentStatus();
 	}
 }

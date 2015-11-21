@@ -10,6 +10,9 @@ The main task of this class is to track where all entities are located
 
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Map {
 	//************************************************************************
 	// Variables
@@ -36,6 +39,18 @@ public class Map {
 	
 	public int getMapWidth(){
 		return grid[0].length;
+	}
+	
+	public List<Place> getPlaces(){
+		ArrayList<Place> res = new ArrayList<Place>();
+		
+		for(int i = 0; i < grid.length; i++){
+			for (int j = 0; j < grid[0].length; j++){
+				res.add(grid[i][j]);
+			}
+		}
+		
+		return res;
 	}
 	
 	
@@ -65,5 +80,14 @@ public class Map {
 		}
 		
 		return res;
+	}
+
+
+	public void clear() {
+		for(int i = 0; i < grid.length; i++){
+			for (int j = 0; j < grid[0].length; j++){
+				grid[i][j].clear();
+			}
+		}
 	}
 }
