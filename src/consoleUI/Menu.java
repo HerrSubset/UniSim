@@ -10,6 +10,7 @@ helper code.
 package consoleUI;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class Menu {
@@ -47,10 +48,51 @@ public abstract class Menu {
 	//reads input from the user on what menu item to execute. It then calls an
 	//abstract function to let the subclass handle the input.
 	public void readAndExecuteAction(){
-		System.out.format("Enter your choice: ");
-		int input = sc.nextInt();
+		int input = -1;
+		
+		input = getUserIntInRange("Enter choice:", 0 , menuItems.size());
 		
 		performAction(input);
+	}
+	
+	protected int getUserInt(String message){
+		int res;
+		
+		while(true){
+			System.out.println(message);			
+			
+			try {
+				res = sc.nextInt();
+			} catch (InputMismatchException e){
+				System.out.println("Invalid input (not a number), try again:");
+				sc.next();
+				continue;
+			} 
+			
+			break;
+		}
+		
+		return res;
+	}
+	
+	
+	private int getUserIntInRange(String message, int lower, int upper){
+		int res;
+		
+		while(true){
+			res = getUserInt(message);
+			
+			if (res > upper || res < lower){
+				//bad input
+				System.out.println("Invalid input (invalid option), try again");
+				continue;
+			} else {
+				//good input
+				break;
+			}
+		}
+		
+		return res;
 	}
 	
 	

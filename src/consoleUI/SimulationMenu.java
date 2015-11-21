@@ -56,8 +56,7 @@ public class SimulationMenu extends Menu {
 	}
 	
 	private void runSimulation(){
-		System.out.println("\nHow many turns do you want to let the simulation run?");
-		int input = sc.nextInt();
+		int input = this.getUserInt("\nHow many turns do you want to let the simulation run?");
 		
 		this.simulationController.simulate(input);
 	}
