@@ -11,8 +11,17 @@ import domain.UniSimController;
 import passables.SimulationStateSummary;
 
 public class SimulationMenu extends Menu {
+	//************************************************************************
+	// Variables
+	//************************************************************************
 	private UniSimController simulationController;
 	
+	
+	
+	
+	//************************************************************************
+	// Constructors
+	//************************************************************************
 	public SimulationMenu(UniSimCLI parent, UniSimController sc){
 		super(parent);
 		this.simulationController = sc;
@@ -21,7 +30,13 @@ public class SimulationMenu extends Menu {
 		this.menuItems.add("Print Map");
 		this.menuItems.add("Print Histories");
 	}
-
+	
+	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
 	
 	//implement abstract performAction method to dispatch the different
 	//menu options to their respective actions

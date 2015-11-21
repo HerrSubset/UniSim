@@ -41,6 +41,7 @@ public class Map {
 		return grid[0].length;
 	}
 	
+	//return a list of all Place objects on the map
 	public List<Place> getPlaces(){
 		ArrayList<Place> res = new ArrayList<Place>();
 		
@@ -83,6 +84,7 @@ public class Map {
 	}
 
 
+	//remove all entities from all places
 	public void clear() {
 		for(int i = 0; i < grid.length; i++){
 			for (int j = 0; j < grid[0].length; j++){

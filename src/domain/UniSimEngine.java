@@ -10,10 +10,16 @@ package domain;
 import passables.SimulationStateSummary;
 
 public class UniSimEngine {
+	//************************************************************************
+	// Variables
+	//************************************************************************
 	private Map map;
 	private Population population;
 	private EntityDistributor distributor;
 	private int turn;
+	
+	
+	
 	
 	//************************************************************************
 	// Constructors
@@ -21,6 +27,8 @@ public class UniSimEngine {
 	public UniSimEngine(){
 		this.turn = 0;
 	}
+	
+	
 	
 	
 	//************************************************************************
@@ -31,9 +39,14 @@ public class UniSimEngine {
 	}
 	
 	
+	
+	
 	//************************************************************************
 	// Initialization
 	//************************************************************************
+	
+	//initialize the engine. This consists of creating all engine modules,
+	//creating an initial population and distributing it over the world
 	public void init(){
 		this.map = new Map();
 		this.population = new Population();
@@ -42,6 +55,8 @@ public class UniSimEngine {
 		distributePopulation();
 	}
 	
+	//create a number of entities, according to how the simulation's
+	//parameters are configured. Then add the entities to the population
 	private void createPopulation(){
 		int entitiesAmount = SimulationParameters.NUMBER_OF_ENITIES;
 		
@@ -50,13 +65,20 @@ public class UniSimEngine {
 		}
 	}
 	
+	//call the engine's distributor module to distribute the population over
+	//the world map
 	private void distributePopulation(){
 		this.distributor.distribute(this.population.getPopulation());
 	}
 	
+	
+	
+	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	
+	//move the simulation forward by a certain amount of turns
 	public void simulate(int turns){
 		for (int i = 0; i < turns; i++){
 			this.turn++;
@@ -64,13 +86,8 @@ public class UniSimEngine {
 		}
 	}
 	
-	
-	
-	public String currentStatusToString() {
-		return "This is the current status";
-	}
-
-
+	//create and return a passable object that summarizes the simulation's
+	//current status
 	public SimulationStateSummary getCurrentStatus() {
 		int w = map.getMapWidth();
 		int h = map.getMapHeight();

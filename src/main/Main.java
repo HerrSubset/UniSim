@@ -14,8 +14,10 @@ import consoleUI.UniSimCLI;;
 public class Main {
 
 	public static void main(String[] args) {
+		//create user interface
 		UniSimCLI cli = new UniSimCLI();
 		
+		//start interface
 		cli.start();
 	}
 

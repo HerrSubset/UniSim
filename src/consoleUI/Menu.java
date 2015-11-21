@@ -55,6 +55,9 @@ public abstract class Menu {
 		performAction(input);
 	}
 	
+	
+	//uses the scanner attribute to get an int from the user. The scanner
+	//attribute is the message that is displayed to the user
 	protected int getUserInt(String message){
 		int res;
 		
@@ -65,7 +68,7 @@ public abstract class Menu {
 				res = sc.nextInt();
 			} catch (InputMismatchException e){
 				System.out.println("Invalid input (not a number), try again:");
-				sc.next();
+				sc.next(); //clear scanner buffer
 				continue;
 			} 
 			
@@ -75,7 +78,8 @@ public abstract class Menu {
 		return res;
 	}
 	
-	
+	//get an int from the user within a certain range. To achieve this it uses
+	//the getUserInt function. Afterwards it checks if it is in range.
 	private int getUserIntInRange(String message, int lower, int upper){
 		int res;
 		
