@@ -15,8 +15,11 @@ public class UniSimEngine {
 	//************************************************************************
 	private Map map;
 	private Population population;
-	private EntityDistributor distributor;
 	private int turn;
+	
+	//engine modules
+	private EntityDistributor distributor;
+	private EntitySpawner spawner;
 	
 	
 	
@@ -50,6 +53,7 @@ public class UniSimEngine {
 	public void init(){
 		this.map = new Map();
 		this.population = new Population();
+		this.spawner = new EntitySpawner(population);
 		this.distributor = new EntityDistributor(map);
 		createPopulation();
 		distributePopulation();
@@ -82,6 +86,10 @@ public class UniSimEngine {
 	public void simulate(int turns){
 		for (int i = 0; i < turns; i++){
 			this.turn++;
+			//spawn new entities
+			spawner.run();
+			
+			//distribute entities over world map
 			distributePopulation();
 		}
 	}
