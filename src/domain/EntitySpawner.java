@@ -32,7 +32,7 @@ public class EntitySpawner {
 		int lower = SimulationParameters.ENTITY_SPAWN_BOUNDARY_LOWER;
 		int upper = SimulationParameters.ENTITY_SPAWN_BOUNDARY_UPPER;
 		
-		int amount = rand.nextInt(upper - lower) + lower;
+		int amount = rand.nextInt(upper - lower + 1) + lower;
 		System.out.format("Spawning %d entities\n", amount);
 		
 		for( int i = 0; i < amount; i++){
