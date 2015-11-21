@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Total lines:"
+cat src/*/*.java | wc -l
+
+echo "Actual code lines: (no whitespace or comments)"
+cat src/*/*.java | grep -v -E "^\s*//|/\*|\*/|^\*+|^\s+$" | wc -l
