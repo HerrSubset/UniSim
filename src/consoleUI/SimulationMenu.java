@@ -16,7 +16,7 @@ public class SimulationMenu extends Menu {
 	public SimulationMenu(UniSimCLI parent, UniSimController sc){
 		super(parent);
 		this.simulationController = sc;
-		this.menuItems.add("Jump Forward");
+		this.menuItems.add("Run Simulation");
 		this.menuItems.add("Show current turn overview");
 		this.menuItems.add("Print Map");
 		this.menuItems.add("Print Histories");
@@ -31,10 +31,10 @@ public class SimulationMenu extends Menu {
 			this.parentUI.goToMainMenu();
 		
 		else if (actionNumber == 1)
-			System.out.println("Jumping forward in time");
+			runSimulation();
 		
 		else if (actionNumber == 2)
-			this.printCurrentStatus(simulationController.getCurrentStatus());
+			printCurrentStatus(simulationController.getCurrentStatus());
 		
 		else if (actionNumber == 3)
 			System.out.println(simulationController.getMapString());
@@ -49,8 +49,16 @@ public class SimulationMenu extends Menu {
 	//************************************************************************
 	private void printCurrentStatus(SimulationStateSummary state){
 		System.out.println("\nCurrent State:");
+		System.out.format("-Turn:\t\t%d\n", state.turn);
 		System.out.format("-Map height:\t%d\n", state.mapHeight);
 		System.out.format("-Map Width:\t%d\n", state.mapWidth);
 		System.out.format("-Inhabitants:\t%d\n", state.inhabitantsNumber);
+	}
+	
+	private void runSimulation(){
+		System.out.println("\nHow many turns do you want to let the simulation run?");
+		int input = sc.nextInt();
+		
+		this.simulationController.simulate(input);
 	}
 }

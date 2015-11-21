@@ -29,6 +29,10 @@ public class UniSimController {
 		this.map = engine.getMap();
 	}
 	
+	public void simulate(int turns){
+		this.engine.simulate(turns);
+	}
+	
 	
 	public String getMapString() {
 		return map.toString();

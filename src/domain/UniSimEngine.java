@@ -13,10 +13,14 @@ public class UniSimEngine {
 	private Map map;
 	private Population population;
 	private EntityDistributor distributor;
+	private int turn;
 	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
+	public UniSimEngine(){
+		this.turn = 0;
+	}
 	
 	
 	//************************************************************************
@@ -53,6 +57,15 @@ public class UniSimEngine {
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	public void simulate(int turns){
+		for (int i = 0; i < turns; i++){
+			this.turn++;
+			distributePopulation();
+		}
+	}
+	
+	
+	
 	public String currentStatusToString() {
 		return "This is the current status";
 	}
@@ -63,7 +76,7 @@ public class UniSimEngine {
 		int h = map.getMapHeight();
 		int inh = this.population.size();
 		
-		return new SimulationStateSummary(w, h, inh);
+		return new SimulationStateSummary(w, h, inh, turn);
 	}
 	
 
