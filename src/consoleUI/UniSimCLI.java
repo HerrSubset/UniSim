@@ -1,10 +1,9 @@
 /**
-UniSimCLI Class
-
-this class represents the CLI interface for the simulator. It talks directly
-to the UniSimController in the domain package and dispatches all UI tasks to
-several Menu objects.
-
+***UniSimCLI Class
+***
+***this class represents the CLI interface for the simulator. It talks directly
+***to the UniSimController in the domain package and dispatches all UI tasks to
+***several Menu objects.
 **/
 
 package consoleUI;

@@ -1,10 +1,10 @@
 /**
-EntityDistributor Class
-
-This is a module of the engine. It's task is to take a list of entities
-and distribute it over the world map. In doing this, it needs to take into
-account the target location preferences of the simulated entities in case such
-preferences are present.
+***EntityDistributor Class
+***
+***This is a module of the engine. It's task is to take a list of entities
+***and distribute it over the world map. In doing this, it needs to take into
+***account the target location preferences of the simulated entities in case such
+***preferences are present.
 **/
 
 package domain;

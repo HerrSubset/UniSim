@@ -1,8 +1,8 @@
 /**
-EntitySpawner Class
-
-this engine module handles the creation of new entities each turn. It also
-handles the retirement of entities. 
+***EntitySpawner Class
+***
+***this engine module handles the creation of new entities each turn. It also
+***handles the retirement of entities. 
 **/
 
 package domain;

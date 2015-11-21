@@ -1,7 +1,7 @@
 /**
-MainMenu Class
-
-the main menu for the CLI.
+***MainMenu Class
+***
+***the main menu for the CLI.
 **/
 
 package consoleUI;

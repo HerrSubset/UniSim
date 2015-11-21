@@ -1,7 +1,7 @@
 /**
-Place Class
-
-This class represents a place on the world map where entities can be located.
+***Place Class
+***
+***This class represents a place on the world map where entities can be located.
 **/
 
 package domain;

@@ -1,10 +1,9 @@
 /**
-Menu Class
-
-this class represents a CLI menu. It's an abstract class so the different
-subclasses implement the actual menu. This class only contains general
-helper code.
-
+***Menu Class
+***
+***this class represents a CLI menu. It's an abstract class so the different
+***subclasses implement the actual menu. This class only contains general
+***helper code.
 **/
 
 package consoleUI;

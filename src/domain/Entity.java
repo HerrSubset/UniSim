@@ -1,7 +1,7 @@
 /**
-Entity Class
-
-Entities represent people in the simulated world
+***Entity Class
+***
+***Entities represent people in the simulated world
 **/
 
 package domain;

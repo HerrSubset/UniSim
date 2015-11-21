@@ -1,8 +1,7 @@
 /**
-SimulationMenu Class
-
-The CLI that lets you interact with a simulation.
-
+***SimulationMenu Class
+***
+***The CLI that lets you interact with a simulation.
 **/
 
 package consoleUI;
