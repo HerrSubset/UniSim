@@ -12,10 +12,12 @@ import java.util.Random;
 public class EntitySpawner {
 	private Population population;
 	private Random rand;
+	private UniSimEngine engine;
 	
-	public EntitySpawner(Population population){
+	public EntitySpawner(Population population, UniSimEngine engine){
 		rand = new Random();
 		this.population = population;
+		this.engine = engine;
 	}
 
 	//adds new entities every turn, according to simulation parameters
@@ -36,7 +38,7 @@ public class EntitySpawner {
 		System.out.format("Spawning %d entities\n", amount);
 		
 		for( int i = 0; i < amount; i++){
-			this.population.add(new Entity());
+			this.population.add(new Entity(engine.getTurn()));
 		}
 	}
 

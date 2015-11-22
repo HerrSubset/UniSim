@@ -17,12 +17,12 @@ public class Entity {
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public Entity(){
-		this(Roles.STUDENT);
+	public Entity(int turnCreated){
+		this(Roles.STUDENT, turnCreated);
 	}
 	
-	public Entity(Roles role){
+	public Entity(Roles role, int turnCreated){
 		this.roleFactory = new RoleFactory();
-		this.currentRole = roleFactory.getRole(role);
+		this.currentRole = roleFactory.getRole(role, turnCreated);
 	}
 }

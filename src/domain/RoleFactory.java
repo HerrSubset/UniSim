@@ -2,11 +2,11 @@ package domain;
 
 public class RoleFactory {
 
-	public Role getRole(Roles role) {
+	public Role getRole(Roles role, int turnCreated) {
 		Role res = null;
 		
 		if (role == Roles.STUDENT)
-			res = new Student();
+			res = new Student(turnCreated);
 		
 		return res;
 	}

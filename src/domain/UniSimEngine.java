@@ -41,6 +41,10 @@ public class UniSimEngine {
 		return this.map;
 	}
 	
+	public int getTurn(){
+		return this.turn;
+	}
+	
 	
 	
 	
@@ -53,7 +57,7 @@ public class UniSimEngine {
 	public void init(){
 		this.map = new Map();
 		this.population = new Population();
-		this.spawner = new EntitySpawner(population);
+		this.spawner = new EntitySpawner(population, this);
 		this.distributor = new EntityDistributor(map);
 		createPopulation();
 		distributePopulation();
@@ -65,7 +69,7 @@ public class UniSimEngine {
 		int entitiesAmount = SimulationParameters.NUMBER_OF_ENITIES;
 		
 		for (int i = 0; i < entitiesAmount ; i++ ){
-			this.population.add(new Entity());
+			this.population.add(new Entity(turn));
 		}
 	}
 	
