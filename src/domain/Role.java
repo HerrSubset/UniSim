@@ -8,4 +8,5 @@ public abstract class Role {
 		this.turnCreated = turnCreated;
 	}
 
+
 }

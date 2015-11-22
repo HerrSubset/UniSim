@@ -12,6 +12,9 @@ public class Entity {
 	//************************************************************************
 	private Role currentRole;
 	private RoleFactory roleFactory;
+	private int id;
+	
+	private static int entityCount = 0;
 	
 	
 	//************************************************************************
@@ -24,5 +27,8 @@ public class Entity {
 	public Entity(Roles role, int turnCreated){
 		this.roleFactory = new RoleFactory();
 		this.currentRole = roleFactory.getRole(role, turnCreated);
+		
+		this.id = Entity.entityCount;
+		entityCount++;
 	}
 }
