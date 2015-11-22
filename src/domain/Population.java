@@ -10,6 +10,8 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import passables.EntityState;
+
 public class Population {
 	//************************************************************************
 	// Variables
@@ -52,6 +54,16 @@ public class Population {
 	//return the amount of entities being simulated
 	public int size() {
 		return this.population.size();
+	}
+	
+	public List<EntityState> getEntityHistories(){
+		ArrayList<EntityState> res = new ArrayList<EntityState>();
+		
+		for (int i = 0; i < this.population.size(); i++){
+			res.add(this.population.get(i).getState());
+		}
+		
+		return res;
 	}
 
 }

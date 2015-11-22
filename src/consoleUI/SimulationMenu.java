@@ -6,7 +6,10 @@
 
 package consoleUI;
 
+import java.util.List;
+
 import domain.UniSimController;
+import passables.EntityState;
 import passables.SimulationStateSummary;
 
 public class SimulationMenu extends Menu {
@@ -54,7 +57,7 @@ public class SimulationMenu extends Menu {
 			System.out.println(simulationController.getMapString());
 		
 		else if (actionNumber == 4)
-			System.out.println("Printing entity histories");
+			printEntityHistories(simulationController.getEntityHistories());
 	}
 	
 	
@@ -73,5 +76,18 @@ public class SimulationMenu extends Menu {
 		int input = this.getUserInt("\nHow many turns do you want to let the simulation run?");
 		
 		this.simulationController.simulate(input);
+	}
+	
+	private void printEntityHistories(List<EntityState> states){
+		for (int i = 0; i < states.size(); i++ ){
+			EntityState currentState = states.get(i);
+			
+			int id = currentState.id;
+			String role = currentState.currentRole;
+			int created = currentState.turnCreated;
+			
+			String format = "Entity %d\n\t-role:\t%s\n\t-turn created:\t%d\n";
+			System.out.format(format, id, role, created);
+		}
 	}
 }

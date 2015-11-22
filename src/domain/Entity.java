@@ -6,6 +6,8 @@
 
 package domain;
 
+import passables.EntityState;
+
 public class Entity {
 	//************************************************************************
 	// Variables
@@ -30,5 +32,18 @@ public class Entity {
 		
 		this.id = Entity.entityCount;
 		entityCount++;
+	}
+	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
+	public EntityState getState(){
+		int id = this.id;
+		String role = this.currentRole.toString();
+		int turnCreated = this.currentRole.getTurnCreated();
+		
+		return new EntityState(id, role, turnCreated);
 	}
 }

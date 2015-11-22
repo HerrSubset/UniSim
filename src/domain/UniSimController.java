@@ -7,11 +7,15 @@
 
 package domain;
 
+import java.util.List;
+
+import passables.EntityState;
 import passables.SimulationStateSummary;
 
 public class UniSimController {
 	private Map map;
 	private UniSimEngine engine;
+	private Population population;
 	
 	//************************************************************************
 	// Constructors
@@ -30,6 +34,7 @@ public class UniSimController {
 	public void init(){
 		engine.init();
 		this.map = engine.getMap();
+		this.population = engine.getPopulation();
 	}
 	
 	//tell the engine to go forward a certain amount of turns
@@ -45,5 +50,9 @@ public class UniSimController {
 	//get the current status of the simulation
 	public SimulationStateSummary getCurrentStatus() {
 		return this.engine.getCurrentStatus();
+	}
+	
+	public List<EntityState> getEntityHistories(){
+		return this.population.getEntityHistories();
 	}
 }

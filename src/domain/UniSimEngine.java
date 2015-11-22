@@ -45,6 +45,10 @@ public class UniSimEngine {
 		return this.turn;
 	}
 	
+	public Population getPopulation(){
+		return this.population;
+	}
+	
 	
 	
 	

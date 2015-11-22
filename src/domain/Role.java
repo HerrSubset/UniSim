@@ -7,6 +7,10 @@ public abstract class Role {
 	public Role(int turnCreated){
 		this.turnCreated = turnCreated;
 	}
+	
+	public int getTurnCreated(){
+		return this.turnCreated;
+	}
 
 
 }
