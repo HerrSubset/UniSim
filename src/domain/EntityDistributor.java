@@ -56,8 +56,8 @@ public class EntityDistributor {
 			
 			//add new history item to entity saying it moved
 			Coordinate c = map.getCoordinate(p);
-			String historyItem = "Turn " + engine.getTurn() + ": moved to (" +
-						c.x + ", " + c.y + ")";
+			String historyItem = "Turn " + engine.getTurn() + ": moved to ("
+						+ c.x + ", " + c.y + ")";
 			e.addToHistory(historyItem);
 			
 			//store entity

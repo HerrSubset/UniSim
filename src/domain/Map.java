@@ -27,7 +27,7 @@ public class Map {
 	public Map(){
 		int h = SimulationParameters.WORLD_HEIGHT;
 		int w = SimulationParameters.WORLD_WIDTH;
-		grid = new Place[h][w];
+		grid = new Place[w][h];
 		this.populateGrid();
 	}
 	
@@ -36,11 +36,11 @@ public class Map {
 	// Getters/Setters
 	//************************************************************************
 	public int getMapHeight(){
-		return grid.length;
+		return grid[0].length;
 	}
 	
 	public int getMapWidth(){
-		return grid[0].length;
+		return grid.length;
 	}
 	
 	//return a list of all Place objects on the map
@@ -73,10 +73,12 @@ public class Map {
 	public String toString(){
 		//TODO build string with stringbuilder
 		String res = "";
-				
-		for(int i = 0; i < grid.length; i++){
-			for (int j = 0; j < grid[0].length; j++){
-				res += grid[i][j].toString();
+		
+		//external loop for selecting rows
+		for(int i = 0; i < grid[0].length; i++){
+			//internal loop for selecting columns
+			for (int j = 0; j < grid.length; j++){
+				res += grid[j][i].toString();
 				res += " ";
 			}
 			res += "\n";
