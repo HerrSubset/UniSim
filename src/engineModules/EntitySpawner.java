@@ -34,6 +34,8 @@ public class EntitySpawner {
 		}
 	}
 	
+	//add new entities to the population. The amount depends on parameters
+	//given in the SimulationParameters class.
 	private void spawnEntities(){
 		//create random number within spawn number range
 		int lower = SimulationParameters.ENTITY_SPAWN_BOUNDARY_LOWER;

@@ -1,3 +1,9 @@
+/**
+***Student Class
+***
+***this subclass of Role represents a student.
+**/
+
 package domain;
 
 public class Student extends Role {

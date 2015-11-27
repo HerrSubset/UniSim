@@ -37,7 +37,7 @@ public class Place {
 		this.inhabitants.clear();
 	}
 
-
+	//add an entity to this place
 	public void add(Entity entity) {
 		this.inhabitants.add(entity);
 	}

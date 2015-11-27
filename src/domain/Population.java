@@ -56,6 +56,8 @@ public class Population {
 		return this.population.size();
 	}
 	
+	//return a list of EntityStates. These contain the state and histories of
+	//all the entities in the population.
 	public List<EntityState> getEntityHistories(){
 		ArrayList<EntityState> res = new ArrayList<EntityState>();
 		

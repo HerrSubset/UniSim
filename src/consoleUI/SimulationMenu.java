@@ -64,6 +64,8 @@ public class SimulationMenu extends Menu {
 	//************************************************************************
 	// Menu Actions
 	//************************************************************************
+	
+	//Prints a small overview of the simulation state
 	private void printCurrentStatus(SimulationStateSummary state){
 		System.out.println("\nCurrent State:");
 		System.out.format("-Turn:\t\t%d\n", state.turn);
@@ -72,12 +74,14 @@ public class SimulationMenu extends Menu {
 		System.out.format("-Inhabitants:\t%d\n", state.inhabitantsNumber);
 	}
 	
+	//tell the simulation engine to go forward a certain amount of turns
 	private void runSimulation(){
 		int input = this.getUserInt("\nHow many turns do you want to let the simulation run?");
 		
 		this.simulationController.simulate(input);
 	}
 	
+	//print out all entities' histories
 	private void printEntityHistories(List<EntityState> states){
 		for (int i = 0; i < states.size(); i++ ){
 			//set up some variables

@@ -52,6 +52,8 @@ public class UniSimController {
 		return this.engine.getCurrentStatus();
 	}
 	
+	//return a list of EntityState objects. These represent all 
+	//the entities present in the population.
 	public List<EntityState> getEntityHistories(){
 		return this.population.getEntityHistories();
 	}

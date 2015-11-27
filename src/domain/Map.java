@@ -70,6 +70,7 @@ public class Map {
 		}
 	}
 	
+	//return one long string representing the map
 	public String toString(){
 		//TODO build string with stringbuilder
 		String res = "";

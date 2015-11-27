@@ -63,12 +63,15 @@ public class Entity {
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	
+	//create and return an EntityState object, representing this entity
 	public EntityState getState(){
 		String role = this.currentRole.toString();
 		
 		return new EntityState(id, role, history);
 	}
 
+	//add a new string to the entity's history
 	public void addToHistory(String historyItem) {
 		this.history.add(historyItem);
 	}
