@@ -7,6 +7,9 @@
 
 package domain;
 
+import engineModules.EntityDistributor;
+import engineModules.EntitySpawner;
+import engineModules.ProgressionHandler;
 import passables.SimulationStateSummary;
 
 public class UniSimEngine {
@@ -20,6 +23,7 @@ public class UniSimEngine {
 	//engine modules
 	private EntityDistributor distributor;
 	private EntitySpawner spawner;
+	private ProgressionHandler progressionHandler;
 	
 	
 	
@@ -59,10 +63,14 @@ public class UniSimEngine {
 	//initialize the engine. This consists of creating all engine modules,
 	//creating an initial population and distributing it over the world
 	public void init(){
+		//set modules
 		this.map = new Map();
 		this.population = new Population();
 		this.spawner = new EntitySpawner(population, this);
 		this.distributor = new EntityDistributor(map, this);
+		this.progressionHandler = new ProgressionHandler(this);
+		
+		//create initial population
 		createPopulation();
 		distributePopulation();
 	}
@@ -94,6 +102,10 @@ public class UniSimEngine {
 	public void simulate(int turns){
 		for (int i = 0; i < turns; i++){
 			this.turn++;
+			
+			//upgrade current entities
+			progressionHandler.run();
+			
 			//spawn new entities
 			spawner.run();
 			

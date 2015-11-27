@@ -5,9 +5,14 @@
 ***handles the retirement of entities. 
 **/
 
-package domain;
+package engineModules;
 
 import java.util.Random;
+
+import domain.Entity;
+import domain.Population;
+import domain.SimulationParameters;
+import domain.UniSimEngine;
 
 public class EntitySpawner {
 	private Population population;

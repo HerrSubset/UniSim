@@ -7,11 +7,15 @@
 ***preferences are present.
 **/
 
-package domain;
+package engineModules;
 
 import java.util.List;
 import java.util.Random;
 
+import domain.Entity;
+import domain.Map;
+import domain.Place;
+import domain.UniSimEngine;
 import passables.Coordinate;
 
 public class EntityDistributor {
