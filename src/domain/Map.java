@@ -13,6 +13,8 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import passables.Coordinate;
+
 public class Map {
 	//************************************************************************
 	// Variables
@@ -91,5 +93,21 @@ public class Map {
 				grid[i][j].clear();
 			}
 		}
+	}
+
+	
+	//find the given place on the grid and return it's coordinates
+	public Coordinate getCoordinate(Place p) {
+		Coordinate res = null;
+		
+		for (int i = 0; i < grid.length; i++){
+			for (int j = 0; j < grid[0].length; j++){
+				if (grid[i][j] == p){
+					res = new Coordinate(i,j);
+				}
+			}
+		}
+		
+		return res;
 	}
 }

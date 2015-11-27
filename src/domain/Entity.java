@@ -54,4 +54,8 @@ public class Entity {
 		
 		return new EntityState(id, role, history);
 	}
+
+	public void addToHistory(String historyItem) {
+		this.history.add(historyItem);
+	}
 }

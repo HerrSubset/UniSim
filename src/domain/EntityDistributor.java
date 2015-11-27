@@ -12,18 +12,21 @@ package domain;
 import java.util.List;
 import java.util.Random;
 
+import passables.Coordinate;
+
 public class EntityDistributor {
 	//************************************************************************
 	// Variables
 	//************************************************************************
 	private Map map;
-	
+	private UniSimEngine engine;
 	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public EntityDistributor(Map map){
+	public EntityDistributor(Map map, UniSimEngine engine){
 		this.map = map;
+		this.engine = engine;
 	}
 	
 	
@@ -47,8 +50,18 @@ public class EntityDistributor {
 			Random generator = new Random();
 			int index = generator.nextInt(places.size());
 			
+			//entity will be stored in this place
+			Place p = places.get(index);
+			Entity e = population.get(i);
+			
+			//add new history item to entity saying it moved
+			Coordinate c = map.getCoordinate(p);
+			String historyItem = "Turn " + engine.getTurn() + ": moved to (" +
+						c.x + ", " + c.y + ")";
+			e.addToHistory(historyItem);
+			
 			//store entity
-			places.get(index).add(population.get(i));
+			p.add(e);
 		}
 	}
 }

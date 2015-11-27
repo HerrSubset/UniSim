@@ -80,11 +80,12 @@ public class SimulationMenu extends Menu {
 	
 	private void printEntityHistories(List<EntityState> states){
 		for (int i = 0; i < states.size(); i++ ){
+			//set up some variables
 			EntityState currentState = states.get(i);
-			
 			int id = currentState.id;
 			String role = currentState.currentRole;
 			
+			//print entity title
 			String format = "Entity %d (%s)\n";
 			System.out.format(format, id, role);
 			

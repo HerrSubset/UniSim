@@ -62,7 +62,7 @@ public class UniSimEngine {
 		this.map = new Map();
 		this.population = new Population();
 		this.spawner = new EntitySpawner(population, this);
-		this.distributor = new EntityDistributor(map);
+		this.distributor = new EntityDistributor(map, this);
 		createPopulation();
 		distributePopulation();
 	}
