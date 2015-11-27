@@ -84,10 +84,14 @@ public class SimulationMenu extends Menu {
 			
 			int id = currentState.id;
 			String role = currentState.currentRole;
-			int created = currentState.turnCreated;
 			
-			String format = "Entity %d\n\t-role:\t%s\n\t-turn created:\t%d\n";
-			System.out.format(format, id, role, created);
+			String format = "Entity %d (%s)\n";
+			System.out.format(format, id, role);
+			
+			//print out the current entity's history
+			for (int j = 0; j < currentState.history.size(); j++){
+				System.out.format("\t%s\n", currentState.history.get(j));
+			}
 		}
 	}
 }

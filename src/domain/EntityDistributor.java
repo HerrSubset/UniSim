@@ -43,6 +43,7 @@ public class EntityDistributor {
 		//distribute entities over all places
 		for (int i = 0; i < population.size(); i++ ){
 			//create random index to store the entity
+			//the random number is in the range 0 - places.size()
 			Random generator = new Random();
 			int index = generator.nextInt(places.size());
 			
