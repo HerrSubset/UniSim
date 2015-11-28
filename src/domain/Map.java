@@ -74,6 +74,7 @@ public class Map {
 	public String toString(){
 		//TODO build string with stringbuilder
 		String res = "";
+		int minLength = getMaxPlaceInhabitants() + 3;
 		
 		//external loop for selecting rows
 		for(int i = 0; i < grid[0].length; i++){
@@ -82,7 +83,6 @@ public class Map {
 				String tmp = grid[j][i].toString();
 				
 				//make res a default length of 8 by appending spaces;
-				int minLength = 8;
 				while (tmp.length() < minLength){
 					tmp += " ";
 				}
@@ -90,6 +90,21 @@ public class Map {
 				res += tmp;
 			}
 			res += "\n";
+		}
+		
+		return res;
+	}
+	
+	
+	
+	private int getMaxPlaceInhabitants(){
+		int res = 0;
+		
+		for(int i = 0; i < grid.length; i++){
+			for (int j = 0; j < grid[0].length; j++){
+				if (grid[i][j].getInhabitantsAmount() > res)
+					res = grid[i][j].getInhabitantsAmount();
+			}
 		}
 		
 		return res;

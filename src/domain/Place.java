@@ -56,4 +56,9 @@ public class Place {
 	public void add(Entity entity) {
 		this.inhabitants.add(entity);
 	}
+
+
+	public int getInhabitantsAmount() {
+		return this.inhabitants.size();
+	}
 }
