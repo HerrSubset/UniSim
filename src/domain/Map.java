@@ -82,7 +82,7 @@ public class Map {
 			for (int j = 0; j < grid.length; j++){
 				String tmp = grid[j][i].toString();
 				
-				//make res a default length of 8 by appending spaces;
+				//make res long enough to fit the biggest entry
 				while (tmp.length() < minLength){
 					tmp += " ";
 				}
@@ -97,6 +97,8 @@ public class Map {
 	
 	
 	
+	//returns the number of inhabitants of the place with the highest number
+	//of inhabitants
 	private int getMaxPlaceInhabitants(){
 		int res = 0;
 		

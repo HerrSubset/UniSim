@@ -24,7 +24,11 @@ public abstract class Role extends Entity {
 	//************************************************************************
 	public Role(int turnCreated){
 		super(turnCreated);
-		EntityCore core = new EntityCore(turnCreated, this);
+		this.core = new EntityCore(turnCreated, this);
+	}
+	
+	public Role(int turnCreated, Entity core){
+		super(turnCreated);
 		this.core = core;
 	}
 	

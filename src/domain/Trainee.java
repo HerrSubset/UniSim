@@ -1,18 +1,24 @@
 /**
-***Student Class
+***Trainee Class
 ***
-***this subclass of Role represents a student.
+***this subclass of Role represents a trainee.
 **/
 
 package domain;
 
-public class Student extends Role {
+public class Trainee extends Role {
 	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public Student(int turnCreated){
+	public Trainee(int turnCreated){
 		super(turnCreated);
+		addToHistory("Became a Trainee in turn " + turnCreated);
+	}
+	
+	public Trainee(int turnCreated, Entity core){
+		this(turnCreated);
+		this.core = core;
 	}
 
 	
@@ -25,7 +31,7 @@ public class Student extends Role {
 	//returns a string representation of the class name
 	@Override
 	public String getRoleString() {
-		return "Student";
+		return "Trainee";
 	}
 
 	
@@ -39,14 +45,7 @@ public class Student extends Role {
 	public Entity promote(int turn) {
 		Entity res = this;
 		
-		int age = turn - this.turnCreated;
-		if (age == SimulationParameters.STUDENT_GRADUATION_AGE){
-			this.addToHistory("Graduated in turn " + turn);
-		
-			//promote student to PhDStudent or Trainee
-			res = new Trainee(turn, this);
-		}
-		
+
 		
 		return res;
 	}
@@ -56,6 +55,6 @@ public class Student extends Role {
 	// return an "S", the abbreviation for student in this simulation
 	@Override
 	public String getCharacterRepresentation() {
-		return "S";
+		return "T";
 	}
 }
