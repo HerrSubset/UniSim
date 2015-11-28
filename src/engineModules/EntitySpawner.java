@@ -9,9 +9,9 @@ package engineModules;
 
 import java.util.Random;
 
-import domain.Entity;
 import domain.Population;
 import domain.SimulationParameters;
+import domain.Student;
 import domain.UniSimEngine;
 
 public class EntitySpawner {
@@ -45,7 +45,7 @@ public class EntitySpawner {
 		System.out.format("Spawning %d entities\n", amount);
 		
 		for( int i = 0; i < amount; i++){
-			this.population.add(new Entity(engine.getTurn()));
+			this.population.add(new Student(engine.getTurn()));
 		}
 	}
 
