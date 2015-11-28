@@ -1,20 +1,24 @@
 /**
-***Student Class
+***PhDStudent Class
 ***
-***this subclass of Role represents a student.
+***this subclass of Role represents a PhD student.
 **/
 
 package domain;
 
-import java.util.Random;
-
-public class Student extends Role {
+public class PhDStudent extends Role {
 	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public Student(int turnCreated){
+	public PhDStudent(int turnCreated){
 		super(turnCreated);
+		addToHistory("Became a PhD student in turn " + turnCreated);
+	}
+	
+	public PhDStudent(int turnCreated, Entity core){
+		this(turnCreated);
+		this.core = core;
 	}
 
 	
@@ -27,7 +31,7 @@ public class Student extends Role {
 	//returns a string representation of the class name
 	@Override
 	public String getRoleString() {
-		return "Student";
+		return "PhD Student";
 	}
 
 	
@@ -41,20 +45,7 @@ public class Student extends Role {
 	public Entity promote(int turn) {
 		Entity res = this;
 		
-		int age = turn - this.turnCreated;
-		if (age == SimulationParameters.STUDENT_GRADUATION_AGE){
-			this.addToHistory("Graduated in turn " + turn);
-		
-			//promote student to PhDStudent or Trainee
-			Random rand = new Random();
-			int randInt = rand.nextInt();
-			
-			if (randInt < 1)
-				res = new Trainee(turn, this);
-			else
-				res = new PhDStudent(turn, this);
-		}
-		
+
 		
 		return res;
 	}
@@ -64,6 +55,6 @@ public class Student extends Role {
 	// return an "S", the abbreviation for student in this simulation
 	@Override
 	public String getCharacterRepresentation() {
-		return "S";
+		return "Ps";
 	}
 }
