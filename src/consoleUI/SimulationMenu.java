@@ -8,6 +8,7 @@ package consoleUI;
 
 import java.util.List;
 
+import domain.InvalidMethodInvocationException;
 import domain.UniSimController;
 import passables.EntityState;
 import passables.SimulationStateSummary;
@@ -78,7 +79,11 @@ public class SimulationMenu extends Menu {
 	private void runSimulation(){
 		int input = this.getUserInt("\nHow many turns do you want to let the simulation run?");
 		
-		this.simulationController.simulate(input);
+		try{
+			this.simulationController.simulate(input);
+		} catch (InvalidMethodInvocationException e) {
+			System.err.format("ERROR: %s", e.getMessage());
+		}
 	}
 	
 	//print out all entities' histories

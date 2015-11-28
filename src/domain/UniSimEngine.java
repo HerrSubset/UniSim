@@ -101,7 +101,7 @@ public class UniSimEngine {
 	//************************************************************************
 	
 	//move the simulation forward by a certain amount of turns
-	public void simulate(int turns){
+	public void simulate(int turns) throws InvalidMethodInvocationException{
 		for (int i = 0; i < turns; i++){
 			this.turn++;
 			

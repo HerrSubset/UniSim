@@ -66,9 +66,11 @@ public class EntityCore extends Entity{
 	}
 
 
-
+	
+	//this method can not be called on EntityCore objects
+	//TODO write own InvalidMethodException
 	@Override
-	public Entity promote(int turn) {
-		return this;
+	public Entity promote(int turn) throws InvalidMethodInvocationException {
+		throw new InvalidMethodInvocationException("Tried promoting entity core on turn " + turn);
 	}
 }

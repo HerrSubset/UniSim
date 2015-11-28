@@ -76,5 +76,5 @@ public abstract class Entity {
 	//reference to this new role. If it can't be promoted, this function 
 	//returns the reference to the current object. In case this function
 	//happens to be called on a Entitycore object, an error is thrown.
-	public abstract Entity promote(int turn);
+	public abstract Entity promote(int turn) throws InvalidMethodInvocationException;
 }

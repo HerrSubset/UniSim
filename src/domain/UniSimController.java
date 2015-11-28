@@ -38,7 +38,7 @@ public class UniSimController {
 	}
 	
 	//tell the engine to go forward a certain amount of turns
-	public void simulate(int turns){
+	public void simulate(int turns) throws InvalidMethodInvocationException{
 		this.engine.simulate(turns);
 	}
 	
