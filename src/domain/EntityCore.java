@@ -32,6 +32,7 @@ public class EntityCore extends Entity{
 	
 	
 	
+	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
@@ -43,13 +44,15 @@ public class EntityCore extends Entity{
 
 
 
+	//returns the state of this entity
 	@Override
 	public EntityState getState() {
 		return new EntityState(id, "Entity Core", history);
 	}
 
 
-
+	
+	//return the history belonging to this entity
 	@Override
 	public List<String> getHistory() {
 		return this.history;
@@ -60,5 +63,12 @@ public class EntityCore extends Entity{
 	@Override
 	public int getID() {
 		return this.id;
+	}
+
+
+
+	@Override
+	public Entity promote(int turn) {
+		return this;
 	}
 }

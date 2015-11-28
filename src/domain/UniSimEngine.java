@@ -72,6 +72,8 @@ public class UniSimEngine {
 		distributePopulation();
 	}
 	
+	
+	
 	//create a number of entities, according to how the simulation's
 	//parameters are configured. Then add the entities to the population
 	private void createPopulation(){
@@ -82,6 +84,8 @@ public class UniSimEngine {
 			this.population.add(new Student(turn));
 		}
 	}
+	
+	
 	
 	//call the engine's distributor module to distribute the population over
 	//the world map
@@ -101,6 +105,9 @@ public class UniSimEngine {
 		for (int i = 0; i < turns; i++){
 			this.turn++;
 			
+			//promote the entities that are eligible
+			population.executePromotions(this.turn);
+			
 			//spawn new entities
 			spawner.run();
 			
@@ -108,6 +115,8 @@ public class UniSimEngine {
 			distributePopulation();
 		}
 	}
+	
+	
 	
 	//create and return a passable object that summarizes the simulation's
 	//current status
@@ -118,6 +127,4 @@ public class UniSimEngine {
 		
 		return new SimulationStateSummary(w, h, inh, turn);
 	}
-	
-
 }

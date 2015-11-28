@@ -68,4 +68,15 @@ public class Population {
 		return res;
 	}
 
+
+
+	//loop through all entities and run their promote() function. This function
+	//promotes them in case they are eligible.
+	public void executePromotions(int turn) {
+		for (int i = 0; i < this.population.size(); i++){
+			Entity e = population.get(i);
+			population.set(i, e.promote(turn));
+		}
+	}
+
 }

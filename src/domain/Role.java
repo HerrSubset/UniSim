@@ -14,8 +14,7 @@ public abstract class Role extends Entity {
 	//************************************************************************
 	// Variables
 	//************************************************************************
-	private int turnCreated;
-	private Entity core;
+	protected Entity core;
 	
 	
 	
@@ -40,9 +39,13 @@ public abstract class Role extends Entity {
 	}
 	
 	
+	
+	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	
+	//returns the state of this entity
 	@Override
 	public EntityState getState() {
 		List<String> history = core.getHistory();
@@ -51,19 +54,31 @@ public abstract class Role extends Entity {
 		return new EntityState(id, getRoleString(), history);
 	}
 	
+	
+	
+	//returns a string representation of the class name
 	public abstract String getRoleString();
 
-
+	
+	
+	//returns the entity's history contained in the EntityCore
 	@Override
 	public List<String> getHistory() {
 		return core.getHistory();
 	}
 
+	
+	
+	//returns the entity's id
 	@Override
 	public int getID() {
 		return core.getID();
 	}
 	
+	
+	
+	//add a string to this entity's history. The history resides in the
+	//entity's EntityCore
 	@Override
 	public void addToHistory(String historyItem) {
 		core.addToHistory(historyItem);
