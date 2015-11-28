@@ -74,7 +74,7 @@ public class Map {
 	public String toString(){
 		//TODO build string with stringbuilder
 		String res = "";
-		int minLength = getMaxPlaceInhabitants() + 3;
+		int minLength = getMaxPlaceRepresentationLenght() +1;
 		
 		//external loop for selecting rows
 		for(int i = 0; i < grid[0].length; i++){
@@ -97,15 +97,14 @@ public class Map {
 	
 	
 	
-	//returns the number of inhabitants of the place with the highest number
-	//of inhabitants
-	private int getMaxPlaceInhabitants(){
+	//checks all Places' string representation length and returns the biggest
+	private int getMaxPlaceRepresentationLenght(){
 		int res = 0;
 		
 		for(int i = 0; i < grid.length; i++){
 			for (int j = 0; j < grid[0].length; j++){
-				if (grid[i][j].getInhabitantsAmount() > res)
-					res = grid[i][j].getInhabitantsAmount();
+				if (grid[i][j].toString().length() > res)
+					res = grid[i][j].toString().length();
 			}
 		}
 		
