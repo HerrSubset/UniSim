@@ -45,4 +45,12 @@ public class Student extends Role {
 		
 		return res;
 	}
+
+
+
+	// return an "S", the abbreviation for student in this simulation
+	@Override
+	public String getCharacterRepresentation() {
+		return "S";
+	}
 }

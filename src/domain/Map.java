@@ -79,8 +79,15 @@ public class Map {
 		for(int i = 0; i < grid[0].length; i++){
 			//internal loop for selecting columns
 			for (int j = 0; j < grid.length; j++){
-				res += grid[j][i].toString();
-				res += " ";
+				String tmp = grid[j][i].toString();
+				
+				//make res a default length of 8 by appending spaces;
+				int minLength = 8;
+				while (tmp.length() < minLength){
+					tmp += " ";
+				}
+				
+				res += tmp;
 			}
 			res += "\n";
 		}

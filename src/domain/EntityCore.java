@@ -73,4 +73,12 @@ public class EntityCore extends Entity{
 	public Entity promote(int turn) throws InvalidMethodInvocationException {
 		throw new InvalidMethodInvocationException("Tried promoting entity core on turn " + turn);
 	}
+
+
+
+	//return "Ec", the abbreviation for EntityCore in this simulation
+	@Override
+	public String getCharacterRepresentation() {
+		return "Ec";
+	}
 }

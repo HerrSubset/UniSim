@@ -77,4 +77,9 @@ public abstract class Entity {
 	//returns the reference to the current object. In case this function
 	//happens to be called on a Entitycore object, an error is thrown.
 	public abstract Entity promote(int turn) throws InvalidMethodInvocationException;
+
+
+
+
+	public abstract String getCharacterRepresentation();
 }

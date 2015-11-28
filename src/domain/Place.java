@@ -28,7 +28,22 @@ public class Place {
 	// Other Functions
 	//************************************************************************
 	public String toString(){
-		return "P|" + inhabitants.size();
+		return "P|" + getInhabitantString();
+	}
+	
+	
+	
+	//return a string representing the inhabitants of this place.
+	//E.g. SSPS means there's 3 Students and one PhD
+	private String getInhabitantString(){
+		//TODO do this with stringbuilder
+		String res = "";
+		
+		for (int i = 0; i < inhabitants.size(); i++){
+			res += inhabitants.get(i).getCharacterRepresentation();
+		}
+		
+		return res;
 	}
 
 
