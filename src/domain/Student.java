@@ -12,7 +12,7 @@ public class Student extends Role {
 	
 	private int classesAttended = 0;
 	private int grade;
-	//int from 0-99. closer to zero means preference for academic career
+	//int from 0-99. Closer to zero means preference for academic career
 	private int careerPreference;
 	
 	//************************************************************************

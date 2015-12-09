@@ -17,8 +17,8 @@ public class Trainee extends Role {
 	}
 	
 	public Trainee(int turnCreated, Entity core){
-		this(turnCreated);
-		this.core = core;
+		super(turnCreated, core);
+		addToHistory("Became a Trainee in turn " + turnCreated);
 	}
 
 	

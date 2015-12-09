@@ -19,8 +19,8 @@ public class PhDStudent extends Role {
 	}
 	
 	public PhDStudent(int turnCreated, Entity core){
-		this(turnCreated);
-		this.core = core;
+		super(turnCreated, core);
+		addToHistory("Became a PhD student in turn " + turnCreated);
 	}
 
 	
