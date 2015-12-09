@@ -47,7 +47,8 @@ public class PhDStudent extends Role {
 	public Entity promote(int turn) {
 		Entity res = this;
 		
-
+		if (thesisProgression >= 100)
+			res = new PhD(turn, this);
 		
 		return res;
 	}
