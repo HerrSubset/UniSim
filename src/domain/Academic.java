@@ -1,19 +1,21 @@
 package domain;
 
-public class PhD extends Role {
+public class Academic extends Role {
+	
+	private AcademicRole title = AcademicRole.POSTDOC;
 	
 	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public PhD(int turnCreated){
+	public Academic(int turnCreated){
 		super(turnCreated);
 		this.addToHistory("Became PhD in turn " + turnCreated);
 	}
 	
 	
 	
-	public PhD(int turnCreated, Entity core){
+	public Academic(int turnCreated, Entity core){
 		super(turnCreated, core);
 		this.addToHistory("Became PhD in turn " + turnCreated);
 	}
@@ -44,7 +46,12 @@ public class PhD extends Role {
 	
 	@Override
 	public String getCharacterRepresentation() {
-		return "Ph";
+		String res = "Ph";
+		
+		if (this.title == AcademicRole.PROFESSOR)
+			res = "Pr";
+		
+		return res;
 	}
 
 	

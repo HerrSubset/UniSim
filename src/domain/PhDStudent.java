@@ -48,7 +48,7 @@ public class PhDStudent extends Role {
 		Entity res = this;
 		
 		if (thesisProgression >= 100)
-			res = new PhD(turn, this);
+			res = new Academic(turn, this);
 		
 		return res;
 	}
