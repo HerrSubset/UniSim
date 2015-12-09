@@ -8,6 +8,8 @@ package domain;
 
 public class Trainee extends Role {
 	
+	private double experience = 0;
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -59,10 +61,35 @@ public class Trainee extends Role {
 	}
 
 	
-	//TODO
+	
+	//make the trainee gain experience. The amount of experience gained per 
+	//turn depends on a simulation parameter and the trainee's final grade at 
+	//university.
 	@Override
 	public void performActivity() {
-		// TODO Auto-generated method stub
+		double expIncrease = (double)SimulationParameters.TRAINEE_DEFAULT_EXP_INCREASE;
+		int grade = ((Student) (this.core)).getGrade();
 		
+		double modifier = getGradeModifier(grade);
+		expIncrease *= modifier;
+		
+		this.experience += expIncrease;
+		
+		this.addToHistory("Experience increased with " + expIncrease);
+		
+	}
+	
+	
+	
+	//calculate a modifier that changes the rate at which the trainee gains
+	//experience. The modifier equals 1 + ((grade - 70)/100)
+	private double getGradeModifier(int grade){
+		double res = 0.0;
+		int diff = grade - 70;
+		
+		res = ((double)diff / 100.0) + 1;
+		
+		
+		return res;
 	}
 }

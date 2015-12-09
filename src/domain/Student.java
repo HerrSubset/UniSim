@@ -36,6 +36,10 @@ public class Student extends Role {
 	public String getRoleString() {
 		return "Student";
 	}
+	
+	public int getGrade(){
+		return this.grade;
+	}
 
 	
 	
