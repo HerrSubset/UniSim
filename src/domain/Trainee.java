@@ -47,7 +47,9 @@ public class Trainee extends Role {
 	public Entity promote(int turn) {
 		Entity res = this;
 		
-
+		double promotionLevel = (double)SimulationParameters.TRAINEE_PROMOTION_EXP;
+		if (experience >= promotionLevel)
+			res = new Corporate(turn, this);
 		
 		return res;
 	}
@@ -73,10 +75,7 @@ public class Trainee extends Role {
 		double modifier = getGradeModifier(grade);
 		expIncrease *= modifier;
 		
-		this.experience += expIncrease;
-		
-		this.addToHistory("Experience increased with " + expIncrease);
-		
+		this.experience += expIncrease;		
 	}
 	
 	
