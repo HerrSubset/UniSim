@@ -19,4 +19,6 @@ public class SimulationParameters {
 	
 	public final static int STUDENT_GRADUATION_AGE = 50;	//turns after which a student graduates
 	public final static int STUDENT_ATTENDANCE_RATE = 85;	//chance of a student going to class each turn
+	
+	public final static int PHD_MIN_ACCEPTANCE_SCORE = 85;	//minimum grade a student needs to become a PHDStudent
 }

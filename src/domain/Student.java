@@ -12,12 +12,16 @@ public class Student extends Role {
 	
 	private int classesAttended = 0;
 	private int grade;
+	//int from 0-99. closer to zero means preference for academic career
+	private int careerPreference;
 	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
 	public Student(int turnCreated){
 		super(turnCreated);
+		Random rand = new Random();
+		this.careerPreference = rand.nextInt(99);
 	}
 
 	
@@ -51,13 +55,13 @@ public class Student extends Role {
 							+ " with grade " + this.grade);
 		
 			//promote student to PhDStudent or Trainee
-			Random rand = new Random();
-			int randInt = rand.nextInt();
+			//based on score and preference
+			int minGrade = SimulationParameters.PHD_MIN_ACCEPTANCE_SCORE;
 			
-			if (randInt < 1)
-				res = new Trainee(turn, this);
-			else
+			if (this.grade >= minGrade && this.careerPreference < 50)
 				res = new PhDStudent(turn, this);
+			else
+				res = new Trainee(turn, this);
 		}
 		
 		
