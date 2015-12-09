@@ -108,6 +108,9 @@ public class UniSimEngine {
 			//promote the entities that are eligible
 			population.executePromotions(this.turn);
 			
+			//let all entities execute their activity for this turn
+			population.performActivities();
+			
 			//spawn new entities
 			spawner.run();
 			

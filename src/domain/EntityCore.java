@@ -81,4 +81,12 @@ public class EntityCore extends Entity{
 	public String getCharacterRepresentation() {
 		return "Ec";
 	}
+
+
+
+	//an entity core has no activity so leave this blank
+	@Override
+	public void performActivity() {
+		// TODO Auto-generated method stub
+	}
 }

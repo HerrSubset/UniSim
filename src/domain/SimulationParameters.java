@@ -18,4 +18,5 @@ public class SimulationParameters {
 	public final static int ENTITY_SPAWN_BOUNDARY_UPPER = 3;	//max amount of entities when new entities spawn
 	
 	public final static int STUDENT_GRADUATION_AGE = 50;	//turns after which a student graduates
+	public final static int STUDENT_ATTENDANCE_RATE = 85;	//chance of a student going to class each turn
 }

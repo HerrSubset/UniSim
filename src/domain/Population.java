@@ -80,4 +80,15 @@ public class Population {
 		}
 	}
 
+
+
+	//loop through all entities and perform their activity for this turn
+	public void performActivities() {
+		for (int i = 0; i < this.population.size(); i++){
+			Entity e = population.get(i);
+
+			e.performActivity();
+		}
+	}
+
 }

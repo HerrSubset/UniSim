@@ -82,4 +82,9 @@ public abstract class Entity {
 
 
 	public abstract String getCharacterRepresentation();
+
+
+
+	//performs the task that an entity can do each turn
+	public abstract void performActivity();
 }

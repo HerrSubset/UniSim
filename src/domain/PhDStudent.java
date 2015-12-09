@@ -8,6 +8,8 @@ package domain;
 
 public class PhDStudent extends Role {
 	
+	private int thesisProgression = 0;
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -56,5 +58,13 @@ public class PhDStudent extends Role {
 	@Override
 	public String getCharacterRepresentation() {
 		return "Ps";
+	}
+
+	
+	
+	//advance the phdstudent's thesis progression
+	@Override
+	public void performActivity() {
+		this.thesisProgression += 5;
 	}
 }

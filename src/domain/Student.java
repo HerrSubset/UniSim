@@ -10,6 +10,9 @@ import java.util.Random;
 
 public class Student extends Role {
 	
+	private int classesAttended = 0;
+	private int grade;
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -43,7 +46,9 @@ public class Student extends Role {
 		
 		int age = turn - this.turnCreated;
 		if (age == SimulationParameters.STUDENT_GRADUATION_AGE){
-			this.addToHistory("Graduated in turn " + turn);
+			this.calculateGrade();
+			this.addToHistory("Graduated in turn " + turn 
+							+ " with grade " + this.grade);
 		
 			//promote student to PhDStudent or Trainee
 			Random rand = new Random();
@@ -58,6 +63,16 @@ public class Student extends Role {
 		
 		return res;
 	}
+	
+	
+	//calculates the attendance rate of the student based on the simulation
+	//parameters and then gives a grade based on that.
+	private void calculateGrade(){
+		float attendanceRate = (float) this.classesAttended / 
+				(float) SimulationParameters.STUDENT_GRADUATION_AGE;
+		
+		this.grade = (int)(attendanceRate * 100);
+	}
 
 
 
@@ -65,5 +80,22 @@ public class Student extends Role {
 	@Override
 	public String getCharacterRepresentation() {
 		return "S";
+	}
+
+
+
+	//give a student a chance each turn to go to class
+	@Override
+	public void performActivity() {
+		Random rand = new Random();
+		
+		int randomNumber = rand.nextInt(100);
+		
+		//check if student goes to class this turn
+		if (randomNumber < SimulationParameters.STUDENT_ATTENDANCE_RATE){
+			this.classesAttended++;
+			//log that student went to class
+			this.addToHistory("Attended Class");
+		}
 	}
 }

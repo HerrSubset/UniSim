@@ -57,4 +57,12 @@ public class Trainee extends Role {
 	public String getCharacterRepresentation() {
 		return "T";
 	}
+
+	
+	//TODO
+	@Override
+	public void performActivity() {
+		// TODO Auto-generated method stub
+		
+	}
 }
