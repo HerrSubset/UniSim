@@ -105,6 +105,9 @@ public class UniSimEngine {
 		for (int i = 0; i < turns; i++){
 			this.turn++;
 			
+			//retire all entities that are eligible
+			population.handleRetirements(this.turn);
+			
 			//promote the entities that are eligible
 			population.executePromotions(this.turn);
 			

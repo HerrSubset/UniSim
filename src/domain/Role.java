@@ -42,6 +42,10 @@ public abstract class Role extends Entity {
 		return this.turnCreated;
 	}
 	
+	public int getBirthTurn(){
+		return core.getBirthTurn();
+	}
+	
 	
 	
 	

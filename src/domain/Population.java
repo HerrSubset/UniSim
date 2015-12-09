@@ -90,5 +90,26 @@ public class Population {
 			e.performActivity();
 		}
 	}
+	
+	
+	
+	//loop through all entities and retire them if they're old enough
+	public void handleRetirements(int turn){
+		for (int i = 0; i < this.population.size(); i++){
+			Entity e = population.get(i);
+			
+			//check if e is old enough for retirement
+			int retirementAge = SimulationParameters.RETIREMENT_AGE;
+			if ((turn - e.getBirthTurn()) >= retirementAge){
+				this.retire(e, turn, i);
+				i--;
+			}
+		}
+	}
+	
+	private void retire(Entity e, int turn, int index){
+		e.retire(turn);
+		this.population.remove(index);
+	}
 
 }

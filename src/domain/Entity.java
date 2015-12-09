@@ -43,6 +43,8 @@ public abstract class Entity {
 		return this.turnCreated;
 	}
 	
+	public abstract int getBirthTurn();
+	
 	
 	
 	
@@ -87,4 +89,11 @@ public abstract class Entity {
 
 	//performs the task that an entity can do each turn
 	public abstract void performActivity();
+
+
+
+
+	public void retire(int turn) {
+		this.addToHistory("Retired at turn " + turn);
+	}
 }

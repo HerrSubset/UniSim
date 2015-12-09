@@ -89,4 +89,12 @@ public class EntityCore extends Entity{
 	public void performActivity() {
 		// TODO Auto-generated method stub
 	}
+
+
+
+
+	@Override
+	public int getBirthTurn() {
+		return this.turnCreated;
+	}
 }
