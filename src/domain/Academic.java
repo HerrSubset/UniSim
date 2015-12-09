@@ -1,8 +1,11 @@
 package domain;
 
+import java.util.Random;
+
 public class Academic extends Role {
 	
 	private AcademicRole title = AcademicRole.POSTDOC;
+	private int amountOfPapers = 0;
 	
 	
 	//************************************************************************
@@ -35,15 +38,17 @@ public class Academic extends Role {
 	
 	@Override
 	public Entity promote(int turn){
-		Entity res = this;
-		
-		
+		if (this.amountOfPapers >= SimulationParameters.PROFESSOR_PROMOTION_PAPER_MIN){
+			this.title = AcademicRole.PROFESSOR;
+			this.addToHistory("Promoted to professor on turn " + turn);
+		}
 		
 		return this;
 	}
 
 	
 	
+	//returns "Ph" for a post-doc and "Pr" for a professor
 	@Override
 	public String getCharacterRepresentation() {
 		String res = "Ph";
@@ -58,8 +63,18 @@ public class Academic extends Role {
 	
 	@Override
 	public void performActivity() {
-		// TODO Auto-generated method stub
-
+		Random rand = new Random();
+		
+		//assume people work until 60 years old and start studing at 18
+		// --> 42 years that they are simulated
+		int turnsPerYear = SimulationParameters.RETIREMENT_AGE / 42;
+		
+		//we want academics to publish 4 papers per year on average. 
+		if (rand.nextInt(turnsPerYear) <= (turnsPerYear/4)){
+			this.amountOfPapers++;
+			this.addToHistory("Wrote paper");
+		}
+			
 	}
 
 }

@@ -22,5 +22,7 @@ public class SimulationParameters {
 	
 	public final static int PHD_MIN_ACCEPTANCE_SCORE = 85;	//minimum grade a student needs to become a PHDStudent
 	
-	public final static int RETIREMENT_AGE = 520;	//age at which an entity retires
+	public final static int PROFESSOR_PROMOTION_PAPER_MIN = 100;	//amount of papers a post-doc needs to be promoted to professor
+	
+	public final static int RETIREMENT_AGE = 420;	//age at which an entity retires
 }
