@@ -72,23 +72,9 @@ public class Trainee extends Role {
 		double expIncrease = (double)SimulationParameters.TRAINEE_DEFAULT_EXP_INCREASE;
 		int grade = ((Student) (this.core)).getGrade();
 		
-		double modifier = getGradeModifier(grade);
+		double modifier = getGradeModifier(70, grade);
 		expIncrease *= modifier;
 		
 		this.experience += expIncrease;		
-	}
-	
-	
-	
-	//calculate a modifier that changes the rate at which the trainee gains
-	//experience. The modifier equals 1 + ((grade - 70)/100)
-	private double getGradeModifier(int grade){
-		double res = 0.0;
-		int diff = grade - 70;
-		
-		res = ((double)diff / 100.0) + 1;
-		
-		
-		return res;
 	}
 }

@@ -47,10 +47,11 @@ public class Corporate extends Role {
 		return res;
 	}
 
+	//let the corporate earn money. The rate at which money is earned depends
+	//on his university grade and a 
 	@Override
 	public void performActivity() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }

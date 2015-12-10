@@ -91,5 +91,17 @@ public abstract class Role extends Entity {
 	public void addToHistory(String historyItem) {
 		core.addToHistory(historyItem);
 	}
-
+	
+	
+	//calculate a modifier that changes the rate at which the trainee gains
+	//experience. The modifier equals 1 + ((grade - referenceGrade)/100)
+	protected double getGradeModifier(int referenceGrade, int grade){
+		double res = 0.0;
+		int diff = grade - referenceGrade;
+		
+		res = ((double)diff / 100.0) + 1;
+		
+	
+		return res;
+	}
 }
