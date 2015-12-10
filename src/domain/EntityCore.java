@@ -73,6 +73,12 @@ public class EntityCore extends Entity{
 	public Entity promote(int turn) throws InvalidMethodInvocationException {
 		throw new InvalidMethodInvocationException("Tried promoting entity core on turn " + turn);
 	}
+	
+	//return the grade this entity got as a student
+	@Override
+	protected int getGrade() throws InvalidMethodInvocationException {
+		throw new InvalidMethodInvocationException("Tried retrieving grade from entity core");
+	}
 
 
 

@@ -70,7 +70,7 @@ public class Trainee extends Role {
 	@Override
 	public void performActivity() {
 		double expIncrease = (double)SimulationParameters.TRAINEE_DEFAULT_EXP_INCREASE;
-		int grade = ((Student) (this.core)).getGrade();
+		int grade = this.getGrade();
 		
 		double modifier = getGradeModifier(70, grade);
 		expIncrease *= modifier;

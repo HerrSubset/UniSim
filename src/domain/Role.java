@@ -46,7 +46,19 @@ public abstract class Role extends Entity {
 		return core.getBirthTurn();
 	}
 	
-	
+	//return the grade this entity got as a student
+	@Override
+	protected int getGrade() {
+		int res = 0;
+		
+		try {
+			res = this.core.getGrade();
+		} catch (InvalidMethodInvocationException e){
+			System.out.println(e.getMessage());
+		}
+		
+		return res;
+	}
 	
 	
 	//************************************************************************

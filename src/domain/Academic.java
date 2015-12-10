@@ -76,5 +76,4 @@ public class Academic extends Role {
 		}
 			
 	}
-
 }

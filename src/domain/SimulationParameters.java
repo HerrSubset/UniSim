@@ -27,5 +27,8 @@ public class SimulationParameters {
 	public final static int TRAINEE_DEFAULT_EXP_INCREASE = 2;	//the amount of experience that each trainee gains per turn;
 	public final static int TRAINEE_PROMOTION_EXP = 100;	//the amount of experience a trainee needs before being promoted
 	
+	public final static int CORPORATE_BASE_MONEY_GAIN = 1000;	//how much money a corporate gains every turn (affected by modifier based on grade)
+	public final static int CORPORATE_PARTNER_BONUS_MODIFIER = 10;	//how much percent extra a parnter earns
+	
 	public final static int RETIREMENT_AGE = 420;	//age at which an entity retires
 }

@@ -37,7 +37,9 @@ public class Student extends Role {
 		return "Student";
 	}
 	
-	public int getGrade(){
+	//return the grade this entity got as a student
+	@Override
+	protected int getGrade() {
 		return this.grade;
 	}
 

@@ -45,6 +45,9 @@ public abstract class Entity {
 	
 	public abstract int getBirthTurn();
 	
+	//returns the grade an entity got as a student
+	protected abstract int getGrade() throws InvalidMethodInvocationException;
+	
 	
 	
 	
