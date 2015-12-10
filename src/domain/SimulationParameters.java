@@ -29,6 +29,7 @@ public class SimulationParameters {
 	
 	public final static int CORPORATE_BASE_MONEY_GAIN = 1000;	//how much money a corporate gains every turn (affected by modifier based on grade)
 	public final static int CORPORATE_PARTNER_BONUS_MODIFIER = 10;	//how much percent extra a parnter earns
+	public final static int CORPORATE_PROMOTION_BORDER = 280000;	//mount of money a corporate needs to become partner
 	
 	public final static int RETIREMENT_AGE = 420;	//age at which an entity retires
 }

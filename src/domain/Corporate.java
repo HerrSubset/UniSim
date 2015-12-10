@@ -34,6 +34,10 @@ public class Corporate extends Role {
 
 	@Override
 	public Entity promote(int turn){
+		if (moneyEarned >= SimulationParameters.CORPORATE_PROMOTION_BORDER){
+			this.jobTitle = CorporateRole.PARTNER;
+			this.addToHistory("Became partner in turn " + turn);
+		}
 		return this;
 	}
 
