@@ -10,10 +10,32 @@
 package domain;
 
 public class LectureHall extends Place {
+	//************************************************************************
+	// Getters/Setters
+	//************************************************************************
+	
 	//Returns the letter that represents this type of place on the map.
 	//This letter is "L" in this case.
 	@Override
 	protected String getCharacterRepresentation(){
 		return "L";
+	}
+	
+	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
+	
+	public boolean hasTeacher(){
+		boolean res = false;
+		
+		for (int i = 0; i < this.inhabitants.size() && !res; i++){
+			if (this.inhabitants.get(i) instanceof Academic)
+				res = true;
+		}
+		
+		return res;
 	}
 }

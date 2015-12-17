@@ -23,12 +23,12 @@ public class Student extends Role {
 		Random rand = new Random();
 		this.careerPreference = rand.nextInt(99);
 	}
-
+	
 	
 	
 	
 	//************************************************************************
-	// Other Functions
+	// Getters/Setters
 	//************************************************************************
 	
 	//returns a string representation of the class name
@@ -37,13 +37,28 @@ public class Student extends Role {
 		return "Student";
 	}
 	
+	
+	
 	//return the grade this entity got as a student
 	@Override
 	protected int getGrade() {
 		return this.grade;
 	}
+	
+	
+	
+	// return an "S", the abbreviation for student in this simulation
+	@Override
+	public String getCharacterRepresentation() {
+		return "S";
+	}
 
 	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
 	
 	//checks if the entity can be promoted. If it can, this function creates
 	//a new role that wraps around the current entity. It then returns the
@@ -75,6 +90,7 @@ public class Student extends Role {
 	}
 	
 	
+	
 	//calculates the attendance rate of the student based on the simulation
 	//parameters and then gives a grade based on that.
 	private void calculateGrade(){
@@ -86,26 +102,14 @@ public class Student extends Role {
 
 
 
-	// return an "S", the abbreviation for student in this simulation
-	@Override
-	public String getCharacterRepresentation() {
-		return "S";
-	}
-
-
-
-	//give a student a chance each turn to go to class
+	//Check if the student is in a LectureHall. If this is the case and there's
+	//also a teacher (professor or postdoc) in the hall, increase the amount of 
+	//classes attended.
 	@Override
 	public void performActivity() {
-		Random rand = new Random();
-		
-		int randomNumber = rand.nextInt(100);
-		
-		//check if student goes to class this turn
-		if (randomNumber < SimulationParameters.STUDENT_ATTENDANCE_RATE){
+		Place location = this.getCurrentLocation();
+		if ((location instanceof LectureHall) && ( ((LectureHall)location).hasTeacher()) ){
 			this.classesAttended++;
-			//log that student went to class
-			this.addToHistory("Attended Class");
 		}
 	}
 }

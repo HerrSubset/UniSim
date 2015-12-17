@@ -77,6 +77,13 @@ public abstract class Role extends Entity {
 	
 	
 	
+	@Override
+	public Place getCurrentLocation(){
+		return this.core.getCurrentLocation();
+	}
+	
+	
+	
 	//returns a string representation of the class name
 	public abstract String getRoleString();
 

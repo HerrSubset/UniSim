@@ -45,6 +45,7 @@ public abstract class Entity {
 	
 	public abstract int getBirthTurn();
 	public abstract void setCurrentLocation(Place p);
+	public abstract Place getCurrentLocation();
 	
 	//returns the grade an entity got as a student
 	protected abstract int getGrade() throws InvalidMethodInvocationException;

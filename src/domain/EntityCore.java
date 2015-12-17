@@ -44,6 +44,13 @@ public class EntityCore extends Entity{
 	
 	
 	
+	@Override
+	public Place getCurrentLocation(){
+		return this.currentLocation;
+	}
+	
+	
+	
 	//return the history belonging to this entity
 	@Override
 	public List<String> getHistory() {
