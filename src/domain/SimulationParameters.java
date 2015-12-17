@@ -9,9 +9,18 @@
 package domain;
 
 public class SimulationParameters {
+	//map settings
 	public final static int WORLD_HEIGHT = 4;
 	public final static int WORLD_WIDTH = 4;
-	public final static int NUMBER_OF_ENITIES = 8;
+
+	//# of entities of each type at the start
+	public final static int INIT_STARTING_STUDENTS = 8;
+	public final static int INIT_STARTING_PHD_STUDENTS = 2;
+	public final static int INIT_STARTING_POSTDOCS = 3;
+	public final static int INIT_STARTING_PROFESSORS = 2;
+	public final static int INIT_STARTING_TRAINEES = 5;
+	public final static int INIT_STARTING_CONSULTANTS = 4;
+	public final static int INIT_STARTING_PARTNERS = 1;
 	
 	public final static int ENTITY_SPAWN_CHANCE = 10;	//1% chance of spawning new entities each turn
 	public final static int ENTITY_SPAWN_BOUNDARY_LOWER = 1;	//min amount of entities when new entities spawn
@@ -28,7 +37,7 @@ public class SimulationParameters {
 	public final static int TRAINEE_PROMOTION_EXP = 100;	//the amount of experience a trainee needs before being promoted
 	
 	public final static int CORPORATE_BASE_MONEY_GAIN = 1000;	//how much money a corporate gains every turn (affected by modifier based on grade)
-	public final static int CORPORATE_PARTNER_BONUS_MODIFIER = 10;	//how much percent extra a parnter earns
+	public final static int CORPORATE_PARTNER_BONUS_MODIFIER = 10;	//how much percent extra a partner earns
 	public final static int CORPORATE_PROMOTION_BORDER = 280000;	//mount of money a corporate needs to become partner
 	
 	public final static int RETIREMENT_AGE = 420;	//age at which an entity retires
