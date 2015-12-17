@@ -5,9 +5,18 @@
 ***entities and populations from the rest of the code base.
 **/
 
-package domain;
+package engineModules;
 
 import java.util.Random;
+
+import domain.Academic;
+import domain.Corporate;
+import domain.PhDStudent;
+import domain.Population;
+import domain.SimulationParameters;
+import domain.Student;
+import domain.Trainee;
+import domain.UniSimEngine;
 
 public class PopulationFactory {
 	//************************************************************************

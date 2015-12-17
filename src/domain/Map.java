@@ -24,7 +24,6 @@ public class Map {
 	//************************************************************************
 	public Map(){
 		grid = new ArrayList<Place>();
-		this.populateGrid();
 	}
 	
 	
@@ -44,17 +43,7 @@ public class Map {
 	
 	//************************************************************************
 	// Other Functions
-	//************************************************************************
-	
-	//TODO: REMOVE THIS AND REPLACE WITH FACTORY
-	//puts different places in the grid
-	private void populateGrid(){
-		for(int i = 0; i < SimulationParameters.INIT_NUMBER_OF_PLACES; i++){
-			this.grid.add(new LectureHall());
-		}
-	}
-	
-	
+	//************************************************************************	
 	
 	//return one long string representing the map
 	public List<String> getStringList(){
@@ -87,5 +76,12 @@ public class Map {
 			res = grid.get(index).classnameToString();
 				
 		return res;
+	}
+	
+	
+	
+	//add a given place to the map
+	public void addPlace(Place p){
+		grid.add(p);
 	}
 }

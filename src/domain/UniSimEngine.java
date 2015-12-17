@@ -9,6 +9,8 @@ package domain;
 
 import engineModules.EntityDistributor;
 import engineModules.EntitySpawner;
+import engineModules.MapFactory;
+import engineModules.PopulationFactory;
 import passables.SimulationStateSummary;
 
 public class UniSimEngine {
@@ -23,6 +25,7 @@ public class UniSimEngine {
 	private EntityDistributor distributor;
 	private EntitySpawner spawner;
 	private PopulationFactory popFact;
+	private MapFactory mapFact;
 	
 	
 	
@@ -63,7 +66,8 @@ public class UniSimEngine {
 	//creating an initial population and distributing it over the world
 	public void init(){
 		//load modules
-		this.map = new Map();
+		this.mapFact = new MapFactory();
+		this.map = mapFact.getInitialMap();
 		this.popFact = new PopulationFactory(this);
 		this.population = popFact.getInitialPopulation();
 		this.spawner = new EntitySpawner(population, this);

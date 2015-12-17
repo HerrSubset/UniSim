@@ -24,6 +24,9 @@ public class EntityDistributor {
 	private Map map;
 	private UniSimEngine engine;
 	
+	
+	
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -31,6 +34,8 @@ public class EntityDistributor {
 		this.map = map;
 		this.engine = engine;
 	}
+	
+	
 	
 	
 	//************************************************************************
