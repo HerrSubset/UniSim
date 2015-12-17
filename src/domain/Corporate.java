@@ -31,16 +31,30 @@ public class Corporate extends Role {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	
+	//this method is public because the PopulationFactory needs to be able to 
+	//promote newly created consultants to partner level
+	public void promoteToPartner(int turn){
+		this.jobTitle = CorporateRole.PARTNER;
+		this.addToHistory("Became partner in turn " + turn);
+	}
 
+	
+	
+	//check if the corporate can be promoted and do so if possible
 	@Override
 	public Entity promote(int turn){
 		if (moneyEarned >= SimulationParameters.CORPORATE_PROMOTION_BORDER){
-			this.jobTitle = CorporateRole.PARTNER;
-			this.addToHistory("Became partner in turn " + turn);
+			this.promoteToPartner(turn);
 		}
 		return this;
 	}
 
+	
+	
+	//return 'C' for consultants and 'Pa' for partners
 	@Override
 	public String getCharacterRepresentation() {
 		String res = "C";
@@ -51,6 +65,8 @@ public class Corporate extends Role {
 		return res;
 	}
 
+	
+	
 	//let the corporate earn money. The rate at which money is earned depends
 	//on his university grade and a 
 	@Override

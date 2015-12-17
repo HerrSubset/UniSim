@@ -31,7 +31,21 @@ public class Academic extends Role {
 	//************************************************************************
 	@Override
 	public String getRoleString() {
-		return "PhD";
+		String res = "PhD";
+		
+		if (this.title == AcademicRole.PROFESSOR)
+			res = "Professor";
+		
+		return res;
+	}
+	
+	
+	
+	//this function is public because it is used to create professors in the
+	//PopulationFactory.
+	public void promoteToProfessor(int turn){
+		this.title = AcademicRole.PROFESSOR;
+		this.addToHistory("Promoted to professor on turn " + turn);
 	}
 
 	
@@ -39,8 +53,7 @@ public class Academic extends Role {
 	@Override
 	public Entity promote(int turn){
 		if (this.amountOfPapers >= SimulationParameters.PROFESSOR_PROMOTION_PAPER_MIN){
-			this.title = AcademicRole.PROFESSOR;
-			this.addToHistory("Promoted to professor on turn " + turn);
+			this.promoteToProfessor(turn);
 		}
 		
 		return this;

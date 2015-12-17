@@ -46,6 +46,14 @@ public class Student extends Role {
 	}
 	
 	
+	//this method is used in the PopulationFactory to create entities that are
+	//already past student stage. Often they need a grade and this is the way
+	//a grade is set for them.
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	
+	
 	
 	// return an "S", the abbreviation for student in this simulation
 	@Override

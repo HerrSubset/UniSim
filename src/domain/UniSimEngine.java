@@ -22,6 +22,7 @@ public class UniSimEngine {
 	//engine modules
 	private EntityDistributor distributor;
 	private EntitySpawner spawner;
+	private PopulationFactory popFact;
 	
 	
 	
@@ -61,28 +62,15 @@ public class UniSimEngine {
 	//initialize the engine. This consists of creating all engine modules,
 	//creating an initial population and distributing it over the world
 	public void init(){
-		//set modules
+		//load modules
 		this.map = new Map();
-		this.population = new Population();
+		this.popFact = new PopulationFactory(this);
+		this.population = popFact.getInitialPopulation();
 		this.spawner = new EntitySpawner(population, this);
 		this.distributor = new EntityDistributor(map, this);
 		
 		//create initial population
-		createPopulation();
 		distributePopulation();
-	}
-	
-	
-	
-	//create a number of entities, according to how the simulation's
-	//parameters are configured. Then add the entities to the population
-	private void createPopulation(){
-		int entitiesAmount = SimulationParameters.NUMBER_OF_ENITIES;
-		
-		//create students
-		for (int i = 0; i < entitiesAmount ; i++ ){
-			this.population.add(new Student(turn));
-		}
 	}
 	
 	
