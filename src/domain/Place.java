@@ -28,7 +28,12 @@ public class Place {
 	// Other Functions
 	//************************************************************************
 	public String toString(){
-		return "P|" + getInhabitantString();
+		return getCharacterRepresentation() + "|" + getInhabitantString();
+	}
+	
+	
+	protected String getCharacterRepresentation(){
+		return "P";
 	}
 	
 	

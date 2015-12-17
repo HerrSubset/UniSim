@@ -65,7 +65,7 @@ public class Map {
 	private void populateGrid(){
 		for(int i = 0; i < grid.length; i++){
 			for (int j = 0; j < grid[0].length; j++){
-				grid[i][j] = new Place();
+				grid[i][j] = new LectureHall();
 			}
 		}
 	}
