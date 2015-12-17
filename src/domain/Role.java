@@ -27,6 +27,8 @@ public abstract class Role extends Entity {
 		this.core = new EntityCore(turnCreated, this);
 	}
 	
+	
+	
 	public Role(int turnCreated, Entity core){
 		super(turnCreated);
 		this.core = core;
@@ -42,9 +44,13 @@ public abstract class Role extends Entity {
 		return this.turnCreated;
 	}
 	
+	
+	
 	public int getBirthTurn(){
 		return core.getBirthTurn();
 	}
+	
+	
 	
 	//return the grade this entity got as a student
 	@Override
@@ -54,6 +60,8 @@ public abstract class Role extends Entity {
 		try {
 			res = this.core.getGrade();
 		} catch (InvalidMethodInvocationException e){
+			//this error is thrown if the entity never was a student
+			//(the call reaches the EntityCore object)
 			System.out.println(e.getMessage());
 		}
 		
@@ -61,17 +69,10 @@ public abstract class Role extends Entity {
 	}
 	
 	
-	//************************************************************************
-	// Other Functions
-	//************************************************************************
 	
-	//returns the state of this entity
 	@Override
-	public EntityState getState() {
-		List<String> history = core.getHistory();
-		int id = core.getID();
-		
-		return new EntityState(id, getRoleString(), history);
+	public void setCurrentLocation(Place p){
+		this.core.setCurrentLocation(p);
 	}
 	
 	
@@ -97,12 +98,29 @@ public abstract class Role extends Entity {
 	
 	
 	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
+	
+	//returns the state of this entity
+	@Override
+	public EntityState getState() {
+		List<String> history = core.getHistory();
+		int id = core.getID();
+		
+		return new EntityState(id, getRoleString(), history);
+	}
+	
+	
+	
 	//add a string to this entity's history. The history resides in the
 	//entity's EntityCore
 	@Override
 	public void addToHistory(String historyItem) {
 		core.addToHistory(historyItem);
 	}
+	
 	
 	
 	//calculate a modifier that changes the rate at which the trainee gains

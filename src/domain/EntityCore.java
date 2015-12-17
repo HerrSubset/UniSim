@@ -6,6 +6,7 @@ import java.util.List;
 import passables.EntityState;
 
 public class EntityCore extends Entity{
+	protected Place currentLocation;
 	private static int entityCount = 0;
 	
 	private List<String> history;
@@ -34,16 +35,23 @@ public class EntityCore extends Entity{
 	
 	
 	//************************************************************************
-	// Other Functions
+	// Setters/Getters
 	//************************************************************************
-
-	//add a new string to the entity's history
-	public void addToHistory(String historyItem) {
-		this.history.add(historyItem);
+	@Override
+	public void setCurrentLocation(Place p){
+		this.currentLocation = p;
 	}
-
-
-
+	
+	
+	
+	//return the history belonging to this entity
+	@Override
+	public List<String> getHistory() {
+		return this.history;
+	}
+	
+	
+	
 	//returns the state of this entity
 	@Override
 	public EntityState getState() {
@@ -51,18 +59,45 @@ public class EntityCore extends Entity{
 	}
 
 
-	
-	//return the history belonging to this entity
-	@Override
-	public List<String> getHistory() {
-		return this.history;
-	}
-
-
 
 	@Override
 	public int getID() {
 		return this.id;
+	}
+	
+	
+	
+	//return the grade this entity got as a student
+	@Override
+	protected int getGrade() throws InvalidMethodInvocationException {
+		throw new InvalidMethodInvocationException("Tried retrieving grade from entity core");
+	}
+	
+	
+	
+	//return "Ec", the abbreviation for EntityCore in this simulation
+	@Override
+	public String getCharacterRepresentation() {
+		return "Ec";
+	}
+	
+	
+	
+	@Override
+	public int getBirthTurn() {
+		return this.turnCreated;
+	}
+	
+	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
+
+	//add a new string to the entity's history
+	public void addToHistory(String historyItem) {
+		this.history.add(historyItem);
 	}
 
 
@@ -73,34 +108,12 @@ public class EntityCore extends Entity{
 	public Entity promote(int turn) throws InvalidMethodInvocationException {
 		throw new InvalidMethodInvocationException("Tried promoting entity core on turn " + turn);
 	}
-	
-	//return the grade this entity got as a student
-	@Override
-	protected int getGrade() throws InvalidMethodInvocationException {
-		throw new InvalidMethodInvocationException("Tried retrieving grade from entity core");
-	}
-
-
-
-	//return "Ec", the abbreviation for EntityCore in this simulation
-	@Override
-	public String getCharacterRepresentation() {
-		return "Ec";
-	}
 
 
 
 	//an entity core has no activity so leave this blank
 	@Override
 	public void performActivity() {
-		// TODO Auto-generated method stub
-	}
-
-
-
-
-	@Override
-	public int getBirthTurn() {
-		return this.turnCreated;
+		// empty function
 	}
 }
