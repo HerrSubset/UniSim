@@ -13,127 +13,79 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import passables.Coordinate;
-
 public class Map {
 	//************************************************************************
 	// Variables
 	//************************************************************************
-	private Place[][] grid;
+	private List<Place> grid;
 	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
 	public Map(){
-		int h = SimulationParameters.WORLD_HEIGHT;
-		int w = SimulationParameters.WORLD_WIDTH;
-		grid = new Place[w][h];
+		grid = new ArrayList<Place>();
 		this.populateGrid();
 	}
+	
+	
 	
 	
 	//************************************************************************
 	// Getters/Setters
 	//************************************************************************
-	public int getMapHeight(){
-		return grid[0].length;
-	}
-	
-	public int getMapWidth(){
-		return grid.length;
-	}
-	
+
 	//return a list of all Place objects on the map
 	public List<Place> getPlaces(){
-		ArrayList<Place> res = new ArrayList<Place>();
-		
-		for(int i = 0; i < grid.length; i++){
-			for (int j = 0; j < grid[0].length; j++){
-				res.add(grid[i][j]);
-			}
-		}
-		
-		return res;
+		return this.grid;
 	}
+	
+	
 	
 	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
 	
+	//TODO: REMOVE THIS AND REPLACE WITH FACTORY
 	//puts different places in the grid
 	private void populateGrid(){
-		for(int i = 0; i < grid.length; i++){
-			for (int j = 0; j < grid[0].length; j++){
-				grid[i][j] = new LectureHall();
-			}
+		for(int i = 0; i < SimulationParameters.INIT_NUMBER_OF_PLACES; i++){
+			this.grid.add(new LectureHall());
 		}
 	}
+	
+	
 	
 	//return one long string representing the map
-	public String toString(){
-		//TODO build string with stringbuilder
-		String res = "";
-		int minLength = getMaxPlaceRepresentationLenght() +1;
+	public List<String> getStringList(){
+		ArrayList<String> res = new ArrayList<String>();
 		
-		//external loop for selecting rows
-		for(int i = 0; i < grid[0].length; i++){
-			//internal loop for selecting columns
-			for (int j = 0; j < grid.length; j++){
-				String tmp = grid[j][i].toString();
-				
-				//make res long enough to fit the biggest entry
-				while (tmp.length() < minLength){
-					tmp += " ";
-				}
-				
-				res += tmp;
-			}
-			res += "\n";
-		}
-		
-		return res;
-	}
-	
-	
-	
-	//checks all Places' string representation length and returns the biggest
-	private int getMaxPlaceRepresentationLenght(){
-		int res = 0;
-		
-		for(int i = 0; i < grid.length; i++){
-			for (int j = 0; j < grid[0].length; j++){
-				if (grid[i][j].toString().length() > res)
-					res = grid[i][j].toString().length();
-			}
+		for (int i = 0; i < grid.size(); i++){
+			res.add( grid.get(i).toString() );
 		}
 		
 		return res;
 	}
 
 
+	
 	//remove all entities from all places
 	public void clear() {
-		for(int i = 0; i < grid.length; i++){
-			for (int j = 0; j < grid[0].length; j++){
-				grid[i][j].clear();
-			}
+		for(int i = 0; i < grid.size(); i++){
+			grid.get(i).clear();
 		}
 	}
-
 	
-	//find the given place on the grid and return it's coordinates
-	public Coordinate getCoordinate(Place p) {
-		Coordinate res = null;
+	
+	
+	public String getPlaceName(Place p){
+		String res = "";
 		
-		for (int i = 0; i < grid.length; i++){
-			for (int j = 0; j < grid[0].length; j++){
-				if (grid[i][j] == p){
-					res = new Coordinate(i,j);
-				}
-			}
-		}
+		int index = grid.indexOf(p);
 		
+		if (index > -1)
+			res = grid.get(index).toString();
+				
 		return res;
 	}
 }

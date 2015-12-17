@@ -115,10 +115,8 @@ public class UniSimEngine {
 	//create and return a passable object that summarizes the simulation's
 	//current status
 	public SimulationStateSummary getCurrentStatus() {
-		int w = map.getMapWidth();
-		int h = map.getMapHeight();
 		int inh = this.population.size();
 		
-		return new SimulationStateSummary(w, h, inh, turn);
+		return new SimulationStateSummary(inh, turn);
 	}
 }

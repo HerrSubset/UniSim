@@ -16,7 +16,6 @@ import domain.Entity;
 import domain.Map;
 import domain.Place;
 import domain.UniSimEngine;
-import passables.Coordinate;
 
 public class EntityDistributor {
 	//************************************************************************
@@ -59,9 +58,9 @@ public class EntityDistributor {
 			Entity e = population.get(i);
 			
 			//add new history item to entity saying it moved
-			Coordinate c = map.getCoordinate(p);
-			String historyItem = "Turn " + engine.getTurn() + ": moved to ("
-						+ c.x + ", " + c.y + ")";
+			String name = map.getPlaceName(p);
+			String historyItem = "Turn " + engine.getTurn() + ": moved to "
+						+ name;
 			e.addToHistory(historyItem);
 			
 			//store entity

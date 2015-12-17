@@ -12,8 +12,6 @@ public class SimulationStateSummary {
 	//************************************************************************
 	// Variables
 	//************************************************************************
-	public final int mapWidth;
-	public final int mapHeight;
 	public final int inhabitantsNumber;
 	public final int turn;
 	
@@ -22,9 +20,7 @@ public class SimulationStateSummary {
 	// Constructor
 	//************************************************************************
 	
-	public SimulationStateSummary(int mapWidth, int mapHeight, int inhabitants, int turn){
-		this.mapWidth = mapWidth;
-		this.mapHeight = mapHeight;
+	public SimulationStateSummary(int inhabitants, int turn){
 		this.inhabitantsNumber = inhabitants;
 		this.turn = turn;
 	}

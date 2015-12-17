@@ -10,8 +10,7 @@ package domain;
 
 public class SimulationParameters {
 	//map settings
-	public final static int WORLD_HEIGHT = 4;
-	public final static int WORLD_WIDTH = 4;
+	public final static int INIT_NUMBER_OF_PLACES = 16;
 
 	//# of entities of each type at the start
 	public final static int INIT_STARTING_STUDENTS = 8;
