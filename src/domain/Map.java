@@ -84,7 +84,7 @@ public class Map {
 		int index = grid.indexOf(p);
 		
 		if (index > -1)
-			res = grid.get(index).toString();
+			res = grid.get(index).classnameToString();
 				
 		return res;
 	}

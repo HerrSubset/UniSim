@@ -38,4 +38,10 @@ public class LectureHall extends Place {
 		
 		return res;
 	}
+	
+	
+	@Override
+	public String classnameToString(){
+		return "LectureHall";
+	}
 }

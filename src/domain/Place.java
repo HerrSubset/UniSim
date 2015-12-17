@@ -31,6 +31,10 @@ public class Place {
 		return getCharacterRepresentation() + "|" + getInhabitantString();
 	}
 	
+	public String classnameToString(){
+		return "Place";
+	}
+	
 	
 	protected String getCharacterRepresentation(){
 		return "P";
