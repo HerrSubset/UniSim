@@ -55,7 +55,7 @@ public class SimulationMenu extends Menu {
 			printCurrentStatus(simulationController.getCurrentStatus());
 		
 		else if (actionNumber == 3)
-			System.out.println(simulationController.getMapString());
+			printMap(simulationController.getMapStrings());
 		
 		else if (actionNumber == 4)
 			printEntityHistories(simulationController.getEntityHistories());
@@ -73,6 +73,8 @@ public class SimulationMenu extends Menu {
 		System.out.format("-Inhabitants:\t%d\n", state.inhabitantsNumber);
 	}
 	
+	
+	
 	//tell the simulation engine to go forward a certain amount of turns
 	private void runSimulation(){
 		int input = this.getUserInt("\nHow many turns do you want to let the simulation run?");
@@ -83,6 +85,57 @@ public class SimulationMenu extends Menu {
 			System.err.format("ERROR: %s", e.getMessage());
 		}
 	}
+	
+	
+	
+	//Get the string representation of every place on the map and print it to
+	//the screen.
+	private void printMap(List<String> places){
+		int placesPerLine = 4;
+		int longestString = getLongestString(places);
+		
+		for (int i = 0; i < places.size(); i += placesPerLine){
+			for (int j = 0; j < placesPerLine ; j++){
+				if ( (i +j) < places.size()){
+					String output = stretch(places.get(i + j), longestString + 1);
+					System.out.print(output);
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	
+	//take a list of string and return the length of the longest one
+	private int getLongestString(List<String> stringList){
+		int res = 0;
+		
+		for (int i = 0; i < stringList.size(); i++){
+			if (stringList.get(i).length() > res)
+				res = stringList.get(i).length();
+		}
+		
+		return res;
+	}
+	
+	
+	
+	//take a string and append spaces until it's the given length
+	private String stretch(String s, int l){
+		StringBuilder res = new StringBuilder(s);
+		
+		//calculate number of spaces that have to be appended
+		int numberOfSpaces = l - s.length();
+		
+		for (int i = 0; i < numberOfSpaces; i++){
+			res.append(" ");
+		}
+		
+		return res.toString();
+	}
+	
+	
 	
 	//print out all entities' histories
 	private void printEntityHistories(List<EntityState> states){

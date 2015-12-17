@@ -43,8 +43,8 @@ public class UniSimController {
 	}
 	
 	//return a string that represents the current world map
-	public String getMapString() {
-		return map.toString();
+	public List<String> getMapStrings() {
+		return map.getStringList();
 	}
 
 	//get the current status of the simulation
