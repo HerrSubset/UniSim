@@ -28,8 +28,12 @@ public class Corporate extends Role {
 	//************************************************************************
 	@Override
 	public String getRoleString() {
-		// TODO Auto-generated method stub
-		return null;
+		String res = "Consultant";
+		
+		if (this.jobTitle == CorporateRole.PARTNER)
+			res = "Partner";
+		
+		return res;
 	}
 	
 	
