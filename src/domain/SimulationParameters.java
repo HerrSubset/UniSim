@@ -33,10 +33,10 @@ public class SimulationParameters {
 	public final static int PHD_STUDENT_LECTURE_HALL_DESTINATION_CHANCE = 50;	//chance of phdstudent going to a lecture hall each turn
 	
 	public final static int PHD_MIN_ACCEPTANCE_SCORE = 85;	//minimum grade a student needs to become a PHDStudent
-	public final static int PHD_LECTURE_HALL_DESTINATION_CHANCE = 60;
+	public final static int PHD_LECTURE_HALL_DESTINATION_CHANCE = 70;
 	
 	public final static int PROFESSOR_PROMOTION_PAPER_MIN = 100;	//amount of papers a post-doc needs to be promoted to professor
-	public final static int PROFESSOR_LECTURE_HALL_DESTINATION_CHANCE = 60;
+	public final static int PROFESSOR_LECTURE_HALL_DESTINATION_CHANCE = 70;
 	
 	public final static int TRAINEE_DEFAULT_EXP_INCREASE = 2;	//the amount of experience that each trainee gains per turn;
 	public final static int TRAINEE_PROMOTION_EXP = 100;	//the amount of experience a trainee needs before being promoted
