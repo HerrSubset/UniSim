@@ -118,6 +118,7 @@ public class Student extends Role {
 		Place location = this.getCurrentLocation();
 		if ((location instanceof LectureHall) && ( ((LectureHall)location).hasTeacher()) ){
 			this.classesAttended++;
+			this.addToHistory("Went to class");
 		}
 	}
 }

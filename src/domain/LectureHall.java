@@ -31,7 +31,7 @@ public class LectureHall extends Place {
 	public boolean hasTeacher(){
 		boolean res = false;
 		
-		for (int i = 0; i < this.inhabitants.size() && !res; i++){
+		for (int i = 0; i < this.inhabitants.size(); i++){
 			if (this.inhabitants.get(i) instanceof Academic)
 				res = true;
 		}

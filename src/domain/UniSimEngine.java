@@ -68,8 +68,10 @@ public class UniSimEngine {
 		//load modules
 		this.mapFact = new MapFactory();
 		this.map = mapFact.getInitialMap();
+		
 		this.popFact = new PopulationFactory(this);
 		this.population = popFact.getInitialPopulation();
+		
 		this.spawner = new EntitySpawner(population, this);
 		this.distributor = new EntityDistributor(map, this);
 		
