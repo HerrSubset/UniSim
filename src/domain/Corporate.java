@@ -20,6 +20,16 @@ public class Corporate extends Role {
 		this.addToHistory("Became Consultant in turn " + turnCreated);
 	}
 	
+	
+	
+	
+	//************************************************************************
+	// Getters/Setters
+	//************************************************************************
+	public CorporateRole getJobTitle(){
+		return this.jobTitle;
+	}
+	
 		
 		
 		

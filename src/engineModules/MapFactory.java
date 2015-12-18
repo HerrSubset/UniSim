@@ -4,7 +4,6 @@ import domain.LectureHall;
 import domain.Map;
 import domain.Place;
 import domain.SimulationParameters;
-import domain.UniSimEngine;
 
 public class MapFactory {	
 

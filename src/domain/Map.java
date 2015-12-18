@@ -11,6 +11,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 public class Map {
@@ -40,10 +41,42 @@ public class Map {
 	
 	
 	
+	//return a hash where all places are sorted by type
+	public Hashtable<PlaceType, List<Place>> getPlacesHash(){
+		Hashtable<PlaceType, List<Place>> res = new Hashtable<PlaceType, List<Place>>();
+		
+		for (int i = 0; i < grid.size(); i++ ){
+			Place p = grid.get(i);
+			
+			if (p instanceof LectureHall)
+				addToHash(p, res, PlaceType.LECTUREHALL);
+			
+			else
+				addToHash(p, res, PlaceType.PLACE);
+			
+		}
+		
+		return res;
+	}
+	
+	
+	
 	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************	
+	
+	//appends a place to the right place in the hash. This is a helper function
+	//for the getPlacesHash function.
+	private void addToHash(Place p, Hashtable<PlaceType, List<Place>> hash, PlaceType type){
+		if (hash.get(type) != null)
+			hash.get(type).add(p);
+		
+		else {
+			hash.put(type, new ArrayList<Place>());
+			hash.get(type).add(p);
+		}
+	}
 	
 	//return one long string representing the map
 	public List<String> getStringList(){

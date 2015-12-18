@@ -9,12 +9,22 @@
 
 package engineModules;
 
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 
+import domain.Academic;
+import domain.AcademicRole;
+import domain.Corporate;
+import domain.CorporateRole;
 import domain.Entity;
 import domain.Map;
+import domain.PhDStudent;
 import domain.Place;
+import domain.PlaceType;
+import domain.SimulationParameters;
+import domain.Student;
+import domain.Trainee;
 import domain.UniSimEngine;
 
 public class EntityDistributor {
@@ -22,7 +32,7 @@ public class EntityDistributor {
 	// Variables
 	//************************************************************************
 	private Map map;
-	private UniSimEngine engine;
+	private Random rand = new Random();
 	
 	
 	
@@ -32,7 +42,6 @@ public class EntityDistributor {
 	//************************************************************************
 	public EntityDistributor(Map map, UniSimEngine engine){
 		this.map = map;
-		this.engine = engine;
 	}
 	
 	
@@ -48,28 +57,128 @@ public class EntityDistributor {
 		//remove all entities from the map
 		map.clear();
 		
-		List<Place> places = map.getPlaces();
+		Hashtable<PlaceType, List<Place>> places = map.getPlacesHash();
 		
 		
 		//distribute entities over all places
 		for (int i = 0; i < population.size(); i++ ){
-			//create random index to store the entity
-			//the random number is in the range 0 - places.size()
-			Random generator = new Random();
-			int index = generator.nextInt(places.size());
+			Entity currentPerson = population.get(i);
+			//find where this person wants to go to
+			PlaceType destination = getDestination(currentPerson);
 			
-			//entity will be stored in this place
-			Place p = places.get(index);
-			Entity e = population.get(i);
-			
-			//add new history item to entity saying it moved
-			String name = map.getPlaceName(p);
-			String historyItem = "Turn " + engine.getTurn() + ": moved to "
-						+ name;
-			e.addToHistory(historyItem);
-			
-			//store entity
-			p.add(e);
+			//store person in one of those places
+			store(currentPerson, places.get(destination));
 		}
+	}
+	
+	
+	
+	//take an entity and a list of places. Store the person in one of the
+	//places at random.
+	private void store(Entity e, List<Place> list) {
+		int index = rand.nextInt(list.size());
+		list.get(index).add(e);
+	}
+
+
+
+
+	//************************************************************************
+	// Destination Related Functions
+	//************************************************************************
+	private PlaceType getDestination(Entity e){
+		PlaceType res = PlaceType.PLACE;
+		
+		if (e instanceof Student)
+			res = getStudentDestination();
+		
+		if (e instanceof PhDStudent)
+			res = getPhDStudentDestination();
+		
+		if (e instanceof Academic)
+			res = getAcademicDestination(e);
+		
+		if (e instanceof Trainee)
+			res = getTraineeDestination();
+		
+		if (e instanceof Corporate)
+			res = getCorporateDestination(e);
+		
+		return res;
+	}
+	
+	
+	
+	//return a student's destination based on the simulation parameters
+	private PlaceType getStudentDestination(){
+		PlaceType res = PlaceType.PLACE;
+		int random = rand.nextInt(100);
+		
+		if (random < SimulationParameters.STUDENT_LECTURE_HALL_DESTINATION_CHANCE)
+			res = PlaceType.LECTUREHALL;
+		
+		return res;
+	}
+	
+	
+	
+	//return a phdstudent's destination based on the simulation parameters
+	private PlaceType getPhDStudentDestination(){
+		PlaceType res = PlaceType.PLACE;
+		int random = rand.nextInt(100);
+		
+		if (random < SimulationParameters.PHD_STUDENT_LECTURE_HALL_DESTINATION_CHANCE)
+			res = PlaceType.LECTUREHALL;
+		
+		return res;
+	}
+	
+	
+	
+	//return an academic's destination based on the simulation parameters
+	private PlaceType getAcademicDestination(Entity e){
+		Academic a = (Academic) e;
+		PlaceType res = PlaceType.PLACE;
+		int random = rand.nextInt(100);
+		
+		if (a.getTitle() == AcademicRole.POSTDOC){
+			if (random < SimulationParameters.PHD_LECTURE_HALL_DESTINATION_CHANCE)
+				res = PlaceType.LECTUREHALL;
+		} else {
+			if (random < SimulationParameters.PROFESSOR_LECTURE_HALL_DESTINATION_CHANCE)
+				res = PlaceType.LECTUREHALL;
+		}
+		return res;
+	}
+	
+	
+	
+	//return a tranee's destination based on the simulation parameters
+	private PlaceType getTraineeDestination(){
+		PlaceType res = PlaceType.PLACE;
+		int random = rand.nextInt(100);
+		
+		if (random < SimulationParameters.TRAINEE_LECTURE_HALL_DESTINATION_CHANCE)
+			res = PlaceType.LECTUREHALL;
+		
+		return res;
+	}
+	
+	
+	
+	//return a corporate's destination based on the simulation parameters
+	private PlaceType getCorporateDestination(Entity e){
+		Corporate c = (Corporate) e;
+		PlaceType res = PlaceType.PLACE;
+		int random = rand.nextInt(100);
+		
+		if (c.getJobTitle() == CorporateRole.CONSULTANT){
+			if (random < SimulationParameters.CONSULTANT_LECTURE_HALL_DESTINATION_CHANCE)
+				res = PlaceType.LECTUREHALL;
+		} else {
+			if (random < SimulationParameters.PARTNER_LECTURE_HALL_DESTINATION_CHANCE)
+				res = PlaceType.LECTUREHALL;
+		}
+		return res;
 	}
 }

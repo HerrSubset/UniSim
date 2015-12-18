@@ -41,6 +41,12 @@ public class Academic extends Role {
 	
 	
 	
+	public AcademicRole getTitle(){
+		return this.title;
+	}
+	
+	
+	
 	//this function is public because it is used to create professors in the
 	//PopulationFactory.
 	public void promoteToProfessor(int turn){
