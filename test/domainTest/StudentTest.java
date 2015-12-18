@@ -20,6 +20,8 @@ public class StudentTest {
 		int classes = s.getClassesAttended();
 		lh.add(s);
 		
+		assertEquals("Student's location has to be updated upon adding him to a location", s.getCurrentLocation(), lh);
+		
 		//make student follow class
 		s.performActivity();
 		

@@ -64,5 +64,6 @@ public class Place {
 	//add an entity to this place
 	public void add(Entity entity) {
 		this.inhabitants.add(entity);
+		entity.setCurrentLocation(this);
 	}
 }
