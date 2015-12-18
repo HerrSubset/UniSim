@@ -18,6 +18,7 @@ import domain.AcademicRole;
 import domain.Corporate;
 import domain.CorporateRole;
 import domain.Entity;
+import domain.LectureHall;
 import domain.Map;
 import domain.PhDStudent;
 import domain.Place;
@@ -67,7 +68,7 @@ public class EntityDistributor {
 			PlaceType destination = getDestination(currentPerson);
 			
 			//store person in one of those places
-			store(currentPerson, places.get(destination));
+			store(currentPerson, places.get(destination), destination);
 		}
 	}
 	
@@ -75,11 +76,44 @@ public class EntityDistributor {
 	
 	//take an entity and a list of places. Store the person in one of the
 	//places at random.
-	private void store(Entity e, List<Place> list) {
+	private void store(Entity e, List<Place> list, PlaceType dest) {
+		if (e instanceof Academic && dest == PlaceType.LECTUREHALL)
+			storeTeacher(e, list);
+		else 
+			storeRandom(e,list);
+	}
+	
+	
+	
+	//store an entity in a random place in the list
+	private void storeRandom(Entity e, List<Place> list){
 		int index = rand.nextInt(list.size());
 		list.get(index).add(e);
 	}
-
+	
+	
+	
+	//store a teacher in a place in the list. If there's still a place without
+	//a teacher, send the teacher there. If all spots are filled, send the 
+	//teacher to a random location
+	private void storeTeacher(Entity e, List<Place> list){
+		
+		//boolean to check if the teacher is stored in the following for loop.
+		//It also breaks the loop upon storing the teacher
+		boolean teacherWasStored = false;
+		
+		for ( int i = 0; i < list.size() && !teacherWasStored; i++ ){
+			LectureHall lh = (LectureHall) list.get(i);
+			if (lh.hasTeacher() == false) {
+				lh.add(e);
+				teacherWasStored = true;
+			}
+		}
+		
+		//if the teacher was not stored in a lecturehall, select a random one
+		if ( !teacherWasStored )
+			storeRandom(e, list);
+	}
 
 
 
