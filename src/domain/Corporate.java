@@ -60,7 +60,8 @@ public class Corporate extends Role {
 	//check if the corporate can be promoted and do so if possible
 	@Override
 	public Entity promote(int turn){
-		if (moneyEarned >= SimulationParameters.CORPORATE_PROMOTION_BORDER){
+		if (moneyEarned >= SimulationParameters.CORPORATE_PROMOTION_BORDER 
+						&& this.jobTitle != CorporateRole.PARTNER){
 			this.promoteToPartner(turn);
 		}
 		return this;
