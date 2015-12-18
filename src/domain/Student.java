@@ -60,6 +60,12 @@ public class Student extends Role {
 	public String getCharacterRepresentation() {
 		return "S";
 	}
+	
+	
+	
+	public int getClassesAttended(){
+		return this.classesAttended;
+	}
 
 	
 	
