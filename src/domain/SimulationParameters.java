@@ -12,6 +12,7 @@ public class SimulationParameters {
 	//map settings
 	public final static int INIT_NUMBER_OF_PLACES = 11;
 	public final static int INIT_NUMBER_OF_LECTURE_HALLS = 5;
+	public final static int INIT_NUMBER_OF_BARS = 2;
 
 	//# of entities of each type at the start
 	public final static int INIT_STARTING_STUDENTS = 8;

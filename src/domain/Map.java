@@ -51,6 +51,9 @@ public class Map {
 			if (p instanceof LectureHall)
 				addToHash(p, res, PlaceType.LECTUREHALL);
 			
+			if (p instanceof Bar)
+				addToHash(p, res, PlaceType.BAR);
+			
 			else
 				addToHash(p, res, PlaceType.PLACE);
 			

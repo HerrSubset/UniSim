@@ -1,5 +1,6 @@
 package engineModules;
 
+import domain.Bar;
 import domain.LectureHall;
 import domain.Map;
 import domain.Place;
@@ -21,6 +22,11 @@ public class MapFactory {
 		//add Lecture halls
 		for (int i = 0; i < SimulationParameters.INIT_NUMBER_OF_LECTURE_HALLS; i++){
 			res.addPlace(new LectureHall());
+		}
+		
+		//add Bars
+		for (int i = 0; i < SimulationParameters.INIT_NUMBER_OF_BARS; i++){
+			res.addPlace(new Bar());
 		}
 		
 		return res;
