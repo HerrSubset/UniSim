@@ -81,7 +81,7 @@ public class Academic extends Role {
 	
 	
 	@Override
-	public void performActivity() {
+	public void handleSpecificActivity() {
 		Random rand = new Random();
 		
 		//assume people work until 60 years old and start studing at 18
@@ -94,5 +94,12 @@ public class Academic extends Role {
 			this.addToHistory("Wrote paper");
 		}
 			
+	}
+
+
+
+	@Override
+	public void drink() {
+		this.setDrunkTurns(SimulationParameters.ACADEMIC_DRUNK_TURNS);
 	}
 }

@@ -12,6 +12,7 @@ public class EntityCore extends Entity{
 	private List<String> history;
 	private int id;
 	private Role originalRole;
+	private int drunkTurns = 0;
 	
 	
 	//************************************************************************
@@ -97,6 +98,20 @@ public class EntityCore extends Entity{
 	
 	
 	
+	@Override
+	public void setDrunkTurns(int turns) {
+		this.drunkTurns = turns;		
+	}
+
+
+
+	@Override
+	public int getDrunkTurns() {
+		return this.drunkTurns;
+	}
+	
+	
+	
 	
 	//************************************************************************
 	// Other Functions
@@ -109,6 +124,14 @@ public class EntityCore extends Entity{
 
 
 	
+	//************************************************************************
+	// Empty Functions
+	//
+	// Because of the design with the Entity superclass, sometimes this class
+	// has to implement functions that are not useful for it. These functions
+	// are usuall left empty and can be found underneath.
+	//************************************************************************
+	
 	//this method can not be called on EntityCore objects
 	//TODO write own InvalidMethodException
 	@Override
@@ -120,7 +143,17 @@ public class EntityCore extends Entity{
 
 	//an entity core has no activity so leave this blank
 	@Override
-	public void performActivity() {
-		// empty function
-	}
+	public void performActivity() {}
+
+
+
+	//entitycores don't drink, hence the empty function
+	@Override
+	public void drink() {}
+
+
+
+	//entitycores don't do anything, hence the empty function
+	@Override
+	public void handleSpecificActivity() {}
 }

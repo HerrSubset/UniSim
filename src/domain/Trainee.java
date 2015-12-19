@@ -68,7 +68,7 @@ public class Trainee extends Role {
 	//turn depends on a simulation parameter and the trainee's final grade at 
 	//university.
 	@Override
-	public void performActivity() {
+	public void handleSpecificActivity() {
 		double expIncrease = (double)SimulationParameters.TRAINEE_DEFAULT_EXP_INCREASE;
 		int grade = this.getGrade();
 		
@@ -76,5 +76,12 @@ public class Trainee extends Role {
 		expIncrease *= modifier;
 		
 		this.experience += expIncrease;		
+	}
+
+	
+	
+	@Override
+	public void drink() {
+		this.setDrunkTurns(SimulationParameters.TRAINEE_DRUNK_TURNS);
 	}
 }

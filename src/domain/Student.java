@@ -120,11 +120,18 @@ public class Student extends Role {
 	//also a teacher (professor or postdoc) in the hall, increase the amount of 
 	//classes attended.
 	@Override
-	public void performActivity() {
+	public void handleSpecificActivity() {
 		Place location = this.getCurrentLocation();
 		if ((location instanceof LectureHall) && ( ((LectureHall)location).hasTeacher()) ){
 			this.classesAttended++;
 			this.addToHistory("Went to class");
 		}
+	}
+
+
+
+	@Override
+	public void drink() {
+		this.setDrunkTurns(SimulationParameters.STUDENT_DRUNK_TURNS);
 	}
 }

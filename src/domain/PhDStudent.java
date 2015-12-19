@@ -65,7 +65,12 @@ public class PhDStudent extends Role {
 	
 	//advance the phdstudent's thesis progression
 	@Override
-	public void performActivity() {
+	public void handleSpecificActivity() {
 		this.thesisProgression += 5;
+	}
+
+	@Override
+	public void drink() {
+		this.setDrunkTurns(SimulationParameters.PHD_STUDENT_DRUNK_TURNS);
 	}
 }

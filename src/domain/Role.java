@@ -105,6 +105,20 @@ public abstract class Role extends Entity {
 	
 	
 	
+	@Override
+	public void setDrunkTurns(int turns) {
+		this.core.setDrunkTurns(turns);
+	}
+
+
+
+	@Override
+	public int getDrunkTurns() {
+		return this.core.getDrunkTurns();
+	}
+	
+	
+	
 	
 	//************************************************************************
 	// Other Functions

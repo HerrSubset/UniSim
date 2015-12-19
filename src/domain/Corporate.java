@@ -85,12 +85,19 @@ public class Corporate extends Role {
 	//let the corporate earn money. The rate at which money is earned depends
 	//on his university grade and a 
 	@Override
-	public void performActivity() {
+	public void handleSpecificActivity() {
 		double moneyGain = this.getGradeModifier(80, this.getGrade()) * SimulationParameters.CORPORATE_BASE_MONEY_GAIN;
 		
 		if (this.jobTitle == CorporateRole.PARTNER)
 			moneyGain *= SimulationParameters.CORPORATE_PARTNER_BONUS_MODIFIER;
 		
 		this.moneyEarned += moneyGain;
+	}
+
+
+
+	@Override
+	public void drink() {
+		this.setDrunkTurns(SimulationParameters.CORPORATE_DRUNK_TURNS);
 	}
 }
