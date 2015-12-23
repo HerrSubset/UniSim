@@ -11,10 +11,20 @@ public class SettingsMenu extends Menu {
 		menuItems.add("Import Settings");
 	}
 
+	
+	
+	
+	//************************************************************************
+	// Constructors
+	//************************************************************************
+
 	@Override
 	protected void performAction(int actionNumber) {
 		if (actionNumber == 0)
 			this.parentUI.goToMainMenu();
+		
+		if (actionNumber == 2)
+			System.out.print("\nFeature not implemented yet\n");
 	}
 
 }
