@@ -18,6 +18,7 @@ public class EntitySpawner {
 	private Population population;
 	private Random rand;
 	private UniSimEngine engine;
+	private SimulationParameters params = SimulationParameters.getInstance();
 	
 	public EntitySpawner(Population population, UniSimEngine engine){
 		rand = new Random();
@@ -27,7 +28,7 @@ public class EntitySpawner {
 
 	//adds new entities every turn, according to simulation parameters
 	public void run() {
-		int spawnChance = SimulationParameters.ENTITY_SPAWN_CHANCE;
+		int spawnChance = params.getEntitySpawnChance();
 		
 		if (rand.nextInt(99) < spawnChance){
 			spawnEntities();
@@ -38,8 +39,8 @@ public class EntitySpawner {
 	//given in the SimulationParameters class.
 	private void spawnEntities(){
 		//create random number within spawn number range
-		int lower = SimulationParameters.ENTITY_SPAWN_BOUNDARY_LOWER;
-		int upper = SimulationParameters.ENTITY_SPAWN_BOUNDARY_UPPER;
+		int lower = params.getEntitySpawnBoundaryLower();
+		int upper = params.getEntitySpawnBoundaryUpper();
 		
 		int amount = rand.nextInt(upper - lower + 1) + lower;
 		System.out.format("Spawning %d entities\n", amount);

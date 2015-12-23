@@ -6,7 +6,8 @@ import domain.Map;
 import domain.Place;
 import domain.SimulationParameters;
 
-public class MapFactory {	
+public class MapFactory {
+	private SimulationParameters params = SimulationParameters.getInstance();
 
 	//************************************************************************
 	// Methods for creating maps
@@ -15,17 +16,17 @@ public class MapFactory {
 		Map res = new Map();
 		
 		//add places
-		for (int i = 0; i < SimulationParameters.INIT_NUMBER_OF_PLACES; i ++){
+		for (int i = 0; i < params.getInitNumberOfPlaces(); i ++){
 			res.addPlace(new Place());
 		}
 		
 		//add Lecture halls
-		for (int i = 0; i < SimulationParameters.INIT_NUMBER_OF_LECTURE_HALLS; i++){
+		for (int i = 0; i < params.getInitNumberOfLectureHalls(); i++){
 			res.addPlace(new LectureHall());
 		}
 		
 		//add Bars
-		for (int i = 0; i < SimulationParameters.INIT_NUMBER_OF_BARS; i++){
+		for (int i = 0; i < params.getInitNumberOfBars(); i++){
 			res.addPlace(new Bar());
 		}
 		

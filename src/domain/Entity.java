@@ -16,6 +16,7 @@ public abstract class Entity {
 	//************************************************************************
 	protected Role nextRole;
 	protected int turnCreated;
+	protected SimulationParameters params = SimulationParameters.getInstance();
 	
 	
 	

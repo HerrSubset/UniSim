@@ -23,7 +23,8 @@ public class PopulationFactory {
 	// Variables
 	//************************************************************************
 	private UniSimEngine engine;
-	Random rand = new Random();
+	private Random rand = new Random();
+	private SimulationParameters params = SimulationParameters.getInstance();
 	
 	
 	
@@ -44,37 +45,37 @@ public class PopulationFactory {
 	public Population getInitialPopulation(){
 		Population res = new Population();		
 		//add students
-		for (int i = 0; i<SimulationParameters.INIT_STARTING_STUDENTS; i++){
+		for (int i = 0; i< params.getInitStartingStudents(); i++){
 			res.add(this.createStudent());
 		}
 		
 		//add PhD students
-		for (int i = 0; i<SimulationParameters.INIT_STARTING_PHD_STUDENTS; i++){
+		for (int i = 0; i< params.getInitStartingPhdStudents(); i++){
 			res.add(this.createPhDStudent());
 		}
 		
 		//add postdocs
-		for (int i = 0; i<SimulationParameters.INIT_STARTING_POSTDOCS; i++){
+		for (int i = 0; i< params.getInitStartingPostdocs(); i++){
 			res.add(this.createPostDoc());
 		}
 		
 		//add professors
-		for (int i = 0; i<SimulationParameters.INIT_STARTING_PROFESSORS; i++){
+		for (int i = 0; i< params.getInitStartingProfessors(); i++){
 			res.add(this.createProfessor());
 		}
 		
 		//add trainees
-		for (int i = 0; i<SimulationParameters.INIT_STARTING_TRAINEES; i++){
+		for (int i = 0; i< params.getInitStartingTrainees(); i++){
 			res.add(this.createTrainee());
 		}
 		
 		//add consultants
-		for (int i = 0; i<SimulationParameters.INIT_STARTING_CONSULTANTS; i++){
+		for (int i = 0; i< params.getInitStartingConsultants(); i++){
 			res.add(this.createConsultant());
 		}
 		
 		//add consultants
-		for (int i = 0; i<SimulationParameters.INIT_STARTING_PARTNERS; i++){
+		for (int i = 0; i< params.getInitStartingPartners(); i++){
 			res.add(this.createPartner());
 		}
 

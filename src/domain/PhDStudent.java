@@ -71,6 +71,6 @@ public class PhDStudent extends Role {
 
 	@Override
 	public void drink() {
-		this.setDrunkTurns(SimulationParameters.PHD_STUDENT_DRUNK_TURNS);
+		this.setDrunkTurns(params.getPhdStudentDrunkTurns());
 	}
 }

@@ -60,7 +60,7 @@ public class Corporate extends Role {
 	//check if the corporate can be promoted and do so if possible
 	@Override
 	public Entity promote(int turn){
-		if (moneyEarned >= SimulationParameters.CORPORATE_PROMOTION_BORDER 
+		if (moneyEarned >= params.getCorporatePromotionBoder() 
 						&& this.jobTitle != CorporateRole.PARTNER){
 			this.promoteToPartner(turn);
 		}
@@ -86,10 +86,10 @@ public class Corporate extends Role {
 	//on his university grade and a 
 	@Override
 	public void handleSpecificActivity() {
-		double moneyGain = this.getGradeModifier(80, this.getGrade()) * SimulationParameters.CORPORATE_BASE_MONEY_GAIN;
+		double moneyGain = this.getGradeModifier(80, this.getGrade()) * params.getCorporateBaseMoneyGain();
 		
 		if (this.jobTitle == CorporateRole.PARTNER)
-			moneyGain *= SimulationParameters.CORPORATE_PARTNER_BONUS_MODIFIER;
+			moneyGain *= params.getCorporatePartnerBonusModifier();
 		
 		this.moneyEarned += moneyGain;
 	}
@@ -98,6 +98,6 @@ public class Corporate extends Role {
 
 	@Override
 	public void drink() {
-		this.setDrunkTurns(SimulationParameters.CORPORATE_DRUNK_TURNS);
+		this.setDrunkTurns(params.getCorporateDrunkTurns());
 	}
 }
