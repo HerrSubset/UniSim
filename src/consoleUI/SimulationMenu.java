@@ -38,7 +38,7 @@ public class SimulationMenu extends Menu {
 	
 	
 	//************************************************************************
-	// Other Functions
+	// Action handling
 	//************************************************************************
 	
 	//implement abstract performAction method to dispatch the different

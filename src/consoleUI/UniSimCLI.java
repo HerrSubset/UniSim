@@ -18,6 +18,9 @@ public class UniSimCLI {
 	private boolean stop = false;
 	private UniSimController simulationController;
 	
+	
+	
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -26,6 +29,7 @@ public class UniSimCLI {
 		//set default menu
 		goToMainMenu();
 	}
+	
 	
 	
 	
@@ -42,11 +46,15 @@ public class UniSimCLI {
 		}
 	}
 	
+	
+	
 	//stops the main loop the next time it performs
 	//its while-check
 	public void stop(){
 		this.stop = true;
 	}
+	
+	
 	
 	//sets the current menu item to be the simulation menu. It also makes sure
 	//the simulation is initialized
@@ -55,9 +63,18 @@ public class UniSimCLI {
 		simulationController.init();
 	}
 	
+	
+	
 	//sets the main menu as current menu
 	public void goToMainMenu(){
 		this.currentMenu = new MainMenu(this);
+	}
+	
+	
+	
+	//sets the settings menu as the current menu
+	public void goToSettingsMenu(){
+		this.currentMenu = new SettingsMenu(this);
 	}
 	
 }
