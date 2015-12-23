@@ -8,6 +8,8 @@
 
 package domain;
 
+import java.util.Hashtable;
+
 public class SimulationParameters {
 
 	//variable to contain the singleton
@@ -15,79 +17,16 @@ public class SimulationParameters {
 
 
 
-
-	//************************************************************************
-	// Simulation Parameters
-	//************************************************************************
-
-	//map settings
-	private int initNumberOfPlaces = 11;
-	private int initNumberOfLectureHalls = 5;
-	private int initNumberOfBars = 2;
-
-	//# of entities of each type at the start
-	private int initStartingStudents = 8;
-	private int initStartingPhdStudents = 2;
-	private int initStartingPostdocs = 3;
-	private int initStartingProfessors = 2;
-	private int initStartingTrainees = 5;
-	private int initStartingConsultants = 4;
-	private int initStartingPartners = 1;
-
-	private int entitySpawnChance = 10;	//1% chance of spawning new entities each turn
-	private int entitySpawnBoundaryLower = 1;	//min amount of entities when new entities spawn
-	private int entitySpawnBoundaryUpper = 3;	//max amount of entities when new entities spawn
-
-	private int studentGraduationAge = 50;	//turns after which a student graduates
-	private int studentAttendanceRate = 85;	//chance of a student going to class each turn
-	private int studentLectureHallDestinationChance = 90;	//chance of a student going to class each turn
-	private int studentBarDestinationChance = 6;
-	private int studentDrunkTurns = 4;
-
-	private int phdStudentLectureHallDestinationChance = 50;	//chance of phdstudent going to a lecture hall each turn
-	private int phdStudentBarDestinationChance = 4;
-	private int phdStudentDrunkTurns = 3;
-
-	private int phdMinAcceptanceScore = 85;	//minimum grade a student needs to become a PHDStudent
-	private int phdLectureHallDestinationChance = 70;
-	private int phdBarDestinationChance = 2;
-
-	private int professorPromotionPaperMin = 100;	//amount of papers a post-doc needs to be promoted to professor
-	private int professorLectureHallDestinationChance = 70;
-	private int professorBarDestinationChance = 2;
-
-	private int academicDrunkTurns = 2;
-
-	private int traineeDefaultExpIncrease = 2;	//the amount of experience that each trainee gains per turn;
-	private int traineePromotionExp = 100;	//the amount of experience a trainee needs before being promoted
-	private int traineeLectureHallDestinationChance = 0;
-	private int traineeBarDestinationChance = 0;
-	private int traineeDrunkTurns = 1;
-
-
-	private int consultantLectureHallDestinationChance = 10;
-	private int consultantBarDestinationChance = 2;
-
-	private int partnerLectureHallDestinationChance = 20;
-	private int partnerBarDestinationChance = 4;
-
-	private int corporateBaseMoneyGain = 1000;	//how much money a corporate gains every turn (affected by modifier based on grade)
-	private int corporatePartnerBonusModifier = 10;	//how much percent extra a partner earns
-	private int corporatePromotionBoder = 280000;	//mount of money a corporate needs to become partner
-	private int corporateDrunkTurns = 2;
-
-	private int retirementAge = 420;	//age at which an entity retires
-
-
-
-
+	
 	//************************************************************************
 	// Singleton Functions
 	//************************************************************************
 
 	//make sure the constructor can't be called from outside
 	private SimulationParameters(){
-
+		this.paramContainer = new Hashtable<String, Integer>();
+		//intitialize all variables to their default
+		this.revertToDefaultSettings();
 	}
 
 
@@ -99,513 +38,75 @@ public class SimulationParameters {
 
 		return instance;
 	}
-
-
-
-
-	//************************************************************************
-	// Getters/Setters
-	//************************************************************************
 	
-	public int getInitNumberOfPlaces() {
-		return initNumberOfPlaces;
-	}
-
-
-
-	public void setInitNumberOfPlaces(int initNumberOfPlaces) {
-		this.initNumberOfPlaces = initNumberOfPlaces;
-	}
-
-
-
-	public int getInitNumberOfLectureHalls() {
-		return initNumberOfLectureHalls;
-	}
-
-
-
-	public void setInitNumberOfLectureHalls(int initNumberOfLectureHalls) {
-		this.initNumberOfLectureHalls = initNumberOfLectureHalls;
-	}
-
-
-
-	public int getInitNumberOfBars() {
-		return initNumberOfBars;
-	}
-
-
-
-	public void setInitNumberOfBars(int initNumberOfBars) {
-		this.initNumberOfBars = initNumberOfBars;
-	}
-
-
-
-	public int getInitStartingStudents() {
-		return initStartingStudents;
-	}
-
-
-
-	public void setInitStartingStudents(int initStartingStudents) {
-		this.initStartingStudents = initStartingStudents;
-	}
-
-
-
-	public int getInitStartingPhdStudents() {
-		return initStartingPhdStudents;
-	}
-
-
-
-	public void setInitStartingPhdStudents(int initStartingPhdStudents) {
-		this.initStartingPhdStudents = initStartingPhdStudents;
-	}
-
-
-
-	public int getInitStartingPostdocs() {
-		return initStartingPostdocs;
-	}
-
-
-
-	public void setInitStartingPostdocs(int initStartingPostdocs) {
-		this.initStartingPostdocs = initStartingPostdocs;
-	}
-
-
-
-	public int getInitStartingProfessors() {
-		return initStartingProfessors;
-	}
-
-
-
-	public void setInitStartingProfessors(int initStartingProfessors) {
-		this.initStartingProfessors = initStartingProfessors;
-	}
-
-
-
-	public int getInitStartingTrainees() {
-		return initStartingTrainees;
-	}
-
-
-
-	public void setInitStartingTrainees(int initStartingTrainees) {
-		this.initStartingTrainees = initStartingTrainees;
-	}
-
-
-
-	public int getInitStartingConsultants() {
-		return initStartingConsultants;
-	}
-
-
-
-	public void setInitStartingConsultants(int initStartingConsultants) {
-		this.initStartingConsultants = initStartingConsultants;
-	}
-
-
-
-	public int getInitStartingPartners() {
-		return initStartingPartners;
-	}
-
-
-
-	public void setInitStartingPartners(int initStartingPartners) {
-		this.initStartingPartners = initStartingPartners;
-	}
-
-
-
-	public int getEntitySpawnChance() {
-		return entitySpawnChance;
-	}
-
-
-
-	public void setEntitySpawnChance(int entitySpawnChance) {
-		this.entitySpawnChance = entitySpawnChance;
-	}
-
-
-
-	public int getEntitySpawnBoundaryLower() {
-		return entitySpawnBoundaryLower;
-	}
-
-
-
-	public void setEntitySpawnBoundaryLower(int entitySpawnBoundaryLower) {
-		this.entitySpawnBoundaryLower = entitySpawnBoundaryLower;
-	}
-
-
-
-	public int getEntitySpawnBoundaryUpper() {
-		return entitySpawnBoundaryUpper;
-	}
-
-
-
-	public void setEntitySpawnBoundaryUpper(int entitySpawnBoundaryUpper) {
-		this.entitySpawnBoundaryUpper = entitySpawnBoundaryUpper;
-	}
-
-
-
-	public int getStudentGraduationAge() {
-		return studentGraduationAge;
-	}
-
-
-
-	public void setStudentGraduationAge(int studentGraduationAge) {
-		this.studentGraduationAge = studentGraduationAge;
-	}
-
-
-
-	public int getStudentAttendanceRate() {
-		return studentAttendanceRate;
-	}
-
-
-
-	public void setStudentAttendanceRate(int studentAttendanceRate) {
-		this.studentAttendanceRate = studentAttendanceRate;
-	}
-
-
-
-	public int getStudentLectureHallDestinationChance() {
-		return studentLectureHallDestinationChance;
-	}
-
-
-
-	public void setStudentLectureHallDestinationChance(int studentLectureHallDestinationChance) {
-		this.studentLectureHallDestinationChance = studentLectureHallDestinationChance;
-	}
-
-
-
-	public int getStudentBarDestinationChance() {
-		return studentBarDestinationChance;
-	}
-
-
-
-	public void setStudentBarDestinationChance(int studentBarDestinationChance) {
-		this.studentBarDestinationChance = studentBarDestinationChance;
-	}
-
-
-
-	public int getStudentDrunkTurns() {
-		return studentDrunkTurns;
-	}
-
-
-
-	public void setStudentDrunkTurns(int studentDrunkTurns) {
-		this.studentDrunkTurns = studentDrunkTurns;
-	}
-
-
-
-	public int getPhdStudentLectureHallDestinationChance() {
-		return phdStudentLectureHallDestinationChance;
-	}
-
-
-
-	public void setPhdStudentLectureHallDestinationChance(int phdStudentLectureHallDestinationChance) {
-		this.phdStudentLectureHallDestinationChance = phdStudentLectureHallDestinationChance;
-	}
-
-
-
-	public int getPhdStudentBarDestinationChance() {
-		return phdStudentBarDestinationChance;
-	}
-
-
-
-	public void setPhdStudentBarDestinationChance(int phdStudentBarDestinationChance) {
-		this.phdStudentBarDestinationChance = phdStudentBarDestinationChance;
-	}
-
-
-
-	public int getPhdStudentDrunkTurns() {
-		return phdStudentDrunkTurns;
-	}
-
-
-
-	public void setPhdStudentDrunkTurns(int phdStudentDrunkTurns) {
-		this.phdStudentDrunkTurns = phdStudentDrunkTurns;
-	}
-
-
-
-	public int getPhdMinAcceptanceScore() {
-		return phdMinAcceptanceScore;
-	}
-
-
-
-	public void setPhdMinAcceptanceScore(int phdMinAcceptanceScore) {
-		this.phdMinAcceptanceScore = phdMinAcceptanceScore;
-	}
-
-
-
-	public int getPhdLectureHallDestinationChance() {
-		return phdLectureHallDestinationChance;
-	}
-
-
-
-	public void setPhdLectureHallDestinationChance(int phdLectureHallDestinationChance) {
-		this.phdLectureHallDestinationChance = phdLectureHallDestinationChance;
-	}
-
-
-
-	public int getPhdBarDestinationChance() {
-		return phdBarDestinationChance;
-	}
-
-
-
-	public void setPhdBarDestinationChance(int phdBarDestinationChance) {
-		this.phdBarDestinationChance = phdBarDestinationChance;
-	}
-
-
-
-	public int getProfessorPromotionPaperMin() {
-		return professorPromotionPaperMin;
-	}
-
-
-
-	public void setProfessorPromotionPaperMin(int professorPromotionPaperMin) {
-		this.professorPromotionPaperMin = professorPromotionPaperMin;
-	}
-
-
-
-	public int getProfessorLectureHallDestinationChance() {
-		return professorLectureHallDestinationChance;
-	}
-
-
-
-	public void setProfessorLectureHallDestinationChance(int professorLectureHallDestinationChance) {
-		this.professorLectureHallDestinationChance = professorLectureHallDestinationChance;
-	}
-
-
-
-	public int getProfessorBarDestinationChance() {
-		return professorBarDestinationChance;
-	}
-
-
-
-	public void setProfessorBarDestinationChance(int professorBarDestinationChance) {
-		this.professorBarDestinationChance = professorBarDestinationChance;
-	}
-
-
-
-	public int getAcademicDrunkTurns() {
-		return academicDrunkTurns;
-	}
-
-
-
-	public void setAcademicDrunkTurns(int academicDrunkTurns) {
-		this.academicDrunkTurns = academicDrunkTurns;
-	}
-
-
-
-	public int getTraineeDefaultExpIncrease() {
-		return traineeDefaultExpIncrease;
-	}
-
-
-
-	public void setTraineeDefaultExpIncrease(int traineeDefaultExpIncrease) {
-		this.traineeDefaultExpIncrease = traineeDefaultExpIncrease;
-	}
-
-
-
-	public int getTraineePromotionExp() {
-		return traineePromotionExp;
-	}
-
-
-
-	public void setTraineePromotionExp(int traineePromotionExp) {
-		this.traineePromotionExp = traineePromotionExp;
-	}
-
-
-
-	public int getTraineeLectureHallDestinationChance() {
-		return traineeLectureHallDestinationChance;
-	}
-
-
-
-	public void setTraineeLectureHallDestinationChance(int traineeLectureHallDestinationChance) {
-		this.traineeLectureHallDestinationChance = traineeLectureHallDestinationChance;
-	}
-
-
-
-	public int getTraineeBarDestinationChance() {
-		return traineeBarDestinationChance;
-	}
-
-
-
-	public void setTraineeBarDestinationChance(int traineeBarDestinationChance) {
-		this.traineeBarDestinationChance = traineeBarDestinationChance;
-	}
-
-
-
-	public int getTraineeDrunkTurns() {
-		return traineeDrunkTurns;
-	}
-
-
-
-	public void setTraineeDrunkTurns(int traineeDrunkTurns) {
-		this.traineeDrunkTurns = traineeDrunkTurns;
-	}
-
-
-
-	public int getConsultantLectureHallDestinationChance() {
-		return consultantLectureHallDestinationChance;
-	}
-
-
-
-	public void setConsultantLectureHallDestinationChance(int consultantLectureHallDestinationChance) {
-		this.consultantLectureHallDestinationChance = consultantLectureHallDestinationChance;
-	}
-
-
-
-	public int getConsultantBarDestinationChance() {
-		return consultantBarDestinationChance;
-	}
-
-
-
-	public void setConsultantBarDestinationChance(int consultantBarDestinationChance) {
-		this.consultantBarDestinationChance = consultantBarDestinationChance;
-	}
-
-
-
-	public int getPartnerLectureHallDestinationChance() {
-		return partnerLectureHallDestinationChance;
-	}
-
-
-
-	public void setPartnerLectureHallDestinationChance(int partnerLectureHallDestinationChance) {
-		this.partnerLectureHallDestinationChance = partnerLectureHallDestinationChance;
-	}
-
-
-
-	public int getPartnerBarDestinationChance() {
-		return partnerBarDestinationChance;
-	}
-
-
-
-	public void setPartnerBarDestinationChance(int partnerBarDestinationChance) {
-		this.partnerBarDestinationChance = partnerBarDestinationChance;
-	}
-
-
-
-	public int getCorporateBaseMoneyGain() {
-		return corporateBaseMoneyGain;
-	}
-
-
-
-	public void setCorporateBaseMoneyGain(int corporateBaseMoneyGain) {
-		this.corporateBaseMoneyGain = corporateBaseMoneyGain;
-	}
-
-
-
-	public int getCorporatePartnerBonusModifier() {
-		return corporatePartnerBonusModifier;
-	}
-
-
-
-	public void setCorporatePartnerBonusModifier(int corporatePartnerBonusModifier) {
-		this.corporatePartnerBonusModifier = corporatePartnerBonusModifier;
-	}
-
-
-
-	public int getCorporatePromotionBoder() {
-		return corporatePromotionBoder;
-	}
-
-
-
-	public void setCorporatePromotionBoder(int corporatePromotionBoder) {
-		this.corporatePromotionBoder = corporatePromotionBoder;
-	}
-
-
-
-	public int getCorporateDrunkTurns() {
-		return corporateDrunkTurns;
-	}
-
-
-
-	public void setCorporateDrunkTurns(int corporateDrunkTurns) {
-		this.corporateDrunkTurns = corporateDrunkTurns;
-	}
-
-
-
-	public int getRetirementAge() {
-		return retirementAge;
-	}
-
-
-
-	public void setRetirementAge(int retirementAge) {
-		this.retirementAge = retirementAge;
+	
+	//reverts all the settings to their default setting
+	public void revertToDefaultSettings(){
+		//amount of places per type
+		this.paramContainer.put("initNumberOfPlaces", 11);
+		this.paramContainer.put("initNumberOfLectureHalls", 5);
+		this.paramContainer.put("initNumberOfBars", 2);
+		
+		//# of entities of each type at the start
+		this.paramContainer.put("initStartingStudents", 8);
+		this.paramContainer.put("initStartingPhdStudents", 2);
+		this.paramContainer.put("initStartingPostdocs", 3);
+		this.paramContainer.put("initStartingProfessors", 2);
+		this.paramContainer.put("initStartingTrainees", 5);
+		this.paramContainer.put("initStartingConsultants", 4);
+		this.paramContainer.put("initStartingPartners", 1);
+		
+		//parameters regarding students spawning each turn
+		this.paramContainer.put("entitySpawnChance", 10);	//1% chance of spawning new entities each turn
+		this.paramContainer.put("entitySpawnBoundaryLower", 1);	//min amount of entities when new entities spawn
+		this.paramContainer.put("entitySpawnBoundaryUpper", 3);	//max amount of entities when new entities spawn
+
+		//student parameters
+		this.paramContainer.put("studentGraduationAge", 50);	//turns after which a student graduates
+		this.paramContainer.put("studentLectureHallDestinationChance", 90);	//
+		this.paramContainer.put("studentBarDestinationChance", 6);
+		this.paramContainer.put("StudentDrunkTurns", 4);
+		
+		//phd student parameters
+		this.paramContainer.put("phdStudentLectureHallDestinationChance", 50);
+		this.paramContainer.put("phdStudentBarDestinationChance", 4);
+		this.paramContainer.put("phdStudentDrunkTurns", 3);
+		this.paramContainer.put("phdMinAcceptanceScore", 85);	//min grade a student needs to become a phdStudent
+
+		//phd(postdoc) paramenters
+		this.paramContainer.put("phdLectureHallDestinationChance", 70);
+		this.paramContainer.put("phdBarDestinationChance", 2);
+		this.paramContainer.put("phdDrunkTurns", 2);
+
+		//professor parameters
+		this.paramContainer.put("professorPromotionPaperMin", 100);	//# of papers a postdoc needs to be promoted to professor
+		this.paramContainer.put("professorLectureHallDestinationChance", 70);
+		this.paramContainer.put("professorBarDestinationChance", 2);
+		this.paramContainer.put("professorDrunkTurns", 2);
+		
+		//trainee parameters
+		this.paramContainer.put("traineeDefaultExpIncrease", 2);	//the amount of experience that each trainee gains per turn
+		this.paramContainer.put("traineePromotionExp", 100);	//the amount of experience a trainee needs to be promoted
+		this.paramContainer.put("traineeLectureHallDestinationChance", 0);
+		this.paramContainer.put("traineeBarDestinationChance", 0);
+		this.paramContainer.put("traineeDrunkTurns", 1);
+		
+		//consultant parameters
+		this.paramContainer.put("consultantLectureHallDestinationChance", 10);
+		this.paramContainer.put("consultantBarDestinationChance", 2);
+		this.paramContainer.put("consultantDrunkTurns", 2);
+		
+		//partner parameters
+		this.paramContainer.put("partnerLectureHallDestinationChance", 20);
+		this.paramContainer.put("partnerBarDestinationChance", 4);
+		this.paramContainer.put("partnerDrunkTurns", 2);
+		
+		//corporate (partner + consultant) parameters
+		this.paramContainer.put("corporateBaseMoneyGain", 1000);	//how much money a corporate gains every turn (affected by modifier based on grade)
+		this.paramContainer.put("corporatePartnerBonusModifier", 10);	//how much percent extra a partner earns
+		this.paramContainer.put("corporatePromotionBorder", 280000);	//amount of money a consultant needs to be promoted to partner
+		this.paramContainer.put("corporateDrunkTurns", 2);
+		
+		this.paramContainer.put("retirementAge", 420);
 	}
 }
