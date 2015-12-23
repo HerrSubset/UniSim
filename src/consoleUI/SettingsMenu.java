@@ -23,8 +23,16 @@ public class SettingsMenu extends Menu {
 		if (actionNumber == 0)
 			this.parentUI.goToMainMenu();
 		
+		if (actionNumber == 1)
+			this.changeSettings();
+		
 		if (actionNumber == 2)
 			System.out.print("\nFeature not implemented yet\n");
+	}
+	
+	
+	private void changeSettings(){
+		System.out.println("\nFeature not available yet");
 	}
 
 }
