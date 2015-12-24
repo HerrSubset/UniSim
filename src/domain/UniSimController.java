@@ -80,7 +80,7 @@ public class UniSimController {
 	
 	
 	//update a parameter to a new value
-	public void updateSetting(String parameter, int newVal){
+	public void updateSetting(String parameter, int newVal) throws NonExistingParameterException{
 		SimulationParameters sp = SimulationParameters.getInstance();
 		sp.updateParameter(parameter, newVal);
 	}

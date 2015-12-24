@@ -3,6 +3,7 @@ package consoleUI;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+import domain.NonExistingParameterException;
 import domain.UniSimController;
 
 public class SettingsMenu extends Menu {
@@ -59,7 +60,19 @@ public class SettingsMenu extends Menu {
 			
 			if ( !input.equals("quit")){
 				int newVal = getUserInt(intMessage);
-				controller.updateSetting(input, newVal);
+				try {
+					controller.updateSetting(input, newVal);
+				} catch (NonExistingParameterException e) {
+					System.out.println("ERROR: " + e.getMessage());
+					
+					//make sure user sees the message by waiting 4 seconds
+					try {
+						Thread.sleep(4000);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
 			}
 		}
 	}

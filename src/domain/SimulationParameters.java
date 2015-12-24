@@ -58,7 +58,9 @@ public class SimulationParameters {
 	
 	
 	//update the given parameter to a new value
-	public void updateParameter(String parameter, int newVal){
+	public void updateParameter(String parameter, int newVal) throws NonExistingParameterException{
+		if ( !paramContainer.containsKey(parameter))
+			throw new NonExistingParameterException("The parameter " + parameter + " does not exist");
 		paramContainer.replace(parameter, newVal);
 	}
 	
