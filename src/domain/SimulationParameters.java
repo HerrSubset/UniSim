@@ -14,6 +14,8 @@ public class SimulationParameters {
 
 	//variable to contain the singleton
 	private static SimulationParameters instance = null;
+	
+	private Hashtable<String, Integer> paramContainer;
 
 
 
@@ -38,6 +40,14 @@ public class SimulationParameters {
 
 		return instance;
 	}
+	
+	
+	
+	//Returns the value of a given parameter
+	public int getParamValue(String param){
+		return this.paramContainer.get(param);
+	}
+	
 	
 	
 	//reverts all the settings to their default setting

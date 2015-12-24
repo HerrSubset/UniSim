@@ -45,37 +45,37 @@ public class PopulationFactory {
 	public Population getInitialPopulation(){
 		Population res = new Population();		
 		//add students
-		for (int i = 0; i< params.getInitStartingStudents(); i++){
+		for (int i = 0; i< params.getParamValue("initStartingStudents"); i++){
 			res.add(this.createStudent());
 		}
 		
 		//add PhD students
-		for (int i = 0; i< params.getInitStartingPhdStudents(); i++){
+		for (int i = 0; i< params.getParamValue("initStartingPhdStudents"); i++){
 			res.add(this.createPhDStudent());
 		}
 		
 		//add postdocs
-		for (int i = 0; i< params.getInitStartingPostdocs(); i++){
+		for (int i = 0; i< params.getParamValue("initStartingPostdocs"); i++){
 			res.add(this.createPostDoc());
 		}
 		
 		//add professors
-		for (int i = 0; i< params.getInitStartingProfessors(); i++){
+		for (int i = 0; i< params.getParamValue("initStartingProfessors"); i++){
 			res.add(this.createProfessor());
 		}
 		
 		//add trainees
-		for (int i = 0; i< params.getInitStartingTrainees(); i++){
+		for (int i = 0; i< params.getParamValue("initStartingTrainees"); i++){
 			res.add(this.createTrainee());
 		}
 		
 		//add consultants
-		for (int i = 0; i< params.getInitStartingConsultants(); i++){
+		for (int i = 0; i< params.getParamValue("initStartingConsultants"); i++){
 			res.add(this.createConsultant());
 		}
 		
 		//add consultants
-		for (int i = 0; i< params.getInitStartingPartners(); i++){
+		for (int i = 0; i< params.getParamValue("initStartingPartners"); i++){
 			res.add(this.createPartner());
 		}
 

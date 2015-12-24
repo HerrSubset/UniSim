@@ -16,17 +16,17 @@ public class MapFactory {
 		Map res = new Map();
 		
 		//add places
-		for (int i = 0; i < params.getInitNumberOfPlaces(); i ++){
+		for (int i = 0; i < params.getParamValue("initNumberOfPlaces"); i ++){
 			res.addPlace(new Place());
 		}
 		
 		//add Lecture halls
-		for (int i = 0; i < params.getInitNumberOfLectureHalls(); i++){
+		for (int i = 0; i < params.getParamValue("initNumberOfLectureHalls"); i++){
 			res.addPlace(new LectureHall());
 		}
 		
 		//add Bars
-		for (int i = 0; i < params.getInitNumberOfBars(); i++){
+		for (int i = 0; i < params.getParamValue("initNumberOfBars"); i++){
 			res.addPlace(new Bar());
 		}
 		

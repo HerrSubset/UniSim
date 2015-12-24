@@ -148,8 +148,8 @@ public class EntityDistributor {
 	private PlaceType getStudentDestination(){
 		PlaceType res = PlaceType.PLACE;
 		int random = rand.nextInt(100);
-		int lectHallChance = params.getStudentLectureHallDestinationChance();
-		int barChance = params.getStudentBarDestinationChance() + lectHallChance;
+		int lectHallChance = params.getParamValue("studentLectureHallDestinationChance");
+		int barChance = params.getParamValue("studentBarDestinationChance") + lectHallChance;
 		
 		if (random < lectHallChance)
 			res = PlaceType.LECTUREHALL;
@@ -166,8 +166,8 @@ public class EntityDistributor {
 	private PlaceType getPhDStudentDestination(){
 		PlaceType res = PlaceType.PLACE;
 		int random = rand.nextInt(100);
-		int lectHallChance = params.getPhdStudentLectureHallDestinationChance();
-		int barChance = params.getPhdStudentBarDestinationChance() + lectHallChance;
+		int lectHallChance = params.getParamValue("phdStudentLectureHallDestinationChance");
+		int barChance = params.getParamValue("phdStudentBarDestinationChance") + lectHallChance;
 		
 		if (random < lectHallChance)
 			res = PlaceType.LECTUREHALL;
@@ -190,11 +190,11 @@ public class EntityDistributor {
 		
 		//set chances based upon whether the entity is a professor or postdoc
 		if( a.getTitle() == AcademicRole.PROFESSOR){
-			lectHallChance = params.getProfessorLectureHallDestinationChance();
-			barChance = params.getProfessorBarDestinationChance() + lectHallChance;
+			lectHallChance = params.getParamValue("professorLectureHallDestinationChance");
+			barChance = params.getParamValue("professorBarDestinationChance")+ lectHallChance;
 		} else {
-			lectHallChance = params.getPhdLectureHallDestinationChance();
-			barChance = params.getPhdBarDestinationChance() + lectHallChance;
+			lectHallChance = params.getParamValue("phdLectureHallDestinationChance");
+			barChance = params.getParamValue("phdBarDestinationChance") + lectHallChance;
 		}
 		
 		
@@ -213,8 +213,8 @@ public class EntityDistributor {
 	private PlaceType getTraineeDestination(){
 		PlaceType res = PlaceType.PLACE;
 		int random = rand.nextInt(100);
-		int lectHallChance = params.getTraineeLectureHallDestinationChance();
-		int barChance = params.getTraineeBarDestinationChance() + lectHallChance;
+		int lectHallChance = params.getParamValue("traineeLectureHallDestinationChance");
+		int barChance = params.getParamValue("traineeBarDestinationChance") + lectHallChance;
 		
 		if (random < lectHallChance)
 			res = PlaceType.LECTUREHALL;
@@ -237,11 +237,11 @@ public class EntityDistributor {
 		
 		//set chances based upon whether the entity is a partner or consultant
 		if( c.getJobTitle() == CorporateRole.PARTNER){
-			lectHallChance = params.getPartnerLectureHallDestinationChance();
-			barChance = params.getPartnerBarDestinationChance() + lectHallChance;
+			lectHallChance = params.getParamValue("partnerLectureHallDestinationChance");
+			barChance = params.getParamValue("partnerBarDestinationChance") + lectHallChance;
 		} else {
-			lectHallChance = params.getConsultantLectureHallDestinationChance();
-			barChance = params.getConsultantBarDestinationChance() + lectHallChance;
+			lectHallChance = params.getParamValue("consultantLectureHallDestinationChance");
+			barChance = params.getParamValue("consultantBarDestinationChance") + lectHallChance;
 		}
 		
 		

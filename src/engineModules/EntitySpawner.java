@@ -28,7 +28,7 @@ public class EntitySpawner {
 
 	//adds new entities every turn, according to simulation parameters
 	public void run() {
-		int spawnChance = params.getEntitySpawnChance();
+		int spawnChance = params.getParamValue("entitySpawnChance");
 		
 		if (rand.nextInt(99) < spawnChance){
 			spawnEntities();
@@ -39,8 +39,8 @@ public class EntitySpawner {
 	//given in the SimulationParameters class.
 	private void spawnEntities(){
 		//create random number within spawn number range
-		int lower = params.getEntitySpawnBoundaryLower();
-		int upper = params.getEntitySpawnBoundaryUpper();
+		int lower = params.getParamValue("entitySpawnBoundaryLower");
+		int upper = params.getParamValue("entitySpawnBoundaryUpper");
 		
 		int amount = rand.nextInt(upper - lower + 1) + lower;
 		System.out.format("Spawning %d entities\n", amount);

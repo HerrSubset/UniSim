@@ -100,7 +100,7 @@ public class Population {
 			Entity e = population.get(i);
 			
 			//check if e is old enough for retirement
-			int retirementAge = params.getRetirementAge();
+			int retirementAge = params.getParamValue("retirementAge");
 			if ((turn - e.getBirthTurn()) >= retirementAge){
 				this.retire(e, turn, i);
 				i--;

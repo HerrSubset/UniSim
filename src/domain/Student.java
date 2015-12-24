@@ -84,14 +84,14 @@ public class Student extends Role {
 		Entity res = this;
 		
 		int age = turn - this.turnCreated;
-		if (age == params.getStudentGraduationAge()){
+		if (age == params.getParamValue("studentGraduationAge") ){
 			this.calculateGrade();
 			this.addToHistory("Graduated in turn " + turn 
 							+ " with grade " + this.grade);
 		
 			//promote student to PhDStudent or Trainee
 			//based on score and preference
-			int minGrade = params.getPhdMinAcceptanceScore();
+			int minGrade = params.getParamValue("phdMinAcceptanceScore");
 			
 			if (this.grade >= minGrade && this.careerPreference < 50)
 				res = new PhDStudent(turn, this);
@@ -109,7 +109,7 @@ public class Student extends Role {
 	//parameters and then gives a grade based on that.
 	private void calculateGrade(){
 		float attendanceRate = (float) this.classesAttended / 
-				(float) params.getStudentGraduationAge();
+				(float) params.getParamValue("studentGraduationAge");
 		
 		this.grade = (int)(attendanceRate * 100);
 	}
@@ -132,6 +132,6 @@ public class Student extends Role {
 
 	@Override
 	public void drink() {
-		this.setDrunkTurns(params.getStudentDrunkTurns());
+		this.setDrunkTurns( params.getParamValue("StudentDrunkTurns"));
 	}
 }

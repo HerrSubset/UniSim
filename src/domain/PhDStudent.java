@@ -71,6 +71,6 @@ public class PhDStudent extends Role {
 
 	@Override
 	public void drink() {
-		this.setDrunkTurns(params.getPhdStudentDrunkTurns());
+		this.setDrunkTurns(params.getParamValue("phdStudentDrunkTurns"));
 	}
 }

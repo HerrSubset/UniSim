@@ -47,7 +47,7 @@ public class Trainee extends Role {
 	public Entity promote(int turn) {
 		Entity res = this;
 		
-		double promotionLevel = (double)params.getTraineePromotionExp();
+		double promotionLevel = (double) params.getParamValue("traineePromotionExp");
 		if (experience >= promotionLevel)
 			res = new Corporate(turn, this);
 		
@@ -69,7 +69,7 @@ public class Trainee extends Role {
 	//university.
 	@Override
 	public void handleSpecificActivity() {
-		double expIncrease = (double)params.getTraineeDefaultExpIncrease();
+		double expIncrease = (double) params.getParamValue("traineeDefaultExpIncrease");
 		int grade = this.getGrade();
 		
 		double modifier = getGradeModifier(70, grade);
@@ -82,6 +82,6 @@ public class Trainee extends Role {
 	
 	@Override
 	public void drink() {
-		this.setDrunkTurns(params.getTraineeDrunkTurns());
+		this.setDrunkTurns(params.getParamValue("traineeDrunkTurns"));
 	}
 }

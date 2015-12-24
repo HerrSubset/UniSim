@@ -58,7 +58,7 @@ public class Academic extends Role {
 	
 	@Override
 	public Entity promote(int turn){
-		if (this.amountOfPapers >= params.getProfessorPromotionPaperMin()){
+		if (this.amountOfPapers >= params.getParamValue("professorPromotionPaperMin")){
 			this.promoteToProfessor(turn);
 		}
 		
@@ -86,7 +86,7 @@ public class Academic extends Role {
 		
 		//assume people work until 60 years old and start studing at 18
 		// --> 42 years that they are simulated
-		int turnsPerYear = params.getRetirementAge() / 42;
+		int turnsPerYear = params.getParamValue("retirementAge") / 42;
 		
 		//we want academics to publish 4 papers per year on average. 
 		if (rand.nextInt(turnsPerYear) <= (turnsPerYear/4)){
@@ -100,6 +100,7 @@ public class Academic extends Role {
 
 	@Override
 	public void drink() {
-		this.setDrunkTurns(params.getAcademicDrunkTurns());
+		if (this.title == AcademicRole.POSTDOC)
+			this.setDrunkTurns(params.getParamValue("phdDrunkTurns"));
 	}
 }
