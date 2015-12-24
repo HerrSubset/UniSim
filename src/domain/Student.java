@@ -22,6 +22,7 @@ public class Student extends Role {
 		super(turnCreated);
 		Random rand = new Random();
 		this.careerPreference = rand.nextInt(99);
+		this.setInfluence(params.getParamValue("studentStudentInfluence"));
 	}
 	
 	
@@ -132,6 +133,6 @@ public class Student extends Role {
 
 	@Override
 	public void drink() {
-		this.setDrunkTurns( params.getParamValue("StudentDrunkTurns"));
+		this.setDrunkTurns( params.getParamValue("studentDrunkTurns"));
 	}
 }

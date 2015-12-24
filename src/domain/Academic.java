@@ -14,6 +14,11 @@ public class Academic extends Role {
 	public Academic(int turnCreated){
 		super(turnCreated);
 		this.addToHistory("Became PhD in turn " + turnCreated);
+		
+		//set influence. For influence to push towards academic career,
+		//it has to be negative.
+		this.setInfluence(params.getParamValue("phdStudentInfluence") * -1);
+
 	}
 	
 	
@@ -21,6 +26,10 @@ public class Academic extends Role {
 	public Academic(int turnCreated, Entity core){
 		super(turnCreated, core);
 		this.addToHistory("Became PhD in turn " + turnCreated);
+		
+		//set influence. For influence to push towards academic career,
+		//it has to be negative.
+		this.setInfluence(params.getParamValue("phdStudentInfluence") * -1);
 	}
 
 	
@@ -51,6 +60,7 @@ public class Academic extends Role {
 	//PopulationFactory.
 	public void promoteToProfessor(int turn){
 		this.title = AcademicRole.PROFESSOR;
+		this.setInfluence(params.getParamValue("professorStudentInfluence") * -1);
 		this.addToHistory("Promoted to professor on turn " + turn);
 	}
 
@@ -58,7 +68,8 @@ public class Academic extends Role {
 	
 	@Override
 	public Entity promote(int turn){
-		if (this.amountOfPapers >= params.getParamValue("professorPromotionPaperMin")){
+		if (this.amountOfPapers >= params.getParamValue("professorPromotionPaperMin")
+				&& this.title == AcademicRole.POSTDOC){
 			this.promoteToProfessor(turn);
 		}
 		

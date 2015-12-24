@@ -16,11 +16,13 @@ public class Trainee extends Role {
 	public Trainee(int turnCreated){
 		super(turnCreated);
 		addToHistory("Became a Trainee in turn " + turnCreated);
+		this.setInfluence(params.getParamValue("traineeStudentInfluence"));
 	}
 	
 	public Trainee(int turnCreated, Entity core){
 		super(turnCreated, core);
 		addToHistory("Became a Trainee in turn " + turnCreated);
+		this.setInfluence(params.getParamValue("traineeStudentInfluence"));
 	}
 
 	

@@ -11,6 +11,9 @@ public class Corporate extends Role {
 	public Corporate(int turnCreated){
 		super(turnCreated);
 		this.addToHistory("Became Consultant in turn " + turnCreated);
+		
+		this.setInfluence(params.getParamValue("consultantStudentInfluence"));
+
 	}
 	
 	
@@ -18,6 +21,8 @@ public class Corporate extends Role {
 	public Corporate(int turnCreated, Entity core){
 		super(turnCreated, core);
 		this.addToHistory("Became Consultant in turn " + turnCreated);
+		
+		this.setInfluence(params.getParamValue("consultantStudentInfluence"));
 	}
 	
 	
@@ -53,6 +58,7 @@ public class Corporate extends Role {
 	public void promoteToPartner(int turn){
 		this.jobTitle = CorporateRole.PARTNER;
 		this.addToHistory("Became partner in turn " + turn);
+		this.setInfluence(params.getParamValue("partnerStudentInfluence"));
 	}
 
 	

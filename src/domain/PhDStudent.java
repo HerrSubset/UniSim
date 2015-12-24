@@ -16,11 +16,13 @@ public class PhDStudent extends Role {
 	public PhDStudent(int turnCreated){
 		super(turnCreated);
 		addToHistory("Became a PhD student in turn " + turnCreated);
+		this.setInfluence(params.getParamValue("phdStudentStudentInfluence") * -1);
 	}
 	
 	public PhDStudent(int turnCreated, Entity core){
 		super(turnCreated, core);
 		addToHistory("Became a PhD student in turn " + turnCreated);
+		this.setInfluence(params.getParamValue("phdStudentStudentInfluence") * -1);
 	}
 
 	

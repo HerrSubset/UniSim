@@ -108,24 +108,28 @@ public class SimulationParameters {
 		this.paramContainer.put("studentGraduationAge", 50);	//turns after which a student graduates
 		this.paramContainer.put("studentLectureHallDestinationChance", 90);	//
 		this.paramContainer.put("studentBarDestinationChance", 6);
-		this.paramContainer.put("StudentDrunkTurns", 4);
+		this.paramContainer.put("studentDrunkTurns", 4);
+		this.paramContainer.put("studentStudentInfluence", 0);
 		
 		//phd student parameters
 		this.paramContainer.put("phdStudentLectureHallDestinationChance", 50);
 		this.paramContainer.put("phdStudentBarDestinationChance", 4);
 		this.paramContainer.put("phdStudentDrunkTurns", 3);
 		this.paramContainer.put("phdMinAcceptanceScore", 85);	//min grade a student needs to become a phdStudent
+		this.paramContainer.put("phdStudentStudentInfluence", 0);
 
 		//phd(postdoc) paramenters
 		this.paramContainer.put("phdLectureHallDestinationChance", 70);
 		this.paramContainer.put("phdBarDestinationChance", 2);
 		this.paramContainer.put("phdDrunkTurns", 2);
+		this.paramContainer.put("phdStudentInfluence", 1);
 
 		//professor parameters
 		this.paramContainer.put("professorPromotionPaperMin", 100);	//# of papers a postdoc needs to be promoted to professor
 		this.paramContainer.put("professorLectureHallDestinationChance", 70);
 		this.paramContainer.put("professorBarDestinationChance", 2);
 		this.paramContainer.put("professorDrunkTurns", 2);
+		this.paramContainer.put("professorStudentInfluence", 2);
 		
 		//trainee parameters
 		this.paramContainer.put("traineeDefaultExpIncrease", 2);	//the amount of experience that each trainee gains per turn
@@ -133,16 +137,19 @@ public class SimulationParameters {
 		this.paramContainer.put("traineeLectureHallDestinationChance", 0);
 		this.paramContainer.put("traineeBarDestinationChance", 0);
 		this.paramContainer.put("traineeDrunkTurns", 1);
+		this.paramContainer.put("traineeStudentInfluence", 0);
 		
 		//consultant parameters
 		this.paramContainer.put("consultantLectureHallDestinationChance", 10);
 		this.paramContainer.put("consultantBarDestinationChance", 2);
 		this.paramContainer.put("consultantDrunkTurns", 2);
+		this.paramContainer.put("consultantStudentInfluence", 10);
 		
 		//partner parameters
 		this.paramContainer.put("partnerLectureHallDestinationChance", 20);
 		this.paramContainer.put("partnerBarDestinationChance", 4);
 		this.paramContainer.put("partnerDrunkTurns", 2);
+		this.paramContainer.put("partnerStudentInfluence", 15);
 		
 		//corporate (partner + consultant) parameters
 		this.paramContainer.put("corporateBaseMoneyGain", 1000);	//how much money a corporate gains every turn (affected by modifier based on grade)
