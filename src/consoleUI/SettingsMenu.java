@@ -73,7 +73,6 @@ public class SettingsMenu extends Menu {
 					try {
 						Thread.sleep(4000);
 					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}

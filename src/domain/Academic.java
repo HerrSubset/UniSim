@@ -102,5 +102,7 @@ public class Academic extends Role {
 	public void drink() {
 		if (this.title == AcademicRole.POSTDOC)
 			this.setDrunkTurns(params.getParamValue("phdDrunkTurns"));
+		if (this.title == AcademicRole.PROFESSOR)
+			this.setDrunkTurns(params.getParamValue("professorDrunkTurns"));
 	}
 }
