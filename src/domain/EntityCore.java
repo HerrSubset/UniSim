@@ -13,7 +13,7 @@ public class EntityCore extends Entity{
 	private int id;
 	private Role originalRole;
 	private int drunkTurns = 0;
-	private int influence;		//how much influence this entity has on students
+	private int influence = 0;		//how much influence this entity has on students
 	
 	
 	//************************************************************************
