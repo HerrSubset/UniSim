@@ -84,4 +84,12 @@ public class UniSimController {
 		SimulationParameters sp = SimulationParameters.getInstance();
 		sp.updateParameter(parameter, newVal);
 	}
+	
+	
+	
+	//revert all settings back to their default value
+	public void revertToDefaultSettings(){
+		SimulationParameters sp = SimulationParameters.getInstance();
+		sp.revertToDefaultSettings();
+	}
 }

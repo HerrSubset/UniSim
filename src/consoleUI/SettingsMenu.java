@@ -17,6 +17,7 @@ public class SettingsMenu extends Menu {
 		super(parent);
 		this.controller = controller;
 		menuItems.add("Change Settings");
+		menuItems.add("Revert to Default Settings");
 		menuItems.add("Import Settings");
 	}
 
@@ -36,6 +37,9 @@ public class SettingsMenu extends Menu {
 			this.changeSettings();
 		
 		if (actionNumber == 2)
+			this.controller.revertToDefaultSettings();
+		
+		if (actionNumber == 3)
 			System.out.print("\nFeature not implemented yet\n");
 	}
 	
