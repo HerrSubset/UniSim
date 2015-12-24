@@ -3,6 +3,7 @@ package consoleUI;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+import db.ParameterIOHandler;
 import domain.NonExistingParameterException;
 import domain.UniSimController;
 
@@ -19,6 +20,7 @@ public class SettingsMenu extends Menu {
 		menuItems.add("Change Settings");
 		menuItems.add("Revert to Default Settings");
 		menuItems.add("Import Settings");
+		menuItems.add("Save Current Settings");
 	}
 
 	
@@ -41,6 +43,9 @@ public class SettingsMenu extends Menu {
 		
 		if (actionNumber == 3)
 			System.out.print("\nFeature not implemented yet\n");
+		
+		if (actionNumber == 4)
+			storeSettings();
 	}
 	
 	
@@ -94,5 +99,20 @@ public class SettingsMenu extends Menu {
 		}
 	}
 	
+	
+	
+	
+	//************************************************************************
+	// Settings I/O Functions
+	//************************************************************************
+	
+	//hands parameter hash to db module to save it
+	private void storeSettings(){
+		Hashtable<String, Integer> parameters = this.controller.getParameterHash();
+		
+		String storagePath = getUserString("Enter the path to the savefile:");
+		
+		ParameterIOHandler.saveParameters(storagePath, parameters);
+	}
 
 }
