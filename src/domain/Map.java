@@ -12,6 +12,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 
 public class Map {
@@ -119,5 +120,18 @@ public class Map {
 	//add a given place to the map
 	public void addPlace(Place p){
 		grid.add(p);
+	}
+	
+	
+	
+	//calculates the influence that is applied in every place on the map
+	//and then applies it to all entities in that place
+	public void applyInfluence(){
+		Iterator<Place> iterator = this.grid.iterator();
+		
+		while ( iterator.hasNext() ) {
+			Place curPlace = iterator.next();
+			curPlace.applyInfluence();
+		}
 	}
 }

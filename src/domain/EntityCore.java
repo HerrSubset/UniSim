@@ -160,6 +160,22 @@ public class EntityCore extends Entity{
 	public void addToHistory(String historyItem) {
 		this.history.add(historyItem);
 	}
+	
+	
+	
+	//change the careerPreference by a given amount
+	@Override
+	public void influence(int influence) {
+		this.careerPreference += influence;
+		
+		//make sure careerPreference doesn't get too big
+		if ( this.careerPreference > 99)
+			this.careerPreference = 99;
+		
+		//make sure careerPreference doesn't get too small
+		else if ( this.careerPreference < 0 )
+			this.careerPreference = 0;
+	}
 
 
 	
@@ -195,7 +211,6 @@ public class EntityCore extends Entity{
 	//entitycores don't do anything, hence the empty function
 	@Override
 	public void handleSpecificActivity() {}
-
 
 
 }

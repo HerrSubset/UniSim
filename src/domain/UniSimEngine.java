@@ -113,6 +113,8 @@ public class UniSimEngine {
 			
 			//distribute entities over world map
 			distributePopulation();
+			
+			map.applyInfluence();
 		}
 	}
 	
