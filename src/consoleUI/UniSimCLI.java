@@ -74,7 +74,7 @@ public class UniSimCLI {
 	
 	//sets the settings menu as the current menu
 	public void goToSettingsMenu(){
-		this.currentMenu = new SettingsMenu(this);
+		this.currentMenu = new SettingsMenu(this, simulationController);
 	}
 	
 }

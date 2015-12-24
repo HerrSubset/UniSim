@@ -21,13 +21,18 @@ public abstract class Menu {
 	Scanner sc = new Scanner(System.in);
 	
 	
+	
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
+	
 	public Menu(UniSimCLI parent){
 		this.parentUI = parent;
 		this.menuItems = new ArrayList<String>();
 	}
+	
+	
 	
 	
 	//************************************************************************
@@ -44,6 +49,7 @@ public abstract class Menu {
 	}
 	
 	
+	
 	//reads input from the user on what menu item to execute. It then calls an
 	//abstract function to let the subclass handle the input.
 	public void readAndExecuteAction(){
@@ -55,7 +61,21 @@ public abstract class Menu {
 	}
 	
 	
-	//uses the scanner attribute to get an int from the user. The scanner
+	
+	//uses the scanner attribute to get a String from the user. The String
+	//attribute is the message that is displayed to the user.
+	protected String getUserString(String message){
+		String res;
+		
+		System.out.println(message);
+		res = sc.next();
+		
+		return res;
+	}
+	
+	
+	
+	//uses the scanner attribute to get an int from the user. The String
 	//attribute is the message that is displayed to the user
 	protected int getUserInt(String message){
 		int res;
@@ -77,6 +97,8 @@ public abstract class Menu {
 		return res;
 	}
 	
+	
+	
 	//get an int from the user within a certain range. To achieve this it uses
 	//the getUserInt function. Afterwards it checks if it is in range.
 	private int getUserIntInRange(String message, int lower, int upper){
@@ -97,6 +119,7 @@ public abstract class Menu {
 		
 		return res;
 	}
+	
 	
 	
 	//function called by "ReadAndExecuteAction" to let the subclass execute things

@@ -7,6 +7,7 @@
 
 package domain;
 
+import java.util.Hashtable;
 import java.util.List;
 
 import passables.EntityState;
@@ -25,6 +26,8 @@ public class UniSimController {
 	}
 	
 	
+	
+	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
@@ -37,24 +40,48 @@ public class UniSimController {
 		this.population = engine.getPopulation();
 	}
 	
+	
+	
 	//tell the engine to go forward a certain amount of turns
 	public void simulate(int turns) throws InvalidMethodInvocationException{
 		this.engine.simulate(turns);
 	}
+	
+	
 	
 	//return a string that represents the current world map
 	public List<String> getMapStrings() {
 		return map.getStringList();
 	}
 
+	
+	
 	//get the current status of the simulation
 	public SimulationStateSummary getCurrentStatus() {
 		return this.engine.getCurrentStatus();
 	}
 	
+	
+	
 	//return a list of EntityState objects. These represent all 
 	//the entities present in the population.
 	public List<EntityState> getEntityHistories(){
 		return this.population.getEntityHistories();
+	}
+	
+	
+	
+	//returns the settings in the form of a Hashtable
+	public Hashtable<String, Integer> getParameterHash(){
+		SimulationParameters sp = SimulationParameters.getInstance();
+		return sp.getParameterHash();
+	}
+	
+	
+	
+	//update a parameter to a new value
+	public void updateSetting(String parameter, int newVal){
+		SimulationParameters sp = SimulationParameters.getInstance();
+		sp.updateParameter(parameter, newVal);
 	}
 }

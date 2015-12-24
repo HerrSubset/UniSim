@@ -50,6 +50,20 @@ public class SimulationParameters {
 	
 	
 	
+	//returns the entire hash with parameters
+	public Hashtable<String, Integer> getParameterHash(){
+		return this.paramContainer;
+	}
+	
+	
+	
+	//update the given parameter to a new value
+	public void updateParameter(String parameter, int newVal){
+		paramContainer.replace(parameter, newVal);
+	}
+	
+	
+	
 	//reverts all the settings to their default setting
 	public void revertToDefaultSettings(){
 		//amount of places per type
