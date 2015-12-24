@@ -49,6 +49,8 @@ public abstract class Entity {
 	public abstract Place getCurrentLocation();
 	public abstract void setDrunkTurns(int turns);
 	public abstract int getDrunkTurns();
+	public abstract int getInfluence();
+	protected abstract void setInfluence(int influence);
 	
 	//returns the grade an entity got as a student
 	protected abstract int getGrade() throws InvalidMethodInvocationException;

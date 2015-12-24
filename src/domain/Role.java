@@ -119,6 +119,20 @@ public abstract class Role extends Entity {
 	
 	
 	
+	@Override
+	public int getInfluence() {
+		return this.core.getInfluence();
+	}
+	
+	
+	
+	@Override
+	protected void setInfluence(int influence) {
+		this.core.setInfluence(influence);
+	}
+	
+	
+	
 	
 	//************************************************************************
 	// Other Functions

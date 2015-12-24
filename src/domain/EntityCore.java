@@ -13,6 +13,7 @@ public class EntityCore extends Entity{
 	private int id;
 	private Role originalRole;
 	private int drunkTurns = 0;
+	private int influence;		//how much influence this entity has on students
 	
 	
 	//************************************************************************
@@ -112,6 +113,20 @@ public class EntityCore extends Entity{
 	
 	
 	
+	@Override
+	public int getInfluence() {
+		return this.influence;
+	}
+
+
+
+	@Override
+	protected void setInfluence(int influence) {
+		this.influence = influence;
+	}
+	
+	
+	
 	
 	//************************************************************************
 	// Other Functions
@@ -156,4 +171,5 @@ public class EntityCore extends Entity{
 	//entitycores don't do anything, hence the empty function
 	@Override
 	public void handleSpecificActivity() {}
+
 }
