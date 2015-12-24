@@ -51,9 +51,10 @@ public abstract class Entity {
 	public abstract int getDrunkTurns();
 	public abstract int getInfluence();
 	protected abstract void setInfluence(int influence);
-	
-	//returns the grade an entity got as a student
-	protected abstract int getGrade() throws InvalidMethodInvocationException;
+	protected abstract int getCareerPreference();
+	protected abstract void setCareerPreference(int preference);
+	protected abstract int getGrade();
+	protected abstract void setGrade(int grade);
 	
 	
 	

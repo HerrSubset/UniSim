@@ -14,6 +14,9 @@ public class EntityCore extends Entity{
 	private Role originalRole;
 	private int drunkTurns = 0;
 	private int influence = 0;		//how much influence this entity has on students
+	//int from 0-99. Closer to zero means preference for academic career
+	private int careerPreference;
+	private int grade;
 	
 	
 	//************************************************************************
@@ -78,8 +81,15 @@ public class EntityCore extends Entity{
 	
 	//return the grade this entity got as a student
 	@Override
-	protected int getGrade() throws InvalidMethodInvocationException {
-		throw new InvalidMethodInvocationException("Tried retrieving grade from entity core");
+	protected int getGrade() {
+		return this.grade;
+	}
+	
+	
+	
+	@Override
+	protected void setGrade(int grade) {
+		this.grade = grade;
 	}
 	
 	
@@ -123,6 +133,20 @@ public class EntityCore extends Entity{
 	@Override
 	protected void setInfluence(int influence) {
 		this.influence = influence;
+	}
+	
+	
+	
+	@Override
+	protected int getCareerPreference() {
+		return this.careerPreference;
+	}
+
+
+
+	@Override
+	protected void setCareerPreference(int preference) {
+		this.careerPreference = preference;
 	}
 	
 	
@@ -171,5 +195,7 @@ public class EntityCore extends Entity{
 	//entitycores don't do anything, hence the empty function
 	@Override
 	public void handleSpecificActivity() {}
+
+
 
 }

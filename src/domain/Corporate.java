@@ -8,12 +8,13 @@ public class Corporate extends Role {
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public Corporate(int turnCreated){
+	public Corporate(int turnCreated, int grade){
 		super(turnCreated);
 		this.addToHistory("Became Consultant in turn " + turnCreated);
 		
 		this.setInfluence(params.getParamValue("consultantStudentInfluence"));
 
+		this.setGrade(grade);
 	}
 	
 	

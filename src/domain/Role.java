@@ -52,24 +52,6 @@ public abstract class Role extends Entity {
 	
 	
 	
-	//return the grade this entity got as a student
-	@Override
-	protected int getGrade() {
-		int res = 0;
-		
-		try {
-			res = this.core.getGrade();
-		} catch (InvalidMethodInvocationException e){
-			//this error is thrown if the entity never was a student
-			//(the call reaches the EntityCore object)
-			System.out.println(e.getMessage());
-		}
-		
-		return res;
-	}
-	
-	
-	
 	@Override
 	public void setCurrentLocation(Place p){
 		this.core.setCurrentLocation(p);
@@ -129,6 +111,34 @@ public abstract class Role extends Entity {
 	@Override
 	protected void setInfluence(int influence) {
 		this.core.setInfluence(influence);
+	}
+	
+	
+	
+	@Override
+	protected int getCareerPreference() {
+		return this.core.getCareerPreference();
+	}
+
+
+
+	@Override
+	protected void setCareerPreference(int preference) {
+		this.core.setCareerPreference(preference);
+	}
+	
+	
+	
+	@Override
+	protected int getGrade() {
+		return this.core.getGrade();
+	}
+	
+	
+	
+	@Override
+	protected void setGrade(int grade) {
+		this.core.setGrade(grade);
 	}
 	
 	

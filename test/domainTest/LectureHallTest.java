@@ -16,7 +16,7 @@ public class LectureHallTest {
 		LectureHall lh = new LectureHall();
 		assertFalse("Lecturhal should not have academic", lh.hasTeacher());
 		
-		Academic ac = new Academic(0);
+		Academic ac = new Academic(0, 85);
 		lh.add(ac);
 		assertTrue("Lecturehall should have academic", lh.hasTeacher());
 	}

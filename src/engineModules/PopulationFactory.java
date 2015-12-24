@@ -96,20 +96,16 @@ public class PopulationFactory {
 	
 	
 	private PhDStudent createPhDStudent(){
-		//create student with grade
-		Student s = createStudent();
 		int grade = rand.nextInt(100);
-		s.setGrade(grade);
 		
-		return new PhDStudent(engine.getTurn(), s);
+		return new PhDStudent(engine.getTurn(), grade);
 	}
 	
 	
 	
-	private Academic createPostDoc(){
-		PhDStudent phd = this.createPhDStudent();
-		
-		return new Academic(engine.getTurn(), phd);
+	private Academic createPostDoc(){		
+		int grade = rand.nextInt(100);
+		return new Academic(engine.getTurn(), grade);
 	}
 	
 	
@@ -123,19 +119,16 @@ public class PopulationFactory {
 	
 	
 	private Trainee createTrainee(){
-		Student s = createStudent();
 		int grade = rand.nextInt(100);
-		s.setGrade(grade);
 		
-		return new Trainee(engine.getTurn(), s);
+		return new Trainee(engine.getTurn(), grade);
 	}
 	
 	
 	
 	private Corporate createConsultant(){
-		Trainee t = createTrainee();
-		
-		return new Corporate(engine.getTurn(), t);
+		int grade = rand.nextInt(100);
+		return new Corporate(engine.getTurn(), grade);
 	}
 	
 	

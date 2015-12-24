@@ -11,14 +11,15 @@ public class Academic extends Role {
 	//************************************************************************
 	// Constructors
 	//************************************************************************
-	public Academic(int turnCreated){
+	public Academic(int turnCreated, int grade){
 		super(turnCreated);
 		this.addToHistory("Became PhD in turn " + turnCreated);
 		
 		//set influence. For influence to push towards academic career,
 		//it has to be negative.
 		this.setInfluence(params.getParamValue("phdStudentInfluence") * -1);
-
+		
+		this.setGrade(grade);
 	}
 	
 	

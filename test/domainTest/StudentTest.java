@@ -13,7 +13,7 @@ public class StudentTest {
 	@Test
 	public void LecturehallWithTeacherIncreasesClassCount() {
 		LectureHall lh = new LectureHall();
-		Academic ac = new Academic(0);
+		Academic ac = new Academic(0, 85);
 		lh.add(ac);
 		
 		Student s = new Student(0);

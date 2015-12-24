@@ -12,8 +12,7 @@ public class Student extends Role {
 	
 	private int classesAttended = 0;
 	private int grade;
-	//int from 0-99. Closer to zero means preference for academic career
-	private int careerPreference;
+
 	
 	//************************************************************************
 	// Constructors
@@ -21,7 +20,7 @@ public class Student extends Role {
 	public Student(int turnCreated){
 		super(turnCreated);
 		Random rand = new Random();
-		this.careerPreference = rand.nextInt(99);
+		this.setCareerPreference(rand.nextInt(99));
 		this.setInfluence(params.getParamValue("studentStudentInfluence"));
 	}
 	
@@ -36,22 +35,6 @@ public class Student extends Role {
 	@Override
 	public String getRoleString() {
 		return "Student";
-	}
-	
-	
-	
-	//return the grade this entity got as a student
-	@Override
-	protected int getGrade() {
-		return this.grade;
-	}
-	
-	
-	//this method is used in the PopulationFactory to create entities that are
-	//already past student stage. Often they need a grade and this is the way
-	//a grade is set for them.
-	public void setGrade(int grade) {
-		this.grade = grade;
 	}
 	
 	
@@ -94,7 +77,7 @@ public class Student extends Role {
 			//based on score and preference
 			int minGrade = params.getParamValue("phdMinAcceptanceScore");
 			
-			if (this.grade >= minGrade && this.careerPreference < 50)
+			if (this.grade >= minGrade && this.getCareerPreference() < 50)
 				res = new PhDStudent(turn, this);
 			else
 				res = new Trainee(turn, this);
