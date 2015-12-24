@@ -8,6 +8,7 @@
 
 package domain;
 
+import java.util.Enumeration;
 import java.util.Hashtable;
 
 public class SimulationParameters {
@@ -62,6 +63,22 @@ public class SimulationParameters {
 		if ( !paramContainer.containsKey(parameter))
 			throw new NonExistingParameterException("The parameter " + parameter + " does not exist");
 		paramContainer.replace(parameter, newVal);
+	}
+	
+	
+	
+	//takes a hash and loads all parameters into the paramContainer
+	public void loadParameters(Hashtable<String, Integer> params){
+		Enumeration<String> keys = params.keys();
+		
+		while (keys.hasMoreElements()){
+			String curKey = keys.nextElement();
+			
+			//only store parameters that already exist in the paramcontainer
+			if (paramContainer.containsKey(curKey)){
+				paramContainer.replace(curKey, params.get(curKey));
+			}
+		}
 	}
 	
 	

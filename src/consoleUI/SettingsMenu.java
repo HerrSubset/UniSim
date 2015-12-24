@@ -42,7 +42,7 @@ public class SettingsMenu extends Menu {
 			this.controller.revertToDefaultSettings();
 		
 		if (actionNumber == 3)
-			System.out.print("\nFeature not implemented yet\n");
+			loadSettings();
 		
 		if (actionNumber == 4)
 			storeSettings();
@@ -105,6 +105,14 @@ public class SettingsMenu extends Menu {
 	//************************************************************************
 	// Settings I/O Functions
 	//************************************************************************
+	
+	//asks for a path to a settings file and lets db module load it
+	private void loadSettings(){
+		String storagePath = getUserString("Enter the path to the savefile:");
+		
+		Hashtable<String, Integer> params = ParameterIOHandler.loadParameters(storagePath);
+		controller.loadParameters(params);
+	}
 	
 	//hands parameter hash to db module to save it
 	private void storeSettings(){

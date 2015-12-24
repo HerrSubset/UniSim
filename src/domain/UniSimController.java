@@ -92,4 +92,12 @@ public class UniSimController {
 		SimulationParameters sp = SimulationParameters.getInstance();
 		sp.revertToDefaultSettings();
 	}
+	
+	
+	
+	//pass given Hashtable to the settings
+	public void loadParameters(Hashtable<String, Integer> params){
+		SimulationParameters sp = SimulationParameters.getInstance();
+		sp.loadParameters(params);
+	}
 }
