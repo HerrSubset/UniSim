@@ -7,6 +7,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Place {
@@ -31,9 +32,11 @@ public class Place {
 		return getCharacterRepresentation() + "|" + getInhabitantString();
 	}
 	
+	
 	public String classnameToString(){
 		return "Place";
 	}
+	
 	
 	
 	protected String getCharacterRepresentation(){
@@ -55,15 +58,46 @@ public class Place {
 		return res;
 	}
 
+	
 
 	//remove the entities that are present in this place
 	public void clear() {
 		this.inhabitants.clear();
 	}
 
+	
+	
 	//add an entity to this place
 	public void add(Entity entity) {
 		this.inhabitants.add(entity);
 		entity.setCurrentLocation(this);
+	}
+	
+	
+	
+	//calculates the influence in this place and then applies it to all entities
+	public void applyInfluence(){
+		int influence = this.calculateInfluence();
+		
+		Iterator<Entity> iterator = inhabitants.iterator();
+		while ( iterator.hasNext() ){
+			Entity e = iterator.next();
+			e.influence(influence);
+		}
+	}
+	
+	
+	
+	//calculates the influence of all entities in this place
+	public int calculateInfluence(){
+		int res = 0;
+		Iterator<Entity> iterator = inhabitants.iterator();
+		
+		while ( iterator.hasNext() ){
+			Entity e = iterator.next();
+			res += e.getInfluence();
+		}
+		
+		return res;
 	}
 }

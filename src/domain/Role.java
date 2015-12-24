@@ -179,4 +179,12 @@ public abstract class Role extends Entity {
 	
 		return res;
 	}
+	
+	
+	
+	//change the careerPreference by a given amount
+	@Override
+	public void influence(int influence) {
+		this.core.influence(influence);
+	}
 }

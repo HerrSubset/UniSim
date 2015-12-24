@@ -106,6 +106,11 @@ public abstract class Entity {
 	//general behavior. This function lets the subclasses implement 
 	//behavior that's specific for them.
 	public abstract void handleSpecificActivity();
+	
+	
+	
+	//influence the entity by a given amount
+	public abstract void influence(int influence);
 
 
 
