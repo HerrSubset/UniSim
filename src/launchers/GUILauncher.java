@@ -6,9 +6,10 @@
 
 package launchers;
 
+import gui.UniSimGUI;
 
 public class GUILauncher {
 	public static void main(String[] args) {
-		//TODO start gui
+		UniSimGUI gui = new UniSimGUI();
 	}
 }

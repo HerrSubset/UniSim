@@ -10,7 +10,8 @@ package launchers;
 
 import java.util.Scanner;
 
-import consoleUI.UniSimCLI;;
+import consoleUI.UniSimCLI;
+import gui.UniSimGUI;;
 
 public class HybridLauncher {
 
@@ -29,7 +30,7 @@ public class HybridLauncher {
 			UniSimCLI cli = new UniSimCLI();
 			cli.start();
 		} else if (input == 2){
-			//TODO start GUI
+			UniSimGUI gui = new UniSimGUI();
 		}
 	}
 
