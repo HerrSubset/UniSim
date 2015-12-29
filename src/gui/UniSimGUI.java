@@ -1,5 +1,7 @@
 package gui;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
@@ -21,5 +23,10 @@ public class UniSimGUI extends JFrame {
 	private void loadContentPanels(){
 		this.getContentPane().removeAll();;
 		
+		MapPanel mapPanel = new MapPanel();
+		this.getContentPane().add(mapPanel, BorderLayout.CENTER);
+		
+		UnitList list = new UnitList();
+		this.getContentPane().add(list, BorderLayout.EAST);
 	}
 }
