@@ -6,20 +6,35 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import domain.UniSimController;
+
 @SuppressWarnings("serial")
 public class UniSimGUI extends JFrame {
+	//visual components
 	private MapPanel mapPanel;
 	private UnitList list;
 	private JPanel southPanel;
 	private StatisticsPanel stats;
 	private SimulationControls controls;
 	private SimulationMenu menu;
+	
+	//controller for the domain
+	private UniSimController controller;
+
 
 	public UniSimGUI(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("University Simulator");
 		
+		//set visual components
 		this.loadContentPanels();
+		
+		//set up the controller
+		controller = new UniSimController();
+		controller.init();
+		
+		//make components display relevant information
+		updateInfo();
 		
 		this.setVisible(true);
 		this.pack();
@@ -59,5 +74,12 @@ public class UniSimGUI extends JFrame {
 	//close the frame
 	public void exit(){
 		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+	}
+	
+	
+	
+	//give each component the information that has to be displayed on it
+	private void updateInfo(){
+		mapPanel.updateInfo(controller.getMapStrings());
 	}
 }
