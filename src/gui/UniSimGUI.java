@@ -6,6 +6,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import domain.InvalidMethodInvocationException;
 import domain.UniSimController;
 
 @SuppressWarnings("serial")
@@ -81,5 +82,18 @@ public class UniSimGUI extends JFrame {
 	//give each component the information that has to be displayed on it
 	private void updateInfo(){
 		mapPanel.updateInfo(controller.getMapStrings());
+	}
+
+
+
+	//runs simulation for a given amount of turns and then updates all panels
+	public void runSimulation(int turns) {
+		try {
+			controller.simulate(turns);
+		} catch (InvalidMethodInvocationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.updateInfo();
 	}
 }

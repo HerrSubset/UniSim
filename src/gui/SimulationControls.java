@@ -41,5 +41,13 @@ public class SimulationControls extends JPanel {
 				parent.exit();
 			}
 		});
+		
+		run.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				parent.runSimulation(1);
+			}
+		});
 	}
 }
