@@ -30,6 +30,7 @@ public class HybridLauncher {
 			UniSimCLI cli = new UniSimCLI();
 			cli.start();
 		} else if (input == 2){
+			@SuppressWarnings("unused")
 			UniSimGUI gui = new UniSimGUI();
 		}
 	}
