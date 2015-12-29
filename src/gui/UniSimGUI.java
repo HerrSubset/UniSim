@@ -20,7 +20,8 @@ public class UniSimGUI extends JFrame {
 	
 	
 	
-	//creates a main menu and puts in the contentpane of the frame
+	//creates all the components that are part of the GUI and adds them
+	//to the frame
 	private void loadContentPanels(){
 		this.getContentPane().removeAll();;
 		
@@ -40,5 +41,9 @@ public class UniSimGUI extends JFrame {
 		
 		SimulationControls controls = new SimulationControls();
 		southPanel.add(controls, BorderLayout.EAST);
+		
+		//add the menu bar
+		SimulationMenu menu = new SimulationMenu();
+		this.setJMenuBar(menu);
 	}
 }
