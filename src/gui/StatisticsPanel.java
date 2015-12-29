@@ -6,13 +6,13 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 @SuppressWarnings("serial")
-public class UnitList extends JPanel {
+public class StatisticsPanel extends JPanel {
 
-	public UnitList(){
-		Border b = BorderFactory.createTitledBorder("Entity List");
+	public StatisticsPanel(){
+		Border b = BorderFactory.createTitledBorder("Statistics");
 		this.setBorder(b);
 		
-		JLabel label = new JLabel("this is where the list goes");
+		JLabel label = new JLabel("look at all dem stats");
 		this.add(label);
 	}
 }

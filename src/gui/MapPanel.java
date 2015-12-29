@@ -1,13 +1,17 @@
 package gui;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.JTextArea;
+import javax.swing.border.Border;
 
 @SuppressWarnings("serial")
-public class MapPanel extends JPanel {
+public class MapPanel extends JTextArea {
 	
 	public MapPanel() {
-		JLabel label = new JLabel("This is where the map goes");
-		this.add(label);
+		Border b = BorderFactory.createTitledBorder("Map");
+		this.setBorder(b);
+		this.setPreferredSize(new Dimension(300, 300));
 	}
 }
