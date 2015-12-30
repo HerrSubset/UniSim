@@ -55,6 +55,7 @@ public class SimulationMenu extends JMenuBar {
 		addMapColsAction();
 		addSaveSettingsAction();
 		addLoadSettingsAction();
+		addNewSimAction();
 	}
 
 	
@@ -110,6 +111,18 @@ public class SimulationMenu extends JMenuBar {
 					Hashtable<String, Integer> params = ParameterIOHandler.loadParameters(path);
 					parent.resetSimulation(params);
 				}
+			}
+		});
+	}
+	
+	
+	
+	private void addNewSimAction(){
+		newSimulation.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				parent.resetSimulation(null);
 			}
 		});
 	}
