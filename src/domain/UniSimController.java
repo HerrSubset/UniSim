@@ -18,13 +18,6 @@ public class UniSimController {
 	private UniSimEngine engine;
 	private Population population;
 	
-	//************************************************************************
-	// Constructors
-	//************************************************************************
-	public UniSimController(){
-		this.engine = new UniSimEngine();
-	}
-	
 	
 	
 	
@@ -35,6 +28,7 @@ public class UniSimController {
 	//initialize the engine. Once the engine is initialized we can ask for the 
 	//map and store it for faster access in the future.
 	public void init(){
+		this.engine = new UniSimEngine();
 		engine.init();
 		this.map = engine.getMap();
 		this.population = engine.getPopulation();
