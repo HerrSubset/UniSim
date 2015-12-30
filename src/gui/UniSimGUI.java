@@ -66,7 +66,7 @@ public class UniSimGUI extends JFrame {
 		southPanel.add(controls, BorderLayout.EAST);
 		
 		//add the menu bar
-		menu = new SimulationMenu();
+		menu = new SimulationMenu(this);
 		this.setJMenuBar(menu);
 	}
 	
@@ -95,5 +95,11 @@ public class UniSimGUI extends JFrame {
 			e.printStackTrace();
 		}
 		this.updateInfo();
+	}
+
+
+
+	public void setCols(int cols) {
+		mapPanel.setCols(cols);
 	}
 }

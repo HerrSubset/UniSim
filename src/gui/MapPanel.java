@@ -11,7 +11,8 @@ import javax.swing.border.Border;
 @SuppressWarnings("serial")
 public class MapPanel extends JTextArea {
 	private int numberOfCols = 3;
-	
+	private List<String> mapStrings;
+
 	public MapPanel() {
 		Border b = BorderFactory.createTitledBorder("Map");
 		this.setBorder(b);
@@ -20,55 +21,68 @@ public class MapPanel extends JTextArea {
 
 	
 	
-	//print the given strings to the screen. The amount of columns that will
-	//be used for printing is stored in the "numberOfCols" variable
+	// print the given strings to the screen. The amount of columns that will
+	// be used for printing is stored in the "numberOfCols" variable
 	public void updateInfo(List<String> mapStrings) {
-		// TODO check the amount of columns that has to be used
-		
-		//empty the text area
+		this.mapStrings = mapStrings;
+		this.drawMap();
+	}
+
+	
+	
+	private void drawMap() {
+		// empty the text area
 		this.setText("");
-		
-		//get the length of the longest string in mapStrings
+
+		// get the length of the longest string in mapStrings
 		int maxLength = getMaxLength(mapStrings);
-		
-		//print strings to screen
+
+		// print strings to screen
 		Iterator<String> it = mapStrings.iterator();
-		
-		while (it.hasNext()){
+
+		while (it.hasNext()) {
 			String line = "";
-			
-			for (int i = 0 ; i < numberOfCols; i++){
+
+			for (int i = 0; i < numberOfCols; i++) {
 				if (it.hasNext())
 					line += stretch(it.next(), maxLength + 2);
 			}
-			
+
 			this.append(line + "\n");
 		}
 	}
+
 	
 	
-	
-	private int getMaxLength(List<String> strings){
+	private int getMaxLength(List<String> strings) {
 		int res = 0;
-		
+
 		Iterator<String> it = strings.iterator();
-		
-		while (it.hasNext()){
+
+		while (it.hasNext()) {
 			String curString = it.next();
 			if (curString.length() > res)
 				res = curString.length();
 		}
-		
+
 		return res;
 	}
+
 	
 	
-	private String stretch(String s, int targetLength){
+	private String stretch(String s, int targetLength) {
 		String res = s;
-		
+
 		while (res.length() < targetLength)
 			res += " ";
-		
+
 		return res;
+	}
+
+	
+	
+	public void setCols(int cols) {
+		this.numberOfCols = cols;
+		this.drawMap();
 	}
 }
