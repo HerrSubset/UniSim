@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import domain.InvalidMethodInvocationException;
 import domain.UniSimController;
+import passables.SimulationStateSummary;
 
 @SuppressWarnings("serial")
 public class UniSimGUI extends JFrame {
@@ -83,6 +84,9 @@ public class UniSimGUI extends JFrame {
 	//give each component the information that has to be displayed on it
 	private void updateInfo(){
 		mapPanel.updateInfo(controller.getMapStrings());
+		
+		SimulationStateSummary state = controller.getCurrentStatus();
+		stats.updateValues(state);
 	}
 
 

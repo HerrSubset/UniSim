@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 @SuppressWarnings("serial")
 public class StatPanel extends JPanel {
 	private JLabel label;
@@ -19,5 +20,11 @@ public class StatPanel extends JPanel {
 		
 		this.add(label);
 		this.add(value);
+	}
+	
+	
+	
+	public void updateValue(int value){
+		this.value.setText(Integer.toString(value));
 	}
 }
