@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.event.WindowEvent;
+import java.util.Hashtable;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -101,5 +102,23 @@ public class UniSimGUI extends JFrame {
 
 	public void setCols(int cols) {
 		mapPanel.setCols(cols);
+	}
+	
+	
+	
+	public Hashtable<String, Integer> getParams(){
+		return controller.getParameterHash();
+	}
+	
+	
+	
+	//reset the simulation and load the new parameters if they are present
+	public void resetSimulation(Hashtable<String, Integer> settings){
+		controller.init();
+		
+		if (settings != null)
+			controller.loadParameters(settings);
+			
+		this.updateInfo();
 	}
 }

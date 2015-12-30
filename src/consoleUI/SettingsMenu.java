@@ -120,7 +120,7 @@ public class SettingsMenu extends Menu {
 		
 		String storagePath = getUserString("Enter the path to the savefile:");
 		
-		ParameterIOHandler.saveParameters(storagePath, parameters);
+		ParameterIOHandler.saveParameters(storagePath, parameters, true);
 	}
 
 }

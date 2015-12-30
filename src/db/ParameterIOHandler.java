@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class ParameterIOHandler {
 	
 	//serializes the given hash and save it to the given path
-	public static void saveParameters(String path, Hashtable<String, Integer> params){
+	public static void saveParameters(String path, Hashtable<String, Integer> params, boolean interactive){
 		File f = new File(path);
 		String choice = "y";
 		FileOutputStream fos;
@@ -23,7 +23,7 @@ public class ParameterIOHandler {
 		
 		//ask user if he wants to overwrite the save file if it already exists.
 		//If it doesn't exist, create a new file.
-		if (f.exists()){
+		if (f.exists() && interactive){
 			System.out.println("File already exists, do you wish to overwrite? [y/n])");
 			
 			
@@ -32,7 +32,7 @@ public class ParameterIOHandler {
 			Scanner sc = new Scanner(System.in);
 			choice = sc.nextLine();
 			
-		} else {
+		} else if (!f.exists()){
 			try {
 				f.createNewFile();
 			} catch (IOException e) {
