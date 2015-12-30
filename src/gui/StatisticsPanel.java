@@ -1,5 +1,7 @@
 package gui;
 
+import java.awt.GridLayout;
+
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,7 +14,12 @@ public class StatisticsPanel extends JPanel {
 		Border b = BorderFactory.createTitledBorder("Statistics");
 		this.setBorder(b);
 		
-		JLabel label = new JLabel("look at all dem stats");
-		this.add(label);
+		this.setLayout(new GridLayout(3, 5));
+		
+		StatPanel turn = new StatPanel("Turn: ");
+		this.add(turn);
+		
+		StatPanel entities = new StatPanel("# of Entities: ");
+		this.add(entities);
 	}
 }
