@@ -15,6 +15,7 @@ import db.ParameterIOHandler;
 @SuppressWarnings("serial")
 public class SimulationMenu extends JMenuBar {
 	private JMenuItem newSimulation;
+	private JMenuItem newCustomSimulation;
 	private JMenuItem saveSettings;
 	private JMenuItem loadSettings;
 	private JMenuItem mapCols;
@@ -33,11 +34,13 @@ public class SimulationMenu extends JMenuBar {
 		this.add(viewMenu);
 
 		// menu items for main menu
-		newSimulation = new JMenuItem("New Simulation");
+		newSimulation = new JMenuItem("New Default Simulation");
+		newCustomSimulation = new JMenuItem("New Custom Simulation");
 		saveSettings = new JMenuItem("Save Current Settings");
 		loadSettings = new JMenuItem("Load Settings");
 
 		mainMenu.add(newSimulation);
+		mainMenu.add(newCustomSimulation);
 		mainMenu.add(saveSettings);
 		mainMenu.add(loadSettings);
 
