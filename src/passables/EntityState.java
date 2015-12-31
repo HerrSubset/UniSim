@@ -20,4 +20,11 @@ public class EntityState {
 		this.currentRole = role;
 		this.history = history;
 	}
+	
+	
+	@Override
+	public String toString(){
+		String res = currentRole + " (id: " + id + ")";
+		return res;
+	}
 }

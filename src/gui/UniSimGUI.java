@@ -3,12 +3,14 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.event.WindowEvent;
 import java.util.Hashtable;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import domain.InvalidMethodInvocationException;
 import domain.UniSimController;
+import passables.EntityState;
 import passables.SimulationStateSummary;
 
 @SuppressWarnings("serial")
@@ -87,6 +89,9 @@ public class UniSimGUI extends JFrame {
 		
 		SimulationStateSummary state = controller.getCurrentStatus();
 		stats.updateValues(state);
+		
+		List<EntityState> states = controller.getEntityHistories();
+		this.list.updateList(states);
 	}
 
 
