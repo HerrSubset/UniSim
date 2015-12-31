@@ -2,6 +2,8 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,8 +19,10 @@ import passables.EntityState;
 @SuppressWarnings("serial")
 public class UnitList extends JPanel {
 	private JList<EntityState> list;
+	private UniSimGUI parent;
 
-	public UnitList(){
+	public UnitList(UniSimGUI parent){
+		this.parent = parent;
 		this.setLayout(new BorderLayout());
 		
 		list = new JList<EntityState>();
@@ -29,6 +33,8 @@ public class UnitList extends JPanel {
 		Border b = BorderFactory.createTitledBorder("Entity List");
 		this.setBorder(b);
 		this.setPreferredSize(new Dimension(200, 300));
+		
+		addListAction();
 	}
 	
 	
@@ -42,5 +48,31 @@ public class UnitList extends JPanel {
 			model.addElement(it.next());
 		
 		this.list.setModel(model);
+	}
+	
+	
+	
+	private void addListAction(){
+		list.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent evt){
+				
+				@SuppressWarnings("unchecked")
+				JList<EntityState> list = (JList<EntityState>) evt.getSource();
+				
+				if (evt.getClickCount() == 2) {
+					//execute this when double clicked
+					int index = list.locationToIndex(evt.getPoint());
+					
+					EntityState state = list.getModel().getElementAt(index);
+		
+					openEntityInfoScreen(state);
+				}
+			}
+		});
+	}
+	
+	
+	private void openEntityInfoScreen(EntityState state){
+		parent.openEntityInfoScreen(state);
 	}
 }

@@ -3,9 +3,11 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.event.WindowEvent;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import domain.InvalidMethodInvocationException;
@@ -55,7 +57,7 @@ public class UniSimGUI extends JFrame {
 		mapPanel = new MapPanel();
 		this.getContentPane().add(mapPanel, BorderLayout.CENTER);
 		
-		list = new UnitList();
+		list = new UnitList(this);
 		this.getContentPane().add(list, BorderLayout.EAST);
 		
 		//create a new panel for simulation statistics and controls
@@ -129,5 +131,23 @@ public class UniSimGUI extends JFrame {
 			controller.loadParameters(settings);
 			
 		this.updateInfo();
+	}
+	
+	
+	
+	public void openEntityInfoScreen(EntityState state){
+		//create title for new window
+		String title = "History of " + state.toString();
+		
+		//create a string containing the history
+		Iterator<String> it = state.history.iterator();
+		StringBuilder history = new StringBuilder();
+		
+		while (it.hasNext()){
+			history.append(it.next());
+			history.append("\n");
+		}
+		
+		JOptionPane.showMessageDialog(this, history.toString(), title, JOptionPane.PLAIN_MESSAGE);
 	}
 }
