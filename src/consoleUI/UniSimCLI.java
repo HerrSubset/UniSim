@@ -66,6 +66,14 @@ public class UniSimCLI {
 	
 	
 	
+	//initializes a random simulation and then goes to the simulation menu
+	public void startRandomSimulation(){
+		simulationController.initRandom();
+		this.currentMenu = new SimulationMenu(this, this.simulationController);
+	}
+	
+	
+	
 	//sets the main menu as current menu
 	public void goToMainMenu(){
 		this.currentMenu = new MainMenu(this);

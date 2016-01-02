@@ -14,6 +14,7 @@ public class MainMenu extends Menu {
 	public MainMenu(UniSimCLI parent){
 		super(parent);
 		menuItems.add("Start Simulation");
+		menuItems.add("Start Random Simulation");
 		menuItems.add("Settings");
 	}
 
@@ -30,7 +31,10 @@ public class MainMenu extends Menu {
 		if (actionNumber == 1)
 			this.parentUI.startSimulation();
 		
-		else if (actionNumber ==2)
+		if (actionNumber == 2)
+			this.parentUI.startRandomSimulation();
+		
+		else if (actionNumber == 3)
 			this.parentUI.goToSettingsMenu();
 		
 		else if (actionNumber == 0)
