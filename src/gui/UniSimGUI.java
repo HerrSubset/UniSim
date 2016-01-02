@@ -123,12 +123,9 @@ public class UniSimGUI extends JFrame {
 	
 	
 	
-	//reset the simulation and load the new parameters if they are present
+	//reset the simulation and load the new parameters
 	public void resetSimulation(Hashtable<String, Integer> settings){
-		controller.init();
-		
-		if (settings != null)
-			controller.loadParameters(settings);
+		controller.init(settings);
 			
 		this.updateInfo();
 	}

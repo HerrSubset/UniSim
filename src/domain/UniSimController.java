@@ -28,6 +28,14 @@ public class UniSimController {
 	//initialize the engine. Once the engine is initialized we can ask for the 
 	//map and store it for faster access in the future.
 	public void init(){
+		this.init(null);
+	}
+	
+	
+	public void init(Hashtable<String, Integer> params){
+		if (params != null)
+			this.loadParameters(params);
+		
 		this.engine = new UniSimEngine();
 		engine.init();
 		this.map = engine.getMap();
