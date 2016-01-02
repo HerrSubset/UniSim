@@ -28,7 +28,10 @@ public class UniSimController {
 	//initialize the engine. Once the engine is initialized we can ask for the 
 	//map and store it for faster access in the future.
 	public void init(){
-		this.init(null);
+		this.engine = new UniSimEngine();
+		engine.init();
+		this.map = engine.getMap();
+		this.population = engine.getPopulation();
 	}
 	
 	
@@ -38,10 +41,7 @@ public class UniSimController {
 		else
 			this.revertToDefaultSettings();
 		
-		this.engine = new UniSimEngine();
-		engine.init();
-		this.map = engine.getMap();
-		this.population = engine.getPopulation();
+		this.init();
 	}
 	
 	
