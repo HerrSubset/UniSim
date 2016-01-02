@@ -20,12 +20,26 @@ public class EntitySpawner {
 	private UniSimEngine engine;
 	private SimulationParameters params = SimulationParameters.getInstance();
 	
+	
+	
+	
+	//************************************************************************
+	// Constructor
+	//************************************************************************
+	
 	public EntitySpawner(Population population, UniSimEngine engine){
 		rand = new Random();
 		this.population = population;
 		this.engine = engine;
 	}
 
+	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
+	
 	//adds new entities every turn, according to simulation parameters
 	public void run() {
 		int spawnChance = params.getParamValue("entitySpawnChance");
@@ -34,6 +48,8 @@ public class EntitySpawner {
 			spawnEntities();
 		}
 	}
+	
+	
 	
 	//add new entities to the population. The amount depends on parameters
 	//given in the SimulationParameters class.
@@ -49,5 +65,4 @@ public class EntitySpawner {
 			this.population.add(new Student(engine.getTurn()));
 		}
 	}
-
 }

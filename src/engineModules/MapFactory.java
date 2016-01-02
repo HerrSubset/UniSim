@@ -1,3 +1,10 @@
+/**
+***MapFactory Class
+***
+***this engine module handles the creation of new maps. It was created to
+***separate some ugly code from the rest of the code base.
+**/
+
 package engineModules;
 
 import domain.Bar;
