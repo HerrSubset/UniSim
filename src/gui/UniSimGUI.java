@@ -150,4 +150,12 @@ public class UniSimGUI extends JFrame {
 		
 		JOptionPane.showMessageDialog(this, history.toString(), title, JOptionPane.PLAIN_MESSAGE);
 	}
+	
+	
+	
+	public void openSettingsPanel(){
+		Hashtable<String, Integer> settings = controller.getParameterHash();
+		
+		new SettingsPanel(this, settings);
+	}
 }

@@ -59,6 +59,7 @@ public class SimulationMenu extends JMenuBar {
 		addSaveSettingsAction();
 		addLoadSettingsAction();
 		addNewSimAction();
+		addNewCustomSimAction();
 	}
 
 	
@@ -126,6 +127,18 @@ public class SimulationMenu extends JMenuBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				parent.resetSimulation(null);
+			}
+		});
+	}
+	
+	
+	
+	private void addNewCustomSimAction(){
+		newCustomSimulation.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				parent.openSettingsPanel();
 			}
 		});
 	}
