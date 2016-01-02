@@ -7,6 +7,7 @@
 package consoleUI;
 
 public class MainMenu extends Menu {
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -16,6 +17,8 @@ public class MainMenu extends Menu {
 		menuItems.add("Settings");
 	}
 
+	
+	
 	
 	//************************************************************************
 	// Generic Functions
@@ -33,7 +36,4 @@ public class MainMenu extends Menu {
 		else if (actionNumber == 0)
 			this.parentUI.stop();
 	}
-	
-	
-
 }

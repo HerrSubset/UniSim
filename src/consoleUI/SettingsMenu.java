@@ -114,6 +114,8 @@ public class SettingsMenu extends Menu {
 		controller.loadParameters(params);
 	}
 	
+	
+	
 	//hands parameter hash to db module to save it
 	private void storeSettings(){
 		Hashtable<String, Integer> parameters = this.controller.getParameterHash();
@@ -122,5 +124,4 @@ public class SettingsMenu extends Menu {
 		
 		ParameterIOHandler.saveParameters(storagePath, parameters, true);
 	}
-
 }

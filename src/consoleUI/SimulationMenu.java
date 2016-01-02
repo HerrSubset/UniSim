@@ -14,6 +14,7 @@ import passables.EntityState;
 import passables.SimulationStateSummary;
 
 public class SimulationMenu extends Menu {
+	
 	//************************************************************************
 	// Variables
 	//************************************************************************
@@ -60,6 +61,8 @@ public class SimulationMenu extends Menu {
 		else if (actionNumber == 4)
 			printEntityHistories(simulationController.getEntityHistories());
 	}
+	
+	
 	
 	
 	//************************************************************************

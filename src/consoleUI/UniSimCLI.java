@@ -11,6 +11,7 @@ package consoleUI;
 import domain.UniSimController;
 
 public class UniSimCLI {
+	
 	//************************************************************************
 	// Variables
 	//************************************************************************	
@@ -76,5 +77,4 @@ public class UniSimCLI {
 	public void goToSettingsMenu(){
 		this.currentMenu = new SettingsMenu(this, simulationController);
 	}
-	
 }
