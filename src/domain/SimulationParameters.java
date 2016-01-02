@@ -10,6 +10,7 @@ package domain;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Random;
 
 public class SimulationParameters {
 
@@ -27,7 +28,6 @@ public class SimulationParameters {
 
 	//make sure the constructor can't be called from outside
 	private SimulationParameters(){
-		this.paramContainer = new Hashtable<String, Integer>();
 		//intitialize all variables to their default
 		this.revertToDefaultSettings();
 	}
@@ -43,6 +43,11 @@ public class SimulationParameters {
 	}
 	
 	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
 	
 	//Returns the value of a given parameter
 	public int getParamValue(String param){
@@ -83,8 +88,15 @@ public class SimulationParameters {
 	
 	
 	
+	
+	//************************************************************************
+	// Default Settings
+	//************************************************************************
+	
 	//reverts all the settings to their default setting
 	public void revertToDefaultSettings(){
+		paramContainer = new Hashtable<String, Integer>();
+		
 		//amount of places per type
 		this.paramContainer.put("initNumberOfPlaces", 11);
 		this.paramContainer.put("initNumberOfLectureHalls", 5);
@@ -158,5 +170,90 @@ public class SimulationParameters {
 		this.paramContainer.put("corporateDrunkTurns", 2);
 		
 		this.paramContainer.put("retirementAge", 420);
+	}
+	
+	
+	
+	
+	//************************************************************************
+	// Random Settings
+	//************************************************************************
+	
+	public void applyRandomSettings(){
+		paramContainer = new Hashtable<String, Integer>();
+		Random r = new Random();
+		
+		//amount of places per type
+		this.paramContainer.put("initNumberOfPlaces", r.nextInt(19) + 1);
+		this.paramContainer.put("initNumberOfLectureHalls", r.nextInt(19) + 1);
+		this.paramContainer.put("initNumberOfBars", r.nextInt(19) + 1);
+		
+		//# of entities of each type at the start
+		this.paramContainer.put("initStartingStudents", r.nextInt(20));
+		this.paramContainer.put("initStartingPhdStudents", r.nextInt(20));
+		this.paramContainer.put("initStartingPostdocs", r.nextInt(20));
+		this.paramContainer.put("initStartingProfessors", r.nextInt(20));
+		this.paramContainer.put("initStartingTrainees", r.nextInt(20));
+		this.paramContainer.put("initStartingConsultants", r.nextInt(20));
+		this.paramContainer.put("initStartingPartners", r.nextInt(20));
+		
+		//parameters regarding students spawning each turn
+		this.paramContainer.put("entitySpawnChance", r.nextInt(99));
+		this.paramContainer.put("entitySpawnBoundaryLower", r.nextInt(10));
+		this.paramContainer.put("entitySpawnBoundaryUpper", r.nextInt(10) + paramContainer.get("entitySpawnBoundaryLower"));	
+
+		//student parameters
+		this.paramContainer.put("studentGraduationAge", r.nextInt(99));	
+		this.paramContainer.put("studentLectureHallDestinationChance", r.nextInt(50));	
+		this.paramContainer.put("studentBarDestinationChance", r.nextInt(50));
+		this.paramContainer.put("studentDrunkTurns", r.nextInt(10));
+		this.paramContainer.put("studentStudentInfluence", r.nextInt(50) - 25 );
+		
+		//phd student parameters
+		this.paramContainer.put("phdStudentLectureHallDestinationChance", r.nextInt(50));
+		this.paramContainer.put("phdStudentBarDestinationChance", r.nextInt(50));
+		this.paramContainer.put("phdStudentDrunkTurns", r.nextInt(10));
+		this.paramContainer.put("phdMinAcceptanceScore", r.nextInt(99));	
+		this.paramContainer.put("phdStudentStudentInfluence", r.nextInt(50));
+
+		//phd(postdoc) paramenters
+		this.paramContainer.put("phdLectureHallDestinationChance", r.nextInt(50));
+		this.paramContainer.put("phdBarDestinationChance", r.nextInt(50));
+		this.paramContainer.put("phdDrunkTurns", r.nextInt(10));
+		this.paramContainer.put("phdStudentInfluence", r.nextInt(50));
+
+		//professor parameters
+		this.paramContainer.put("professorPromotionPaperMin", r.nextInt(300));	
+		this.paramContainer.put("professorLectureHallDestinationChance", r.nextInt(50));
+		this.paramContainer.put("professorBarDestinationChance", r.nextInt(50));
+		this.paramContainer.put("professorDrunkTurns", r.nextInt(10));
+		this.paramContainer.put("professorStudentInfluence", r.nextInt(50));
+		
+		//trainee parameters
+		this.paramContainer.put("traineeDefaultExpIncrease", r.nextInt(10));	
+		this.paramContainer.put("traineePromotionExp", r.nextInt(300));	
+		this.paramContainer.put("traineeLectureHallDestinationChance", r.nextInt(50));
+		this.paramContainer.put("traineeBarDestinationChance", r.nextInt(50));
+		this.paramContainer.put("traineeDrunkTurns", r.nextInt(10));
+		this.paramContainer.put("traineeStudentInfluence", r.nextInt(50));
+		
+		//consultant parameters
+		this.paramContainer.put("consultantLectureHallDestinationChance", r.nextInt(50));
+		this.paramContainer.put("consultantBarDestinationChance", r.nextInt(50));
+		this.paramContainer.put("consultantDrunkTurns", r.nextInt(10));
+		this.paramContainer.put("consultantStudentInfluence", r.nextInt(50));
+		
+		//partner parameters
+		this.paramContainer.put("partnerLectureHallDestinationChance", r.nextInt(50));
+		this.paramContainer.put("partnerBarDestinationChance", r.nextInt(50));
+		this.paramContainer.put("partnerDrunkTurns", r.nextInt(10));
+		this.paramContainer.put("partnerStudentInfluence", r.nextInt(50));
+		
+		//corporate (partner + consultant) parameters
+		this.paramContainer.put("corporateBaseMoneyGain", r.nextInt(3000) +1);	
+		this.paramContainer.put("corporatePartnerBonusModifier", r.nextInt(30));	
+		this.paramContainer.put("corporatePromotionBorder", r.nextInt(500000) + 100000);	
+		
+		this.paramContainer.put("retirementAge", r.nextInt(1000) + 200);
 	}
 }

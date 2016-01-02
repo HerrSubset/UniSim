@@ -21,6 +21,7 @@ import db.ParameterIOHandler;
 @SuppressWarnings("serial")
 public class SimulationMenu extends JMenuBar {
 	private JMenuItem newSimulation;
+	private JMenuItem newRandomSimulation;
 	private JMenuItem newCustomSimulation;
 	private JMenuItem saveSettings;
 	private JMenuItem loadSettings;
@@ -47,12 +48,14 @@ public class SimulationMenu extends JMenuBar {
 
 		// menu items for main menu
 		newSimulation = new JMenuItem("New Default Simulation");
+		newRandomSimulation = new JMenuItem("New Random Simulation");
 		newCustomSimulation = new JMenuItem("New Custom Simulation");
 		saveSettings = new JMenuItem("Save Current Settings");
 		loadSettings = new JMenuItem("Load Settings");
 		viewSettings = new JMenuItem("View Current Settings");
 
 		mainMenu.add(newSimulation);
+		mainMenu.add(newRandomSimulation);
 		mainMenu.add(newCustomSimulation);
 		mainMenu.add(saveSettings);
 		mainMenu.add(loadSettings);
@@ -80,6 +83,7 @@ public class SimulationMenu extends JMenuBar {
 		addSaveSettingsAction();
 		addLoadSettingsAction();
 		addNewSimAction();
+		addNewRandomAction();
 		addNewCustomSimAction();
 		addViewSettingsAction();
 	}
@@ -155,6 +159,19 @@ public class SimulationMenu extends JMenuBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				parent.resetSimulation(null);
+			}
+		});
+	}
+	
+	
+	
+	//start a new simulation with random parameters
+	private void addNewRandomAction(){
+		newRandomSimulation.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				parent.startRandomSimulation();
 			}
 		});
 	}

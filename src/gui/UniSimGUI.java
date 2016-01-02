@@ -182,4 +182,13 @@ public class UniSimGUI extends JFrame {
 		
 		new SettingsPanel(this, settings, hasSaveButton);
 	}
+	
+	
+	
+	//tell controller to start a new random simulation
+	public void startRandomSimulation(){
+		controller.initRandom();
+		
+		this.updateInfo();
+	}
 }

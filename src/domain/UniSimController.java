@@ -17,6 +17,7 @@ public class UniSimController {
 	private Map map;
 	private UniSimEngine engine;
 	private Population population;
+	private SimulationParameters sp = SimulationParameters.getInstance();
 	
 	
 	
@@ -41,6 +42,14 @@ public class UniSimController {
 		else
 			this.revertToDefaultSettings();
 		
+		this.init();
+	}
+	
+	
+	
+	//initializes simulation with random parameters
+	public void initRandom(){
+		sp.applyRandomSettings();
 		this.init();
 	}
 	
@@ -77,7 +86,6 @@ public class UniSimController {
 	
 	//returns the settings in the form of a Hashtable
 	public Hashtable<String, Integer> getParameterHash(){
-		SimulationParameters sp = SimulationParameters.getInstance();
 		return sp.getParameterHash();
 	}
 	
@@ -85,7 +93,6 @@ public class UniSimController {
 	
 	//update a parameter to a new value
 	public void updateSetting(String parameter, int newVal) throws NonExistingParameterException{
-		SimulationParameters sp = SimulationParameters.getInstance();
 		sp.updateParameter(parameter, newVal);
 	}
 	
@@ -93,7 +100,6 @@ public class UniSimController {
 	
 	//revert all settings back to their default value
 	public void revertToDefaultSettings(){
-		SimulationParameters sp = SimulationParameters.getInstance();
 		sp.revertToDefaultSettings();
 	}
 	
@@ -101,7 +107,6 @@ public class UniSimController {
 	
 	//pass given Hashtable to the settings
 	public void loadParameters(Hashtable<String, Integer> params){
-		SimulationParameters sp = SimulationParameters.getInstance();
 		sp.loadParameters(params);
 	}
 }
