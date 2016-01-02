@@ -1,3 +1,11 @@
+/**
+***MapPanel Class
+***
+***this class is part of the GUI screen. It is the textarea on which the map
+***is drawn. The amount of columns in which the map is drawn depends on user
+***settings.
+**/
+
 package gui;
 
 import java.awt.Dimension;
@@ -13,6 +21,13 @@ public class MapPanel extends JTextArea {
 	private int numberOfCols = 3;
 	private List<String> mapStrings;
 
+	
+	
+	
+	//************************************************************************
+	// Constructor
+	//************************************************************************
+	
 	public MapPanel() {
 		Border b = BorderFactory.createTitledBorder("Map");
 		this.setBorder(b);
@@ -20,6 +35,11 @@ public class MapPanel extends JTextArea {
 	}
 
 	
+	
+	
+	//************************************************************************
+	// Other Functions
+	//************************************************************************
 	
 	// print the given strings to the screen. The amount of columns that will
 	// be used for printing is stored in the "numberOfCols" variable
@@ -30,6 +50,7 @@ public class MapPanel extends JTextArea {
 
 	
 	
+	//draws the map on the screen
 	private void drawMap() {
 		// empty the text area
 		this.setText("");
@@ -54,6 +75,7 @@ public class MapPanel extends JTextArea {
 
 	
 	
+	//returns the lenght of the longest string in the given list
 	private int getMaxLength(List<String> strings) {
 		int res = 0;
 
@@ -70,6 +92,7 @@ public class MapPanel extends JTextArea {
 
 	
 	
+	//appends spaces to the given string until it's length is the target length
 	private String stretch(String s, int targetLength) {
 		String res = s;
 
@@ -80,7 +103,9 @@ public class MapPanel extends JTextArea {
 	}
 
 	
-	
+
+	//change the # of coumns in which the map has to be drawn. Immediately
+	//re-draw the map so that this setting is applied.
 	public void setCols(int cols) {
 		this.numberOfCols = cols;
 		this.drawMap();

@@ -1,3 +1,11 @@
+/**
+***UniSimGUI Class
+***
+***This class controls the GUI. It represents the frame of the GUI and thus
+***holds all other components. This is also the class that will talk to the
+***domain controller for all the other components of the GUI.
+**/
+
 package gui;
 
 import java.awt.BorderLayout;
@@ -28,6 +36,12 @@ public class UniSimGUI extends JFrame {
 	//controller for the domain
 	private UniSimController controller;
 
+	
+	
+	
+	// ************************************************************************
+	// Constructor & Setup
+	// ************************************************************************
 
 	public UniSimGUI(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -85,6 +99,11 @@ public class UniSimGUI extends JFrame {
 	
 	
 	
+	
+	// ************************************************************************
+	// Other Functions
+	// ************************************************************************
+	
 	//give each component the information that has to be displayed on it
 	private void updateInfo(){
 		mapPanel.updateInfo(controller.getMapStrings());
@@ -111,19 +130,22 @@ public class UniSimGUI extends JFrame {
 
 
 
+	//tells the mapPanel to change the amount of columns it displays
 	public void setCols(int cols) {
 		mapPanel.setCols(cols);
 	}
 	
 	
 	
+	//ask the controller for the parameter hash and return it
 	public Hashtable<String, Integer> getParams(){
 		return controller.getParameterHash();
 	}
 	
 	
 	
-	//reset the simulation and load the new parameters
+	//reset the simulation and load the new parameters. The controller will
+	//load the default settings if the settings parameter is NULL
 	public void resetSimulation(Hashtable<String, Integer> settings){
 		controller.init(settings);
 			
@@ -132,6 +154,7 @@ public class UniSimGUI extends JFrame {
 	
 	
 	
+	//open a window for an entity to display it's history
 	public void openEntityInfoScreen(EntityState state){
 		//create title for new window
 		String title = "History of " + state.toString();
@@ -145,11 +168,15 @@ public class UniSimGUI extends JFrame {
 			history.append("\n");
 		}
 		
+		//show the info screen
 		JOptionPane.showMessageDialog(this, history.toString(), title, JOptionPane.PLAIN_MESSAGE);
 	}
 	
 	
 	
+	//open a new window showing the current settings. If hasSaveButton = true,
+	//the user can edit these settings and save them. A new simulation will be 
+	//started in that case.
 	public void openSettingsPanel(boolean hasSaveButton){
 		Hashtable<String, Integer> settings = controller.getParameterHash();
 		

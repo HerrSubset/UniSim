@@ -1,3 +1,9 @@
+/**
+***SimulationMenu Class
+***
+***This is the menu on top of the screen.
+**/
+
 package gui;
 
 import java.awt.event.ActionEvent;
@@ -23,7 +29,12 @@ public class SimulationMenu extends JMenuBar {
 
 	private UniSimGUI parent;
 
+
 	
+	
+	// ************************************************************************
+	// Constructor
+	// ************************************************************************
 	
 	public SimulationMenu(UniSimGUI parent) {
 		this.parent = parent;
@@ -54,9 +65,15 @@ public class SimulationMenu extends JMenuBar {
 
 		addMenuActions();
 	}
-
 	
 	
+	
+	
+	// ************************************************************************
+	// Menu Actions
+	// ************************************************************************
+	
+	//add an action for every menu item
 	private void addMenuActions() {
 
 		addMapColsAction();
@@ -69,6 +86,8 @@ public class SimulationMenu extends JMenuBar {
 
 	
 	
+	//Ask the user how many columns should be displayed. Then tell the parent
+	//to apply this change
 	private void addMapColsAction() {
 		mapCols.addActionListener(new ActionListener() {
 
@@ -89,6 +108,7 @@ public class SimulationMenu extends JMenuBar {
 	
 	
 	
+	//select file to save to. Pass this and the current settings to the db module
 	private void addSaveSettingsAction(){
 		saveSettings.addActionListener(new ActionListener() {
 			
@@ -107,6 +127,8 @@ public class SimulationMenu extends JMenuBar {
 	
 	
 	
+	//select file to load, pass the path to the db module and give the 
+	//resulting parameters to the parent.
 	private void addLoadSettingsAction(){
 		loadSettings.addActionListener(new ActionListener() {
 			
@@ -126,6 +148,7 @@ public class SimulationMenu extends JMenuBar {
 	
 	
 	
+	//start a new simulation with default parameters
 	private void addNewSimAction(){
 		newSimulation.addActionListener(new ActionListener() {
 			
@@ -138,6 +161,8 @@ public class SimulationMenu extends JMenuBar {
 	
 	
 	
+	//ask the user to input custom parameters and use them to start 
+	//a new simulation
 	private void addNewCustomSimAction(){
 		newCustomSimulation.addActionListener(new ActionListener() {
 			
@@ -149,6 +174,8 @@ public class SimulationMenu extends JMenuBar {
 	}
 	
 	
+	
+	//open a window that shows the current settings
 	private void addViewSettingsAction(){
 		viewSettings.addActionListener(new ActionListener() {
 			

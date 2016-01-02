@@ -1,3 +1,9 @@
+/**
+***StatPanel Class
+***
+***Used in the StatisticsPanel class to display the name and value of a statistic
+**/
+
 package gui;
 
 import java.awt.GridLayout;
@@ -10,6 +16,13 @@ import javax.swing.JPanel;
 public class StatPanel extends JPanel {
 	private JLabel label;
 	private JLabel value;
+	
+	
+	
+	
+	// ************************************************************************
+	// Constructor
+	// ************************************************************************
 	
 	public StatPanel(String labelMsg){
 		//set layout
@@ -24,6 +37,12 @@ public class StatPanel extends JPanel {
 	
 	
 	
+	
+	// ************************************************************************
+	// Other Functions
+	// ************************************************************************
+	
+	//updates the value of the "value" label
 	public void updateValue(int value){
 		this.value.setText(Integer.toString(value));
 	}

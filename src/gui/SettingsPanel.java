@@ -1,3 +1,11 @@
+/**
+***SettingsPanel Class
+***
+***A screen showing all the current settings to the user. Every setting is
+***displayed in a SettingEntry. The class can be used to just display the
+***settings, but also to change the settings.
+**/
+
 package gui;
 
 import java.awt.BorderLayout;
@@ -68,7 +76,9 @@ public class SettingsPanel extends JFrame {
 	}
 
 	
-	
+
+	//adds all the settingEntries to the screen in a 
+	//new panel with a gridlayout
 	private void addSettingEntriesToScreen() {
 		// put scrollpane in center of the borderlayout. Use a gridlayout on the
 		// panel and set the # of rows equal to the # of items in the entries
@@ -88,6 +98,8 @@ public class SettingsPanel extends JFrame {
 	
 	
 	
+	//adds buttons to the south region of the screen. Adding the save
+	//button is optional.
 	private void addButtons(boolean addSaveButton){
 		//create the buttons
 		save = new JButton("Save Settings");
@@ -110,6 +122,8 @@ public class SettingsPanel extends JFrame {
 	// Button Actions
 	// ************************************************************************
 	
+	//calls a funtion for every button that adds 
+	//an actionlistener for that button
 	private void addButtonActions(){
 		this.addCancelAction();
 		this.addSaveAction();
@@ -126,13 +140,6 @@ public class SettingsPanel extends JFrame {
 				exit();
 			}
 		});
-	}
-	
-	
-	
-	//closes the current screen
-	private void exit(){
-		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 	}
 	
 	
@@ -157,6 +164,20 @@ public class SettingsPanel extends JFrame {
 	
 	
 	
+	
+	// ************************************************************************
+	// Other Functions
+	// ************************************************************************
+	
+	
+	
+	//closes the current screen
+	private void exit(){
+		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+	}
+	
+	
+	
 	//loops through all setting entries and creates a key-value pair for them
 	private Hashtable<String, Integer> createNewSettingsHash() throws NumberFormatException{
 		Hashtable<String, Integer> res = new Hashtable<String, Integer>();
@@ -175,6 +196,9 @@ public class SettingsPanel extends JFrame {
 	}
 	
 	
+	
+	//shows an error message. This function is used when 
+	//not all inputs are numerical
 	private void showErrorMessage(){
 		JOptionPane.showMessageDialog(parent, "All fields must be numerical", "error", JOptionPane.ERROR_MESSAGE);
 	}

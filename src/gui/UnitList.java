@@ -1,3 +1,10 @@
+/**
+***UnitList Class
+***
+***This class is a list displaying all the entities in the simulation. 
+***Double-clicking an entity shows its history.
+**/
+
 package gui;
 
 import java.awt.BorderLayout;
@@ -21,6 +28,13 @@ public class UnitList extends JPanel {
 	private JList<EntityState> list;
 	private UniSimGUI parent;
 
+	
+	
+	
+	// ************************************************************************
+	// Constructor
+	// ************************************************************************
+	
 	public UnitList(UniSimGUI parent){
 		this.parent = parent;
 		this.setLayout(new BorderLayout());
@@ -39,6 +53,12 @@ public class UnitList extends JPanel {
 	
 	
 	
+	
+	// ************************************************************************
+	// Other Functions
+	// ************************************************************************
+	
+	//pass a new list of entities to the UnitList to update its old list
 	public void updateList(List<EntityState> entities){
 		DefaultListModel<EntityState> model = new DefaultListModel<>();
 		
@@ -52,6 +72,7 @@ public class UnitList extends JPanel {
 	
 	
 	
+	//when a list item is double clicked, show that entity's history
 	private void addListAction(){
 		list.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent evt){
@@ -65,14 +86,9 @@ public class UnitList extends JPanel {
 					
 					EntityState state = list.getModel().getElementAt(index);
 		
-					openEntityInfoScreen(state);
+					parent.openEntityInfoScreen(state);
 				}
 			}
 		});
-	}
-	
-	
-	private void openEntityInfoScreen(EntityState state){
-		parent.openEntityInfoScreen(state);
 	}
 }

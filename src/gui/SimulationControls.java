@@ -1,3 +1,10 @@
+/**
+***SimulationControls Class
+***
+***This is the panel that holds the buttons to exit the simulation, or let it
+***advance a certain amount of turns
+**/
+
 package gui;
 
 import java.awt.GridLayout;
@@ -19,12 +26,21 @@ public class SimulationControls extends JPanel {
 	private JButton exit;
 	private JSpinner spinner;
 	
+	
+	
+	
+	// ************************************************************************
+	// Constructor
+	// ************************************************************************
+	
 	public SimulationControls(UniSimGUI parent){
+		//set up the panel itself
 		this.parent = parent;
 		this.setLayout(new GridLayout(3, 1));
 		Border b = BorderFactory.createTitledBorder("Controls");
 		this.setBorder(b);
 		
+		//create a panel for selecting how many turns to simulate
 		JPanel numberPanel = new JPanel();
 		numberPanel.setLayout(new GridLayout(1, 2));
 		JLabel label = new JLabel("# of turns");
@@ -34,9 +50,11 @@ public class SimulationControls extends JPanel {
 		numberPanel.add(spinner);
 		this.add(numberPanel);
 		
+		//add button for running the simulation
 		run = new JButton("Run Simulation");
 		this.add(run);
 		
+		//add exit button
 		exit = new JButton("Exit");
 		this.add(exit);
 		
@@ -45,6 +63,12 @@ public class SimulationControls extends JPanel {
 	
 	
 	
+	
+	// ************************************************************************
+	// Button Actions
+	// ************************************************************************
+	
+	//adds actions to the buttons
 	private void addButtonActions(){
 		exit.addActionListener(new ActionListener() {
 			

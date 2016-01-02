@@ -1,3 +1,9 @@
+/**
+***SettingsPanel Class
+***
+***This panel shows some statistics about the simulation every turn
+**/
+
 package gui;
 
 import java.awt.GridLayout;
@@ -12,6 +18,13 @@ import passables.SimulationStateSummary;
 public class StatisticsPanel extends JPanel {
 	private StatPanel entities;
 	private StatPanel turn;
+	
+	
+	
+	
+	// ************************************************************************
+	// Constructor
+	// ************************************************************************
 
 	public StatisticsPanel(){
 		Border b = BorderFactory.createTitledBorder("Statistics");
@@ -28,6 +41,12 @@ public class StatisticsPanel extends JPanel {
 	
 	
 	
+	
+	// ************************************************************************
+	// Other Functions
+	// ************************************************************************
+	
+	//takes a state and uses its info to update the panel's info
 	public void updateValues(SimulationStateSummary state){
 		this.turn.updateValue(state.turn);
 		this.entities.updateValue(state.inhabitantsNumber);
