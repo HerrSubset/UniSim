@@ -150,9 +150,9 @@ public class UniSimGUI extends JFrame {
 	
 	
 	
-	public void openSettingsPanel(){
+	public void openSettingsPanel(boolean hasSaveButton){
 		Hashtable<String, Integer> settings = controller.getParameterHash();
 		
-		new SettingsPanel(this, settings);
+		new SettingsPanel(this, settings, hasSaveButton);
 	}
 }

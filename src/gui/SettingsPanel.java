@@ -32,7 +32,7 @@ public class SettingsPanel extends JFrame {
 	// ************************************************************************
 
 	// constructor
-	public SettingsPanel(UniSimGUI parent, Hashtable<String, Integer> settings) {
+	public SettingsPanel(UniSimGUI parent, Hashtable<String, Integer> settings, boolean hasSaveButton) {
 		this.parent = parent;
 		entries = new ArrayList<SettingEntry>();
 
@@ -41,7 +41,7 @@ public class SettingsPanel extends JFrame {
 		this.addSettingEntriesToScreen();
 
 		// add buttons to the bottom of the screen
-		this.addButtons();
+		this.addButtons(hasSaveButton);
 		this.addButtonActions();
 		
 		this.setVisible(true);
@@ -88,7 +88,7 @@ public class SettingsPanel extends JFrame {
 	
 	
 	
-	private void addButtons(){
+	private void addButtons(boolean addSaveButton){
 		//create the buttons
 		save = new JButton("Save Settings");
 		cancel = new JButton("Cancel");
@@ -96,7 +96,9 @@ public class SettingsPanel extends JFrame {
 		//add buttons to the frame;
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.add(cancel);
-		buttonPanel.add(save);
+		
+		if (addSaveButton)
+			buttonPanel.add(save);
 		
 		this.add(buttonPanel, BorderLayout.SOUTH);
 	}

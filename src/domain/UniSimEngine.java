@@ -78,8 +78,7 @@ public class UniSimEngine {
 		//create initial population
 		distributePopulation();
 		
-		//set settings to default (other settings have to be loaded later)
-		SimulationParameters.getInstance().revertToDefaultSettings();
+
 	}
 	
 	

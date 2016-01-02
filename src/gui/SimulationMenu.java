@@ -19,6 +19,7 @@ public class SimulationMenu extends JMenuBar {
 	private JMenuItem saveSettings;
 	private JMenuItem loadSettings;
 	private JMenuItem mapCols;
+	private JMenuItem viewSettings;
 
 	private UniSimGUI parent;
 
@@ -38,11 +39,14 @@ public class SimulationMenu extends JMenuBar {
 		newCustomSimulation = new JMenuItem("New Custom Simulation");
 		saveSettings = new JMenuItem("Save Current Settings");
 		loadSettings = new JMenuItem("Load Settings");
+		viewSettings = new JMenuItem("View Current Settings");
 
 		mainMenu.add(newSimulation);
 		mainMenu.add(newCustomSimulation);
 		mainMenu.add(saveSettings);
 		mainMenu.add(loadSettings);
+		mainMenu.addSeparator();
+		mainMenu.add(viewSettings);
 
 		// menu items for view menu
 		mapCols = new JMenuItem("Change number of map columns");
@@ -60,6 +64,7 @@ public class SimulationMenu extends JMenuBar {
 		addLoadSettingsAction();
 		addNewSimAction();
 		addNewCustomSimAction();
+		addViewSettingsAction();
 	}
 
 	
@@ -138,7 +143,18 @@ public class SimulationMenu extends JMenuBar {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				parent.openSettingsPanel();
+				parent.openSettingsPanel(true);
+			}
+		});
+	}
+	
+	
+	private void addViewSettingsAction(){
+		viewSettings.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				parent.openSettingsPanel(false);
 			}
 		});
 	}

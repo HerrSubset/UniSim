@@ -35,6 +35,8 @@ public class UniSimController {
 	public void init(Hashtable<String, Integer> params){
 		if (params != null)
 			this.loadParameters(params);
+		else
+			this.revertToDefaultSettings();
 		
 		this.engine = new UniSimEngine();
 		engine.init();
