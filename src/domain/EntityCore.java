@@ -20,7 +20,6 @@ public class EntityCore extends Entity{
 	
 	private List<String> history;
 	private int id;
-	private Role originalRole;
 	private int drunkTurns = 0;
 	private int influence = 0;		//how much influence this entity has on students
 	//int from 0-99. Closer to zero means preference for academic career
@@ -36,14 +35,13 @@ public class EntityCore extends Entity{
 	public EntityCore(int turnCreated, Role role){
 		super(turnCreated);
 		this.history = new ArrayList<String>();
-		this.originalRole = role;
 		
 		this.id = EntityCore.entityCount;
 		entityCount++;
 		
 		//add first history entry
 		String birthMessage = "Turn " + turnCreated + ": born as "
-				+ this.originalRole.getRoleString();
+				+ role.getRoleString();
 		this.history.add(birthMessage);
 	}
 	

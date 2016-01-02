@@ -14,7 +14,6 @@ public abstract class Entity {
 	//************************************************************************
 	// Variables
 	//************************************************************************
-	protected Role nextRole;
 	protected int turnCreated;
 	protected SimulationParameters params = SimulationParameters.getInstance();
 	
@@ -33,12 +32,7 @@ public abstract class Entity {
 	
 	//************************************************************************
 	// Getters/Setters
-	//************************************************************************
-	public Role getNextRole(){
-		return this.nextRole;
-	}
-	
-	
+	//************************************************************************	
 	
 	public int getTurnCreated(){
 		return this.turnCreated;
