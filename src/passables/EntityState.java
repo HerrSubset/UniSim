@@ -15,6 +15,13 @@ public class EntityState {
 	public final String currentRole;
 	public final List<String> history;
 	
+	
+	
+	
+	//************************************************************************
+	// Functions
+	//************************************************************************
+	
 	public EntityState(int id, String role, List<String> history){
 		this.id = id;
 		this.currentRole = role;
