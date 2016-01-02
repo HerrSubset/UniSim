@@ -1,3 +1,10 @@
+/**
+***Corporate Class
+***
+***this class represents the consultant and partner entities. They are combined
+***into one class becaus they're so similar
+**/
+
 package domain;
 
 public class Corporate extends Role {
@@ -103,6 +110,7 @@ public class Corporate extends Role {
 
 
 
+	//sets the amount of turns that this entity will be drunk
 	@Override
 	public void drink() {
 		if ( this.jobTitle == CorporateRole.CONSULTANT )

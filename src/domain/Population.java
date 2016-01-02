@@ -41,6 +41,8 @@ public class Population {
 		population.add(entity);
 	}
 
+	
+	
 	public List<Entity> getPopulation() {
 		return this.population;
 	}
@@ -56,6 +58,8 @@ public class Population {
 	public int size() {
 		return this.population.size();
 	}
+	
+	
 	
 	//return a list of EntityStates. These contain the state and histories of
 	//all the entities in the population.
@@ -108,6 +112,9 @@ public class Population {
 		}
 	}
 	
+	
+	
+	//remove the given entity from the simulation
 	private void retire(Entity e, int turn, int index){
 		e.retire(turn);
 		this.population.remove(index);

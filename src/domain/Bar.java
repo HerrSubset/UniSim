@@ -1,3 +1,10 @@
+/**
+***Bar Class
+***
+***this subclass of Place is where entities can get drunk.
+**/
+
+
 package domain;
 
 public class Bar extends Place {

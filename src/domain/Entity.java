@@ -55,29 +55,15 @@ public abstract class Entity {
 	protected abstract void setCareerPreference(int preference);
 	protected abstract int getGrade();
 	protected abstract void setGrade(int grade);
-	
-	
-	
-	
-	//************************************************************************
-	// Abstract functions
-	//************************************************************************
-	
-	//returns the state of this entity
 	public abstract EntityState getState();
-
-	
-	
-	//returns the entity's history contained in the EntityCore
 	public abstract List<String> getHistory();
-
-	
-	
-	//returns the entity's id
 	public abstract int getID();
-
 	
-
+	
+	//************************************************************************
+	// Other Abstract Functions
+	//************************************************************************
+	
 	//add a string to this entity's history. The history resides in the
 	//entity's EntityCore
 	public abstract void addToHistory(String historyItem);
@@ -93,11 +79,13 @@ public abstract class Entity {
 
 
 
-
+	//returns the string that has to be used to represent this entity
+	//on the map
 	public abstract String getCharacterRepresentation();
 	
 	
 	
+	//makes the entity drunk based on the simulation parameters
 	public abstract void drink();
 	
 	

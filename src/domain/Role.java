@@ -52,6 +52,7 @@ public abstract class Role extends Entity {
 	
 	
 	
+	//set the place that the entity is currently located at
 	@Override
 	public void setCurrentLocation(Place p){
 		this.core.setCurrentLocation(p);
@@ -87,6 +88,7 @@ public abstract class Role extends Entity {
 	
 	
 	
+	//set how many turns this entity will be drunk
 	@Override
 	public void setDrunkTurns(int turns) {
 		this.core.setDrunkTurns(turns);
@@ -101,6 +103,7 @@ public abstract class Role extends Entity {
 	
 	
 	
+	//returns the influence this entity has over students
 	@Override
 	public int getInfluence() {
 		return this.core.getInfluence();
@@ -115,6 +118,8 @@ public abstract class Role extends Entity {
 	
 	
 	
+	//returns this entity's preference for an academic or
+	//corporate career
 	@Override
 	protected int getCareerPreference() {
 		return this.core.getCareerPreference();

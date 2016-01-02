@@ -1,3 +1,10 @@
+/**
+***ParameterIOHandler Class
+***
+***this class handles the loading and saving of parameter hashes to files.
+***It does so by using java's class serialization.
+**/
+
 package db;
 
 import java.io.BufferedInputStream;
@@ -12,6 +19,10 @@ import java.util.Hashtable;
 import java.util.Scanner;
 
 public class ParameterIOHandler {
+	
+	//************************************************************************
+	// Save
+	//************************************************************************
 	
 	//serializes the given hash and save it to the given path
 	public static void saveParameters(String path, Hashtable<String, Integer> params, boolean interactive){
@@ -58,6 +69,11 @@ public class ParameterIOHandler {
 	}
 	
 	
+	
+	
+	//************************************************************************
+	// Load
+	//************************************************************************
 	
 	//looks for a serialized hash on the given path, de-serializes and returns it
 	@SuppressWarnings("unchecked")

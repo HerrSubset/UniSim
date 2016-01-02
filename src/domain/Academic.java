@@ -1,3 +1,11 @@
+/**
+***Academic Class
+***
+***this class represents the PhD and Professor entities. They are combined into
+***one class because they are very similar.
+**/
+
+
 package domain;
 
 import java.util.Random;
@@ -6,6 +14,8 @@ public class Academic extends Role {
 	
 	private AcademicRole title = AcademicRole.POSTDOC;
 	private int amountOfPapers = 0;
+	
+	
 	
 	
 	//************************************************************************
@@ -39,6 +49,8 @@ public class Academic extends Role {
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	
+	//returns the name of this entity's role
 	@Override
 	public String getRoleString() {
 		String res = "PhD";
@@ -51,6 +63,7 @@ public class Academic extends Role {
 	
 	
 	
+	//get the title of this academic
 	public AcademicRole getTitle(){
 		return this.title;
 	}
@@ -67,6 +80,7 @@ public class Academic extends Role {
 
 	
 	
+	//check if a phd can be promoted to professor and do so if it's allowed
 	@Override
 	public Entity promote(int turn){
 		if (this.amountOfPapers >= params.getParamValue("professorPromotionPaperMin")
@@ -92,6 +106,7 @@ public class Academic extends Role {
 
 	
 	
+	//handle activities specific to academics
 	@Override
 	public void handleSpecificActivity() {
 		Random rand = new Random();
@@ -110,6 +125,7 @@ public class Academic extends Role {
 
 
 
+	//set the amount of turns that this entity will be drunk
 	@Override
 	public void drink() {
 		if (this.title == AcademicRole.POSTDOC)

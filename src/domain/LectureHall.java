@@ -28,6 +28,8 @@ public class LectureHall extends Place {
 	// Other Functions
 	//************************************************************************
 	
+	//returns if there's a teacher present in this lecturehall. Teachers can
+	//be professors or postdocs (academics)
 	public boolean hasTeacher(){
 		boolean res = false;
 		
@@ -38,6 +40,7 @@ public class LectureHall extends Place {
 		
 		return res;
 	}
+	
 	
 	
 	@Override

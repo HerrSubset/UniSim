@@ -114,6 +114,7 @@ public class Student extends Role {
 
 
 
+	//sets for how many turns this student will be drunk
 	@Override
 	public void drink() {
 		this.setDrunkTurns( params.getParamValue("studentDrunkTurns"));

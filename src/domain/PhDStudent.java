@@ -72,6 +72,9 @@ public class PhDStudent extends Role {
 		this.thesisProgression += 5;
 	}
 
+	
+	
+	//sets the amount of turns that this entity will be drunk
 	@Override
 	public void drink() {
 		this.setDrunkTurns(params.getParamValue("phdStudentDrunkTurns"));

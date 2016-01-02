@@ -17,6 +17,8 @@ public class Place {
 	protected List<Entity> inhabitants;
 	
 	
+	
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -25,20 +27,26 @@ public class Place {
 	}
 	
 	
+	
+	
 	//************************************************************************
 	// Other Functions
 	//************************************************************************
+	
 	public String toString(){
 		return getCharacterRepresentation() + "|" + getInhabitantString();
 	}
 	
 	
+	
+	//returns class name as a string
 	public String classnameToString(){
 		return "Place";
 	}
 	
 	
 	
+	//get representation of this class on the map
 	protected String getCharacterRepresentation(){
 		return "P";
 	}

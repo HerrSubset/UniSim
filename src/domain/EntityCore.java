@@ -1,3 +1,12 @@
+/**
+***EntityCore Class
+***
+***this is the core of every entity. All the role classes wrap around this
+***class to provide extra functionality. All the basic information is stored
+***here however. To get a good idea of how this works, look up the 
+***decorator pattern
+**/
+
 package domain;
 
 import java.util.ArrayList;
@@ -17,6 +26,8 @@ public class EntityCore extends Entity{
 	//int from 0-99. Closer to zero means preference for academic career
 	private int careerPreference;
 	private int grade;
+	
+	
 	
 	
 	//************************************************************************
@@ -184,11 +195,10 @@ public class EntityCore extends Entity{
 	//
 	// Because of the design with the Entity superclass, sometimes this class
 	// has to implement functions that are not useful for it. These functions
-	// are usuall left empty and can be found underneath.
+	// are usually left empty and can be found underneath.
 	//************************************************************************
 	
 	//this method can not be called on EntityCore objects
-	//TODO write own InvalidMethodException
 	@Override
 	public Entity promote(int turn) throws InvalidMethodInvocationException {
 		throw new InvalidMethodInvocationException("Tried promoting entity core on turn " + turn);
@@ -211,6 +221,5 @@ public class EntityCore extends Entity{
 	//entitycores don't do anything, hence the empty function
 	@Override
 	public void handleSpecificActivity() {}
-
 
 }

@@ -21,6 +21,9 @@ public class Map {
 	//************************************************************************
 	private List<Place> grid;
 	
+	
+	
+	
 	//************************************************************************
 	// Constructors
 	//************************************************************************
@@ -82,6 +85,8 @@ public class Map {
 		}
 	}
 	
+	
+	
 	//return one long string representing the map
 	public List<String> getStringList(){
 		ArrayList<String> res = new ArrayList<String>();
@@ -100,19 +105,6 @@ public class Map {
 		for(int i = 0; i < grid.size(); i++){
 			grid.get(i).clear();
 		}
-	}
-	
-	
-	
-	public String getPlaceName(Place p){
-		String res = "";
-		
-		int index = grid.indexOf(p);
-		
-		if (index > -1)
-			res = grid.get(index).classnameToString();
-				
-		return res;
 	}
 	
 	
